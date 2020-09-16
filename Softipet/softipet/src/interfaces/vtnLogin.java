@@ -6,19 +6,29 @@
 package interfaces;
 
 import java.awt.Color;
+import cjb.ci.*;
+import java.util.ArrayList;
+import bd.*;
+import java.sql.Connection;
 
 /**
  *
  * @author david
  */
-public class vtnLogin extends javax.swing.JFrame {
-
-    int xy, xx;
+public class vtnLogin extends javax.swing.JFrame
+{
     
+    int xy, xx;
+    static  Connection con = null;
+    public static boolean flag;
+    public ArrayList<Object> consulta1 = new ArrayList<Object>();
+    Querys q;
+
     /**
      * Creates new form vtnLogin
      */
-    public vtnLogin() {
+    public vtnLogin()
+    {
         initComponents();
         jPOverlay.setBackground(new Color(0, 50, 100, 100));//Hace el panel transparente
     }
@@ -49,6 +59,17 @@ public class vtnLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowClosed(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosed(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(100, 162, 255));
@@ -63,14 +84,45 @@ public class vtnLogin extends javax.swing.JFrame {
         jLLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLLogin.setText("Login");
         jPanel2.add(jLLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jPFContra.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jPFContraKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jPFContraKeyTyped(evt);
+            }
+        });
         jPanel2.add(jPFContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 190, -1));
+
+        jTFCorreo.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFCorreoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFCorreoKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTFCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 190, -1));
 
-        jBIniciar.setText("Iniciar");
-        jPanel2.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 80, -1));
+        jBIniciar.setText("Iniciar sesion");
+        jBIniciar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBIniciarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 100, -1));
 
         jBLimpiar.setText("Limpiar");
-        jPanel2.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 80, -1));
+        jPanel2.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 100, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 380, 400));
 
@@ -159,36 +211,135 @@ public class vtnLogin extends javax.swing.JFrame {
         xy = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        con = ConectarBase.conectaBD();
+        
+        if (flag)
+        {
+            System.out.println("Se conecto correctamente a la BD");
+        } else
+        {
+            Mensaje.error(this, "Error con la conexion a la BD, verifica tu conexion.");
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jTFCorreoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyTyped
+    {//GEN-HEADEREND:event_jTFCorreoKeyTyped
+        
+    }//GEN-LAST:event_jTFCorreoKeyTyped
+
+    private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyPressed
+    {//GEN-HEADEREND:event_jTFCorreoKeyPressed
+        Validaciones.enter(this, evt, jPFContra);
+    }//GEN-LAST:event_jTFCorreoKeyPressed
+
+    private void jPFContraKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContraKeyTyped
+    {//GEN-HEADEREND:event_jPFContraKeyTyped
+        Validaciones.validaAlfanumerico(evt);
+    }//GEN-LAST:event_jPFContraKeyTyped
+
+    private void jPFContraKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContraKeyPressed
+    {//GEN-HEADEREND:event_jPFContraKeyPressed
+        Validaciones.enter(this, evt, jBIniciar);
+    }//GEN-LAST:event_jPFContraKeyPressed
+
+    private void jBIniciarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBIniciarActionPerformed
+    {//GEN-HEADEREND:event_jBIniciarActionPerformed
+        q = new Querys();
+        try
+        {
+            consulta1 = q.Seleccion(con, "*", "usuarios", "Email='" + jTFCorreo.getText() + "'", true);
+
+        } catch (Exception e)
+        {
+            System.out.println("Error: exception ->" + e);
+        }
+        
+        if (consulta1.isEmpty())
+        {
+            Mensaje.error(this, "El correo ingresado no existe\nCapture un correo valido");
+            CtrlInterfaz.selecciona(jTFCorreo);
+        }else
+        {
+            String lol = "dasd sdad a      ";
+            
+            if (consulta1.get(6).equals(jPFContra.getText()))
+            {
+                System.out.println("Password correcto");
+                
+                if (consulta1.get(11).equals("1"))
+                {
+                    Sesion.datosUsuario = consulta1;
+                    new vtnMainAdmin().setVisible(true);
+                    this.dispose();
+                }
+                if (consulta1.get(11).equals("2"))
+                {
+                    Sesion.datosUsuario = consulta1;
+                    new vtnMainMedico().setVisible(true);
+                    this.dispose();
+                }
+                if (consulta1.get(11).equals("3"))
+                {
+                    Sesion.datosUsuario = consulta1;
+                    new vtnMainEmpleado().setVisible(true);
+                    this.dispose();
+                }
+            } else
+            {
+                Mensaje.error(this, "La contraseña ingresada es erronea\nCapture una contraseña valida");
+                CtrlInterfaz.selecciona(jPFContra);
+            }
+        }
+    }//GEN-LAST:event_jBIniciarActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosed
+    {//GEN-HEADEREND:event_formWindowClosed
+        ConectarBase.desconectaBD(con);
+    }//GEN-LAST:event_formWindowClosed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Windows".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new vtnLogin().setVisible(true);
             }
         });

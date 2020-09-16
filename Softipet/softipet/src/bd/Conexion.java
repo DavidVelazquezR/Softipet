@@ -7,6 +7,7 @@ package bd;
 
 import com.mysql.cj.protocol.Resultset;
 import com.mysql.cj.xdevapi.Statement;
+import interfaces.vtnLogin;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -58,15 +59,18 @@ public class Conexion
                 // De esta forma se obtiene la conexi¢n 
                 con = DriverManager.getConnection(url, usuario, pass);
                 System.out.println("Conexion establecida.");
+                vtnLogin.flag = true;
             } catch (SQLException sqle)
             {
                 // Ocurrió un error con la conexi¢n 
                 System.out.println("Error con la conexi¢n a la base de datos:");
-
+                vtnLogin.flag = false;
             }
+
         } else
         {
             System.out.println("ERROR DEBES MANDAR UN 1 PARA ORACLE O UN 2 PARA MYSQL");
+            vtnLogin.flag = false;
         }
         return con;
     }
