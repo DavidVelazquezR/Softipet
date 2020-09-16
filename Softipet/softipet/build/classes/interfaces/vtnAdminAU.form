@@ -131,7 +131,7 @@
         <Component class="javax.swing.JLabel" name="jLRol">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Rol:"/>
           </Properties>
@@ -157,7 +157,7 @@
         <Component class="javax.swing.JLabel" name="jLAPaterno">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Apellido paterno:"/>
           </Properties>
@@ -187,7 +187,7 @@
         <Component class="javax.swing.JLabel" name="jLNombre">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
@@ -217,7 +217,7 @@
         <Component class="javax.swing.JLabel" name="jLAMaterno">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Apellido materno:"/>
           </Properties>
@@ -264,7 +264,7 @@
         <Component class="javax.swing.JLabel" name="jLTelefono">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
           </Properties>
@@ -277,7 +277,7 @@
         <Component class="javax.swing.JLabel" name="jLEmail">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Email:"/>
           </Properties>
@@ -307,7 +307,7 @@
         <Component class="javax.swing.JLabel" name="jLContra1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
           </Properties>
@@ -320,7 +320,7 @@
         <Component class="javax.swing.JLabel" name="jLCURP">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CURP:"/>
           </Properties>
@@ -350,7 +350,7 @@
         <Component class="javax.swing.JLabel" name="jLSexo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sexo:"/>
           </Properties>
@@ -394,7 +394,7 @@
         <Component class="javax.swing.JLabel" name="jLFechaNac">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
           </Properties>
@@ -430,7 +430,7 @@
         <Component class="javax.swing.JLabel" name="jLDireccion">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
           </Properties>
@@ -499,7 +499,7 @@
         <Component class="javax.swing.JLabel" name="jLContra2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
+              <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Confirme contrase&#xf1;a:"/>
           </Properties>

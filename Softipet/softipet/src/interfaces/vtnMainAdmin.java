@@ -37,11 +37,12 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         jLCerrar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLTitulo = new javax.swing.JLabel();
-        jLBajaUser = new javax.swing.JLabel();
         jLUser = new javax.swing.JLabel();
-        jLAltaUser = new javax.swing.JLabel();
-        jLTitulo2 = new javax.swing.JLabel();
-        jLTitulo3 = new javax.swing.JLabel();
+        jLManageUsers = new javax.swing.JLabel();
+        jLMU1 = new javax.swing.JLabel();
+        jLMU2 = new javax.swing.JLabel();
+        jLMU3 = new javax.swing.JLabel();
+        jLMU4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -100,48 +101,51 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         jLTitulo.setText("Bienvenido:");
         jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jLBajaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/quitar.png"))); // NOI18N
-        jLBajaUser.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
-                jLBajaUserMouseClicked(evt);
-            }
-        });
-        jLBajaUser.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                jLBajaUserKeyPressed(evt);
-            }
-        });
-        jPanel1.add(jLBajaUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 70, 90));
-
         jLUser.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 230, 20));
 
-        jLAltaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/anadir.png"))); // NOI18N
-        jLAltaUser.addMouseListener(new java.awt.event.MouseAdapter()
+        jLManageUsers.setText("Administracion de usuarios");
+        jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+
+        jLMU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario (1).png"))); // NOI18N
+        jLMU1.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                jLAltaUserMouseClicked(evt);
+                jLMU1MouseClicked(evt);
             }
         });
-        jLAltaUser.addKeyListener(new java.awt.event.KeyAdapter()
+        jPanel1.add(jLMU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 40, 40));
+
+        jLMU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/anadir.png"))); // NOI18N
+        jLMU2.addMouseListener(new java.awt.event.MouseAdapter()
         {
-            public void keyPressed(java.awt.event.KeyEvent evt)
+            public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                jLAltaUserKeyPressed(evt);
+                jLMU2MouseClicked(evt);
             }
         });
-        jPanel1.add(jLAltaUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 70, 90));
+        jPanel1.add(jLMU2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 40, 40));
 
-        jLTitulo2.setText("Baja usuarios");
-        jPanel1.add(jLTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
+        jLMU3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/editar.png"))); // NOI18N
+        jLMU3.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLMU3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 40, 40));
 
-        jLTitulo3.setText("Alta usuarios");
-        jPanel1.add(jLTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        jLMU4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario.png"))); // NOI18N
+        jLMU4.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLMU4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 40, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -174,33 +178,35 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         xy = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
-    private void jLAltaUserKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jLAltaUserKeyPressed
-    {//GEN-HEADEREND:event_jLAltaUserKeyPressed
-        
-    }//GEN-LAST:event_jLAltaUserKeyPressed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
         
         jLUser.setText((String)Sesion.datosUsuario.get(1));
     }//GEN-LAST:event_formWindowOpened
 
-    private void jLAltaUserMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLAltaUserMouseClicked
-    {//GEN-HEADEREND:event_jLAltaUserMouseClicked
+    private void jLMU2MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU2MouseClicked
+    {//GEN-HEADEREND:event_jLMU2MouseClicked
         this.dispose();
-        new vtnAdminAU().setVisible(true);
-    }//GEN-LAST:event_jLAltaUserMouseClicked
+        new vtnAdminBCU().setVisible(true);
+    }//GEN-LAST:event_jLMU2MouseClicked
 
-    private void jLBajaUserMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLBajaUserMouseClicked
-    {//GEN-HEADEREND:event_jLBajaUserMouseClicked
+    private void jLMU3MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU3MouseClicked
+    {//GEN-HEADEREND:event_jLMU3MouseClicked
         this.dispose();
-        new vtnAdminBU().setVisible(true);
-    }//GEN-LAST:event_jLBajaUserMouseClicked
+        new vtnAdminBCU().setVisible(true);
+    }//GEN-LAST:event_jLMU3MouseClicked
 
-    private void jLBajaUserKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jLBajaUserKeyPressed
-    {//GEN-HEADEREND:event_jLBajaUserKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLBajaUserKeyPressed
+    private void jLMU4MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU4MouseClicked
+    {//GEN-HEADEREND:event_jLMU4MouseClicked
+        this.dispose();
+        new vtnAdminBCU().setVisible(true);
+    }//GEN-LAST:event_jLMU4MouseClicked
+
+    private void jLMU1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU1MouseClicked
+    {//GEN-HEADEREND:event_jLMU1MouseClicked
+        this.dispose();
+        new vtnAdminBCU().setVisible(true);
+    }//GEN-LAST:event_jLMU1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -238,13 +244,14 @@ public class vtnMainAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLAltaUser;
-    private javax.swing.JLabel jLBajaUser;
     private javax.swing.JLabel jLCerrar;
+    private javax.swing.JLabel jLMU1;
+    private javax.swing.JLabel jLMU2;
+    private javax.swing.JLabel jLMU3;
+    private javax.swing.JLabel jLMU4;
+    private javax.swing.JLabel jLManageUsers;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLTitulo;
-    private javax.swing.JLabel jLTitulo2;
-    private javax.swing.JLabel jLTitulo3;
     private javax.swing.JLabel jLUser;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

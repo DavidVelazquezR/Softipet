@@ -178,7 +178,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jCBRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 160, -1));
 
-        jLRol.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLRol.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLRol.setText("Rol:");
         jPanel1.add(jLRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, -1, -1));
 
@@ -186,7 +186,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         jLTitulo1.setText("Alta de usuarios");
         jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
-        jLAPaterno.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLAPaterno.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLAPaterno.setText("Apellido paterno:");
         jPanel1.add(jLAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
@@ -208,7 +208,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jTFAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 160, -1));
 
-        jLNombre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLNombre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLNombre.setText("Nombre:");
         jPanel1.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
@@ -230,7 +230,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, -1));
 
-        jLAMaterno.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLAMaterno.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLAMaterno.setText("Apellido materno:");
         jPanel1.add(jLAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
@@ -270,11 +270,11 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 160, -1));
 
-        jLTelefono.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLTelefono.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLTelefono.setText("Teléfono:");
         jPanel1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        jLEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLEmail.setText("Email:");
         jPanel1.add(jLEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
 
@@ -296,11 +296,11 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 160, -1));
 
-        jLContra1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLContra1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLContra1.setText("Contraseña:");
         jPanel1.add(jLContra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
-        jLCURP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLCURP.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLCURP.setText("CURP:");
         jPanel1.add(jLCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
 
@@ -322,7 +322,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jTFCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 160, -1));
 
-        jLSexo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLSexo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLSexo.setText("Sexo:");
         jPanel1.add(jLSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
 
@@ -364,7 +364,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jCBSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 160, -1));
 
-        jLFechaNac.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLFechaNac.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLFechaNac.setText("Fecha de nacimiento:");
         jPanel1.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
 
@@ -431,7 +431,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jDCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 160, -1));
 
-        jLDireccion.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLDireccion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLDireccion.setText("Dirección:");
         jPanel1.add(jLDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, -1, -1));
 
@@ -497,7 +497,7 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jPFContra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 160, -1));
 
-        jLContra2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLContra2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLContra2.setText("Confirme contraseña:");
         jPanel1.add(jLContra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
@@ -532,7 +532,7 @@ public class vtnAdminAU extends javax.swing.JFrame
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
         this.dispose();
-        new vtnMainAdmin().setVisible(true);
+        new vtnAdminBCU().setVisible(true);
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
