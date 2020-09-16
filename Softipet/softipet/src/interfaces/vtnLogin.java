@@ -119,9 +119,23 @@ public class vtnLogin extends javax.swing.JFrame
                 jBIniciarActionPerformed(evt);
             }
         });
+        jBIniciar.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jBIniciarKeyPressed(evt);
+            }
+        });
         jPanel2.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 100, -1));
 
         jBLimpiar.setText("Limpiar");
+        jBLimpiar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBLimpiarActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 100, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 380, 400));
@@ -260,6 +274,7 @@ public class vtnLogin extends javax.swing.JFrame
         if (consulta1.isEmpty())
         {
             Mensaje.error(this, "El correo ingresado no existe\nCapture un correo valido");
+            jBLimpiarActionPerformed(null);
             CtrlInterfaz.selecciona(jTFCorreo);
         }else
         {
@@ -291,6 +306,7 @@ public class vtnLogin extends javax.swing.JFrame
             {
                 Mensaje.error(this, "La contraseña ingresada es erronea\nCapture una contraseña valida");
                 CtrlInterfaz.selecciona(jPFContra);
+                CtrlInterfaz.limpia(jPFContra);
             }
         }
     }//GEN-LAST:event_jBIniciarActionPerformed
@@ -299,6 +315,20 @@ public class vtnLogin extends javax.swing.JFrame
     {//GEN-HEADEREND:event_formWindowClosed
         ConectarBase.desconectaBD(con);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBLimpiarActionPerformed
+    {//GEN-HEADEREND:event_jBLimpiarActionPerformed
+        CtrlInterfaz.limpia(jTFCorreo, jPFContra);
+        CtrlInterfaz.selecciona(jTFCorreo);
+    }//GEN-LAST:event_jBLimpiarActionPerformed
+
+    private void jBIniciarKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jBIniciarKeyPressed
+    {//GEN-HEADEREND:event_jBIniciarKeyPressed
+        if (evt.getKeyChar() == '\n')
+        {
+            jBIniciarActionPerformed(null);
+        }
+    }//GEN-LAST:event_jBIniciarKeyPressed
 
     /**
      * @param args the command line arguments
