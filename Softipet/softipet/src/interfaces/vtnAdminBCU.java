@@ -7,6 +7,7 @@ package interfaces;
 
 import bd.Querys;
 import bd.Sesion;
+import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +25,7 @@ public class vtnAdminBCU extends javax.swing.JFrame
 {
 
     int xy, xx;
-    static DefaultTableModel modelo;
+    DefaultTableModel modelo = new DefaultTableModel();
 
     /**
      * Creates new form vtnAdminAU
@@ -52,8 +53,8 @@ public class vtnAdminBCU extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         jTUsers = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBEliminar = new javax.swing.JButton();
+        jBModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -106,6 +107,13 @@ public class vtnAdminBCU extends javax.swing.JFrame
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jPanel1MouseClicked(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -137,15 +145,27 @@ public class vtnAdminBCU extends javax.swing.JFrame
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 110, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, -1));
 
-        jButton2.setText("Eliminar usuario");
-        jButton2.setEnabled(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 110, -1));
+        jBEliminar.setText("Eliminar usuario");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 140, -1));
 
-        jButton3.setText("Modificar usuario");
-        jButton3.setEnabled(false);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 110, -1));
+        jBModificar.setText("Modificar usuario");
+        jBModificar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 140, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -188,6 +208,106 @@ public class vtnAdminBCU extends javax.swing.JFrame
         CrearModelo();
         llenaTabla();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBEliminarActionPerformed
+    {//GEN-HEADEREND:event_jBEliminarActionPerformed
+
+        if (jTUsers.getSelectedRow() == -1)
+        {
+            Mensaje.error(this, "No hay valores seleccionados en la tabla");
+        } else
+        {
+            int row = jTUsers.getSelectedRow();
+            String idEmpleado = (String) jTUsers.getValueAt(row, 0);
+            String name = (String) jTUsers.getValueAt(row, 1);
+            String aP = (String) jTUsers.getValueAt(row, 2);
+            String aM = (String) jTUsers.getValueAt(row, 3);
+            String email = (String) jTUsers.getValueAt(row, 4);
+            String rol = (String) jTUsers.getValueAt(row, 5);
+
+            if (rol.equals("Médico"))
+            {
+                Querys q = new Querys();
+                ArrayList<Object> id = new ArrayList<Object>();
+
+                if (Mensaje.pregunta(this, "¿Estas seguro de eliminar al usuario?") == JOptionPane.YES_OPTION)
+                {
+                    try
+                    {
+                        q.Delete(con, "medicos", "Id_medico", idEmpleado);
+
+                        q.Delete(con, "usuarios", "Id_empleado", idEmpleado);
+                    } catch (Exception e)
+                    {
+                        System.out.println("Error al eliminar... " + e);
+                    }
+
+                    Mensaje.exito(this, "Se elimino el usuario correctamente");
+
+                    int rowCount = modelo.getRowCount();
+                    for (int i = rowCount - 1; i >= 0; i--)
+                    {
+                        modelo.removeRow(i);
+                    }
+                    formWindowOpened(null);
+                } else
+                {
+                    Mensaje.error(this, "No se elimino ningun usuario");
+                }
+
+            } else
+            {
+                Querys q = new Querys();
+                ArrayList<Object> id = new ArrayList<Object>();
+
+                if (Mensaje.pregunta(this, "¿Estas seguro de eliminar al usuario?") == JOptionPane.YES_OPTION)
+                {
+                    try
+                    {
+                        q.Delete(con, "usuarios", "Id_empleado", idEmpleado);
+                    } catch (Exception e)
+                    {
+                        System.out.println("Error al eliminar... " + e);
+                    }
+
+                    Mensaje.exito(this, "Se elimino el usuario correctamente");
+                    int rowCount = modelo.getRowCount();
+                    for (int i = rowCount - 1; i >= 0; i--)
+                    {
+                        modelo.removeRow(i);
+                    }
+                    formWindowOpened(null);
+                } else
+                {
+                    Mensaje.error(this, "No se elimino ningun usuario");
+                }
+            }
+
+            System.out.println(idEmpleado + name + aP + aM + email + rol);
+        }
+
+
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel1MouseClicked
+    {//GEN-HEADEREND:event_jPanel1MouseClicked
+        jTUsers.clearSelection();
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jBModificarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBModificarActionPerformed
+    {//GEN-HEADEREND:event_jBModificarActionPerformed
+        if (jTUsers.getSelectedRow() == -1)
+        {
+            Mensaje.error(this, "No hay valores seleccionados en la tabla");
+        } else
+        {
+            int row = jTUsers.getSelectedRow();
+            String idEmpleado = (String) jTUsers.getValueAt(row, 0);
+            Sesion.datosModifica.add(idEmpleado);
+            this.dispose();
+            new vtnAdminMU().setVisible(true);
+        }
+    }//GEN-LAST:event_jBModificarActionPerformed
 
     private void CrearModelo()
     {
@@ -246,23 +366,24 @@ public class vtnAdminBCU extends javax.swing.JFrame
 
             while (!mapeoUsers.isEmpty())
             {
-                
+
                 filas[0] = mapeoUsers.get(0);
                 filas[1] = mapeoUsers.get(1);
                 filas[2] = mapeoUsers.get(2);
                 filas[3] = mapeoUsers.get(3);
                 filas[4] = mapeoUsers.get(5);
-                
+
                 if (mapeoUsers.get(11).equals("1"))
                 {
                     filas[5] = "Administrador";
-                }else if(mapeoUsers.get(11).equals("2")){
+                } else if (mapeoUsers.get(11).equals("2"))
+                {
                     filas[5] = "Médico";
-                }else if(mapeoUsers.get(11).equals("3")){
+                } else if (mapeoUsers.get(11).equals("3"))
+                {
                     filas[5] = "Auxiliar";
                 }
-                
-                
+
                 for (int i = 0; i < 12; i++)
                 {
                     mapeoUsers.remove(0);
@@ -325,9 +446,9 @@ public class vtnAdminBCU extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBEliminar;
+    private javax.swing.JButton jBModificar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLTitulo1;

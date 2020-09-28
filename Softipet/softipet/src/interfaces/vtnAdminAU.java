@@ -29,6 +29,7 @@ public class vtnAdminAU extends javax.swing.JFrame
 {
 
     int xy, xx;
+    boolean flagMedico = false;
 
     /**
      * Creates new form vtnAdminAU
@@ -79,6 +80,10 @@ public class vtnAdminAU extends javax.swing.JFrame
         jPFContra1 = new javax.swing.JPasswordField();
         jLContra2 = new javax.swing.JLabel();
         jPFContra2 = new javax.swing.JPasswordField();
+        jLCedula = new javax.swing.JLabel();
+        jTFCedula = new javax.swing.JTextField();
+        jLFacu = new javax.swing.JLabel();
+        jTFFacu = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -305,6 +310,13 @@ public class vtnAdminAU extends javax.swing.JFrame
         jPanel1.add(jLCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
 
         jTFCURP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFCURP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jTFCURPActionPerformed(evt);
+            }
+        });
         jTFCURP.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
@@ -366,7 +378,7 @@ public class vtnAdminAU extends javax.swing.JFrame
 
         jLFechaNac.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLFechaNac.setText("Fecha de nacimiento:");
-        jPanel1.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+        jPanel1.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
 
         jDCFecha.setDateFormatString("yyyy-MM-d");
         jDCFecha.addMouseListener(new java.awt.event.MouseAdapter()
@@ -518,6 +530,54 @@ public class vtnAdminAU extends javax.swing.JFrame
         });
         jPanel1.add(jPFContra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 160, -1));
 
+        jLCedula.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLCedula.setText("Cedula:");
+        jLCedula.setEnabled(false);
+        jPanel1.add(jLCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
+
+        jTFCedula.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFCedula.setEnabled(false);
+        jTFCedula.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFCedulaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                jTFCedulaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFCedulaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jTFCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 160, -1));
+
+        jLFacu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLFacu.setText("Facultad de egreso:");
+        jLFacu.setEnabled(false);
+        jPanel1.add(jLFacu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, -1, -1));
+
+        jTFFacu.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFFacu.setEnabled(false);
+        jTFFacu.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFFacuKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                jTFFacuKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFFacuKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jTFFacu, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 160, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
         pack();
@@ -551,7 +611,8 @@ public class vtnAdminAU extends javax.swing.JFrame
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBLimpiarActionPerformed
     {//GEN-HEADEREND:event_jBLimpiarActionPerformed
         CtrlInterfaz.limpia(jTFNombre, jTFAPaterno, jTFAMaterno, jTFTelefono,
-                jTFEmail, jTFCURP, jPFContra1, jPFContra2, jTFDireccion, jDCFecha, jCBRol);
+                jTFEmail, jTFCURP, jPFContra1, jPFContra2, jTFDireccion, jDCFecha,
+                jCBRol, jTFCedula, jTFFacu);
         jCBSexo.setSelectedIndex(0);
         jCBRol.setSelectedIndex(0);
 
@@ -567,6 +628,13 @@ public class vtnAdminAU extends javax.swing.JFrame
         jLFechaNac.setForeground(Color.BLACK);
         jLDireccion.setForeground(Color.BLACK);
         jLRol.setForeground(Color.BLACK);
+        jLCedula.setForeground(Color.BLACK);
+        jLFacu.setForeground(Color.BLACK);
+
+        jLCedula.setEnabled(false);
+        jLFacu.setEnabled(false);
+        jTFCedula.setEnabled(false);
+        jTFFacu.setEnabled(false);
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jTFCURPKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCURPKeyTyped
@@ -679,7 +747,7 @@ public class vtnAdminAU extends javax.swing.JFrame
 
     private void jTFDireccionKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFDireccionKeyTyped
     {//GEN-HEADEREND:event_jTFDireccionKeyTyped
-        Validaciones.validaAlfabeticos(evt);
+        Validaciones.validaAlfanumerico(evt);
         if (jTFDireccion.getText().length() == 180)
         {
             evt.consume();
@@ -698,67 +766,160 @@ public class vtnAdminAU extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jBAltaActionPerformed
         Querys q = new Querys();
         ArrayList<Object> id = new ArrayList<Object>();
+        ArrayList<Object> id2 = new ArrayList<Object>();
         int rol;
 
-        if (jLNombre.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLAPaterno.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLAMaterno.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLTelefono.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLEmail.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLContra1.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLContra2.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLCURP.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLSexo.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLFechaNac.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLDireccion.getForeground().getRGB() == Color.GREEN.getRGB())
+        if (flagMedico)
         {
-            try
-            {
-                id = q.Seleccion(con, "MAX(Id_empleado)", "usuarios", "", true);
-            } catch (Exception e)
-            {
-                System.out.println("consulta max id erronea" + e);
-            }
-
-            int idFinal = Integer.parseInt((String) id.get(0)) + 1;
-            Date fecha1 = jDCFecha.getDate();
-            DateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-            String fecha2 = f.format(fecha1);
-            
-            String values = "'" + idFinal + "',"
-                    + "'" + jTFNombre.getText() + "',"
-                    + "'" + jTFAPaterno.getText() + "',"
-                    + "'" + jTFAMaterno.getText() + "',"
-                    + "'" + jTFTelefono.getText() + "',"
-                    + "'" + jTFEmail.getText() + "',"
-                    + "'" + jPFContra2.getText() + "',"
-                    + "'" + jTFCURP.getText() + "',"
-                    + "'" + (String) jCBSexo.getSelectedItem() + "',"
-                    + "'" + fecha2 + "',"
-                    + "'" + jTFDireccion.getText() + "',"
-                    + "'" + jCBRol.getSelectedIndex() + "'";
-
-            if (Mensaje.pregunta(this, "¿Estas seguro de dar de alta al usuario?") == JOptionPane.YES_OPTION)
+            if (jLNombre.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLAPaterno.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLAMaterno.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLTelefono.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLEmail.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLContra1.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLContra2.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLCURP.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLSexo.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLFechaNac.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLDireccion.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLRol.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLCedula.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLFacu.getForeground().getRGB() == Color.GREEN.getRGB())
             {
                 try
                 {
-                    q.Insertar(con, "usuarios", values);
+                    id = q.Seleccion(con, "MAX(Id_empleado)", "usuarios", "", true);
+                    id2 = q.Seleccion(con, "MAX(Folio)", "medicos", "", true);
                 } catch (Exception e)
                 {
-                    System.out.println("insercion erronea" + e);
+                    System.out.println("consulta max id erronea" + e);
+                    System.out.println("consulta max id2 erronea" + e);
                 }
 
-                Mensaje.exito(this, "Se inserto el usuario correctamente");
-                jBLimpiarActionPerformed(null);
+                int idFinal = Integer.parseInt((String) id.get(0)) + 1;
+                System.out.println("Tamaño del id2" + id2.size());
+                String values2 = "";
+                if (id2.get(0).equals("null"))
+                {
+                    values2 = "'" + 1 + "',"
+                            + "'" + idFinal + "',"
+                            + "'" + jTFCedula.getText() + "',"
+                            + "'" + jTFFacu.getText() + "'";
+
+                } else
+                {
+                    int idFinal2 = Integer.parseInt((String) id2.get(0)) + 1;
+                    values2 = "'" + idFinal2 + "',"
+                            + "'" + idFinal + "',"
+                            + "'" + jTFCedula.getText() + "',"
+                            + "'" + jTFFacu.getText() + "'";
+                }
+
+                Date fecha1 = jDCFecha.getDate();
+
+                DateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+
+                String fecha2 = f.format(fecha1);
+
+                String values = "'" + idFinal + "',"
+                        + "'" + jTFNombre.getText() + "',"
+                        + "'" + jTFAPaterno.getText() + "',"
+                        + "'" + jTFAMaterno.getText() + "',"
+                        + "'" + jTFTelefono.getText() + "',"
+                        + "'" + jTFEmail.getText() + "',"
+                        + "'" + jPFContra2.getText() + "',"
+                        + "'" + jTFCURP.getText() + "',"
+                        + "'" + (String) jCBSexo.getSelectedItem() + "',"
+                        + "'" + fecha2 + "',"
+                        + "'" + jTFDireccion.getText() + "',"
+                        + "'" + jCBRol.getSelectedIndex() + "'";
+
+                if (Mensaje.pregunta(this, "¿Estas seguro de dar de alta al usuario?") == JOptionPane.YES_OPTION)
+                {
+                    try
+                    {
+                        q.Insertar(con, "usuarios", values);
+                        q.Insertar(con, "medicos", values2);
+                    } catch (Exception e)
+                    {
+                        System.out.println("insercion erronea" + e);
+                    }
+
+                    Mensaje.exito(this, "Se inserto el usuario correctamente");
+                    jBLimpiarActionPerformed(null);
+                } else
+                {
+                    Mensaje.error(this, "No se hizo insercion");
+                }
+
             } else
             {
-                Mensaje.error(this, "No se hizo insercion");
+                Mensaje.error(this, "Verifique que todos los campos esten en verde");
             }
-
         } else
         {
-            Mensaje.error(this, "Verifique que todos los campos esten en verde");
+            if (jLNombre.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLAPaterno.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLAMaterno.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLTelefono.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLEmail.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLContra1.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLContra2.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLCURP.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLSexo.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLFechaNac.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLDireccion.getForeground().getRGB() == Color.GREEN.getRGB()
+                    && jLRol.getForeground().getRGB() == Color.GREEN.getRGB())
+            {
+                try
+                {
+                    id = q.Seleccion(con, "MAX(Id_empleado)", "usuarios", "", true);
+                } catch (Exception e)
+                {
+                    System.out.println("consulta max id erronea" + e);
+                }
+
+                int idFinal = Integer.parseInt((String) id.get(0)) + 1;
+                Date fecha1 = jDCFecha.getDate();
+                DateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+                String fecha2 = f.format(fecha1);
+
+                String values = "'" + idFinal + "',"
+                        + "'" + jTFNombre.getText() + "',"
+                        + "'" + jTFAPaterno.getText() + "',"
+                        + "'" + jTFAMaterno.getText() + "',"
+                        + "'" + jTFTelefono.getText() + "',"
+                        + "'" + jTFEmail.getText() + "',"
+                        + "'" + jPFContra2.getText() + "',"
+                        + "'" + jTFCURP.getText() + "',"
+                        + "'" + (String) jCBSexo.getSelectedItem() + "',"
+                        + "'" + fecha2 + "',"
+                        + "'" + jTFDireccion.getText() + "',"
+                        + "'" + jCBRol.getSelectedIndex() + "'";
+
+                if (Mensaje.pregunta(this, "¿Estas seguro de dar de alta al usuario?") == JOptionPane.YES_OPTION)
+                {
+                    try
+                    {
+                        q.Insertar(con, "usuarios", values);
+                    } catch (Exception e)
+                    {
+                        System.out.println("insercion erronea" + e);
+                    }
+
+                    Mensaje.exito(this, "Se inserto el usuario correctamente");
+                    jBLimpiarActionPerformed(null);
+                } else
+                {
+                    Mensaje.error(this, "No se hizo insercion");
+                }
+
+            } else
+            {
+                Mensaje.error(this, "Verifique que todos los campos esten en verde");
+            }
         }
+
 
     }//GEN-LAST:event_jBAltaActionPerformed
 
@@ -904,10 +1065,13 @@ public class vtnAdminAU extends javax.swing.JFrame
         if (jPFContra1.getText().isEmpty())
         {
             jLContra1.setForeground(Color.BLACK);
+        } else if (jPFContra1.getText().length() >= 8)
+        {
+            jLContra1.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jPFContra2);
         } else
         {
-            Validaciones.enter(this, evt, jPFContra2);
-            jLContra1.setForeground(Color.GREEN);
+            jLContra1.setForeground(Color.RED);
         }
     }//GEN-LAST:event_jPFContra1KeyReleased
 
@@ -915,6 +1079,7 @@ public class vtnAdminAU extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jTFCURPKeyReleased
         ArrayList<Object> consultaCURP = new ArrayList<Object>();;
         Querys q = new Querys();
+        
         try
         {
             consultaCURP = q.Seleccion(con, "CURP", "usuarios", "CURP='" + jTFCURP.getText() + "'", true);
@@ -923,6 +1088,8 @@ public class vtnAdminAU extends javax.swing.JFrame
         {
             System.out.println("Error: exception ->" + e);
         }
+        
+        jTFCURP.setText(jTFCURP.getText().toUpperCase());
 
         if (jTFCURP.getText().isEmpty())
         {
@@ -1027,9 +1194,36 @@ public class vtnAdminAU extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jCBRolItemStateChanged
         if (jCBRol.getSelectedIndex() == 0)
         {
+            jLCedula.setEnabled(false);
+            jLFacu.setEnabled(false);
+            jTFCedula.setEnabled(false);
+            jTFFacu.setEnabled(false);
+
+            flagMedico = false;
+
             jLRol.setForeground(Color.BLACK);
-        } else if (jCBRol.getSelectedIndex() == 1 || jCBSexo.getSelectedIndex() == 2 || jCBSexo.getSelectedIndex() == 3)
+
+        } else if (jCBRol.getSelectedIndex() == 2)
         {
+            jLCedula.setEnabled(true);
+            jLFacu.setEnabled(true);
+            jTFCedula.setEnabled(true);
+            jTFFacu.setEnabled(true);
+
+            flagMedico = true;
+
+            CtrlInterfaz.selecciona(jTFCedula);
+
+            jLRol.setForeground(Color.GREEN);
+        } else if (jCBRol.getSelectedIndex() == 1 || jCBRol.getSelectedIndex() == 3)
+        {
+            jLCedula.setEnabled(false);
+            jLFacu.setEnabled(false);
+            jTFCedula.setEnabled(false);
+            jTFFacu.setEnabled(false);
+
+            flagMedico = false;
+
             jLRol.setForeground(Color.GREEN);
         }
     }//GEN-LAST:event_jCBRolItemStateChanged
@@ -1058,6 +1252,66 @@ public class vtnAdminAU extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jCBRolKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBRolKeyReleased
+
+    private void jTFCURPActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFCURPActionPerformed
+    {//GEN-HEADEREND:event_jTFCURPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCURPActionPerformed
+
+    private void jTFCedulaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCedulaKeyPressed
+    {//GEN-HEADEREND:event_jTFCedulaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCedulaKeyPressed
+
+    private void jTFCedulaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCedulaKeyReleased
+    {//GEN-HEADEREND:event_jTFCedulaKeyReleased
+        if (jTFCedula.getText().isEmpty())
+        {
+            jLCedula.setForeground(Color.BLACK);
+        } else if (jTFCedula.getText().length() == 8)
+        {
+            jLCedula.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jTFFacu);
+        } else
+        {
+            jLCedula.setForeground(Color.RED);
+        }
+    }//GEN-LAST:event_jTFCedulaKeyReleased
+
+    private void jTFCedulaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCedulaKeyTyped
+    {//GEN-HEADEREND:event_jTFCedulaKeyTyped
+        Validaciones.validaAlfanumerico(evt);
+        if (jTFCedula.getText().length() == 8)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFCedulaKeyTyped
+
+    private void jTFFacuKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFFacuKeyPressed
+    {//GEN-HEADEREND:event_jTFFacuKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFFacuKeyPressed
+
+    private void jTFFacuKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFFacuKeyReleased
+    {//GEN-HEADEREND:event_jTFFacuKeyReleased
+        if (jTFFacu.getText().isEmpty())
+        {
+            jLFacu.setForeground(Color.BLACK);
+        } else
+        {
+            jLFacu.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jBAlta);
+        }
+    }//GEN-LAST:event_jTFFacuKeyReleased
+
+    private void jTFFacuKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFFacuKeyTyped
+    {//GEN-HEADEREND:event_jTFFacuKeyTyped
+        Validaciones.validaAlfanumerico(evt);
+        if (jTFFacu.getText().length() == 30)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFFacuKeyTyped
 
     /**
      * @param args the command line arguments
@@ -1117,11 +1371,13 @@ public class vtnAdminAU extends javax.swing.JFrame
     private javax.swing.JLabel jLAMaterno;
     private javax.swing.JLabel jLAPaterno;
     private javax.swing.JLabel jLCURP;
+    private javax.swing.JLabel jLCedula;
     private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLContra1;
     private javax.swing.JLabel jLContra2;
     private javax.swing.JLabel jLDireccion;
     private javax.swing.JLabel jLEmail;
+    private javax.swing.JLabel jLFacu;
     private javax.swing.JLabel jLFechaNac;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLNombre;
@@ -1136,8 +1392,10 @@ public class vtnAdminAU extends javax.swing.JFrame
     private javax.swing.JTextField jTFAMaterno;
     private javax.swing.JTextField jTFAPaterno;
     private javax.swing.JTextField jTFCURP;
+    private javax.swing.JTextField jTFCedula;
     private javax.swing.JTextField jTFDireccion;
     private javax.swing.JTextField jTFEmail;
+    private javax.swing.JTextField jTFFacu;
     private javax.swing.JTextField jTFNombre;
     private javax.swing.JTextField jTFTelefono;
     // End of variables declaration//GEN-END:variables

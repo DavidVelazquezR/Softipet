@@ -14,5 +14,5 @@ import java.util.ArrayList;
 public class Sesion
 {
     public static ArrayList<Object> datosUsuario = new ArrayList();
-    
+    public static ArrayList<Object> datosModifica = new ArrayList();
 }
