@@ -182,9 +182,9 @@ public class vtnAdminMMedAll extends javax.swing.JFrame
             modelo = (new DefaultTableModel(
                     null, new String[]
                     {
-                        "Folio", "Nombre generico", "Nombre comercial", "Contenido",
-                        "Via", "Recipiente", "Laboratorio", "Caducidad", "Lote", "Stock", 
-                        "Precio Fabricante", "Precio Publico", "Existencia"
+                        "Folio", "Nombre generico", "Nombre comercial", "Descripción",
+                        "Marca", "Caducidad", "ID Proveedor", "Lote", "Precio Fabricante", 
+                        "Precio Publico", "Existencia"
                     })
             {
                 Class[] types = new Class[]
@@ -199,14 +199,12 @@ public class vtnAdminMMedAll extends javax.swing.JFrame
                     java.lang.Object.class,
                     java.lang.Object.class,
                     java.lang.Object.class,
-                    java.lang.Object.class,
-                    java.lang.Object.class,
-                    java.lang.Object.class,
+                    java.lang.Object.class
                 };
                 boolean[] canEdit = new boolean[]
                 {
                     false, false, false, false, false, false,
-                    false, false, false, false, false, false, false
+                    false, false, false, false, false
                 };
 
                 @Override
@@ -236,28 +234,26 @@ public class vtnAdminMMedAll extends javax.swing.JFrame
         modelo.setRowCount(0);
         try
         {
-            mapeoUsers = q.Seleccion(con, "*", "medicamentos", "", true);
+            mapeoUsers = q.Seleccion(con, "*", "medicamentos", "", false);
 
-            Object[] filas = new Object[13];
+            Object[] filas = new Object[11];
 
             while (!mapeoUsers.isEmpty())
             {
 
-                filas[0] = mapeoUsers.get(0);
-                filas[1] = mapeoUsers.get(1);
-                filas[2] = mapeoUsers.get(2);
-                filas[3] = mapeoUsers.get(3);
-                filas[4] = mapeoUsers.get(4);
-                filas[5] = mapeoUsers.get(5);
-                filas[6] = mapeoUsers.get(6);
-                filas[7] = mapeoUsers.get(7);
-                filas[8] = mapeoUsers.get(8);
-                filas[9] = mapeoUsers.get(9);
-                filas[10] = mapeoUsers.get(10);
-                filas[11] = mapeoUsers.get(11);
-                filas[12] = mapeoUsers.get(12);
+                filas[0] = ((String)mapeoUsers.get(0)).trim();
+                filas[1] = ((String)mapeoUsers.get(1)).trim();
+                filas[2] = ((String)mapeoUsers.get(2)).trim();
+                filas[3] = ((String)mapeoUsers.get(3)).trim();
+                filas[4] = ((String)mapeoUsers.get(4)).trim();
+                filas[5] = ((String)mapeoUsers.get(5)).trim();
+                filas[6] = ((String)mapeoUsers.get(6)).trim();
+                filas[7] = ((String)mapeoUsers.get(7)).trim();
+                filas[8] = ((String)mapeoUsers.get(8)).trim();
+                filas[9] = ((String)mapeoUsers.get(9)).trim();
+                filas[10] = ((String)mapeoUsers.get(10)).trim();
 
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 11; i++)
                 {
                     mapeoUsers.remove(0);
                 }

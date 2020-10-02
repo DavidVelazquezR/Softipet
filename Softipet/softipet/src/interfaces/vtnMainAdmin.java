@@ -110,7 +110,7 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 230, 20));
 
         jLManageUsers.setText("Administracion de usuarios");
-        jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, 20));
 
         jLMU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario (1).png"))); // NOI18N
         jLMU1.addMouseListener(new java.awt.event.MouseAdapter()

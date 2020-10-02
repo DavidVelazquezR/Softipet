@@ -316,7 +316,7 @@ public class vtnAdminBCU extends javax.swing.JFrame
             modelo = (new DefaultTableModel(
                     null, new String[]
                     {
-                        "Id_empelado", "Nombre", "Apellido_paterno", "Apellido_materno", "Email", "Rol"
+                        "ID Empleado", "Nombre", "Apellido Paterno", "Apellido Materno", "Email", "Rol"
                     })
             {
                 Class[] types = new Class[]
@@ -360,7 +360,7 @@ public class vtnAdminBCU extends javax.swing.JFrame
         modelo.setRowCount(0);
         try
         {
-            mapeoUsers = q.Seleccion(con, "*", "usuarios", "Email!='" + Sesion.datosUsuario.get(5) + "'", true);
+            mapeoUsers = q.Seleccion(con, "*", "usuarios", "Email!='" + Sesion.datosUsuario.get(5) + "' AND Id_empleado!=1", true);
 
             Object[] filas = new Object[6];
 

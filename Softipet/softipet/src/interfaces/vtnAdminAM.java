@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -58,14 +59,26 @@ public class vtnAdminAM extends javax.swing.JFrame
         jTFNombreG = new javax.swing.JTextField();
         jLNombreC = new javax.swing.JLabel();
         jTFNombreC = new javax.swing.JTextField();
-        jLContenido = new javax.swing.JLabel();
-        jTFContenido = new javax.swing.JTextField();
-        jLVia = new javax.swing.JLabel();
-        jTFVia = new javax.swing.JTextField();
-        jLRecip = new javax.swing.JLabel();
-        jTFRecip = new javax.swing.JTextField();
-        jLLab = new javax.swing.JLabel();
-        jTFLab = new javax.swing.JTextField();
+        jLDesc = new javax.swing.JLabel();
+        jLMarca = new javax.swing.JLabel();
+        jTFMarca = new javax.swing.JTextField();
+        jLCaduc = new javax.swing.JLabel();
+        jLProv = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTADesc = new javax.swing.JTextArea();
+        jDCCaduc = new com.toedter.calendar.JDateChooser();
+        jCBProv = new javax.swing.JComboBox<>();
+        jLLote = new javax.swing.JLabel();
+        jTFLote = new javax.swing.JTextField();
+        jLPrecioF = new javax.swing.JLabel();
+        jTFPrecioF = new javax.swing.JTextField();
+        jLPrecioP = new javax.swing.JLabel();
+        jCBPrecioP = new javax.swing.JComboBox<>();
+        jTFPrecioP = new javax.swing.JTextField();
+        jLExistencia = new javax.swing.JLabel();
+        jTFExistencia = new javax.swing.JTextField();
+        jBAlta = new javax.swing.JButton();
+        jBLimpia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -175,93 +188,214 @@ public class vtnAdminAM extends javax.swing.JFrame
         });
         jPanel2.add(jTFNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 160, -1));
 
-        jLContenido.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLContenido.setText("Contenido:");
-        jPanel2.add(jLContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        jLDesc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLDesc.setText("Descripción:");
+        jPanel2.add(jLDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
-        jTFContenido.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFContenido.addKeyListener(new java.awt.event.KeyAdapter()
+        jLMarca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLMarca.setText("Marca:");
+        jPanel2.add(jLMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+
+        jTFMarca.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFMarca.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                jTFContenidoKeyPressed(evt);
+                jTFMarcaKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt)
             {
-                jTFContenidoKeyReleased(evt);
+                jTFMarcaKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                jTFContenidoKeyTyped(evt);
+                jTFMarcaKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 160, -1));
+        jPanel2.add(jTFMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 160, -1));
 
-        jLVia.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLVia.setText("Via de administración:");
-        jPanel2.add(jLVia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        jLCaduc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLCaduc.setText("Fecha de Caducidad:");
+        jPanel2.add(jLCaduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
 
-        jTFVia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFVia.addKeyListener(new java.awt.event.KeyAdapter()
+        jLProv.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLProv.setText("Proveedor:");
+        jPanel2.add(jLProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+
+        jTADesc.setColumns(20);
+        jTADesc.setRows(5);
+        jTADesc.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                jTADescKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTADescKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTADesc);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+
+        jDCCaduc.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                jTFViaKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
-                jTFViaKeyReleased(evt);
+                jDCCaducKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                jTFViaKeyTyped(evt);
+                jDCCaducKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFVia, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 160, -1));
+        jPanel2.add(jDCCaduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 160, -1));
+        jDCCaduc.getDateEditor().addPropertyChangeListener(new PropertyChangeListener()
+        {
+            public void propertyChange(PropertyChangeEvent e)
+            {
+                //Aquí agregaremos la funcionalidad que queremos
+                //por ejemplo al seleccionar una fecha le mostrare un diálogo con la fecha de hoy
+                if (jDCCaduc.getDate() == null)
+                {
+                    jLCaduc.setForeground(Color.BLACK);
+                } else if (jDCCaduc.getDate() != null)
+                {
+                    jLCaduc.setForeground(Color.GREEN);
 
-        jLRecip.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLRecip.setText("Recipiente:");
-        jPanel2.add(jLRecip, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+                }
+            }
+        });
 
-        jTFRecip.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFRecip.addKeyListener(new java.awt.event.KeyAdapter()
+        jCBProv.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jCBProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione proveedor" }));
+        jCBProv.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                jCBProvItemStateChanged(evt);
+            }
+        });
+        jCBProv.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jCBProvActionPerformed(evt);
+            }
+        });
+        jCBProv.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                jTFRecipKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
-                jTFRecipKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                jTFRecipKeyTyped(evt);
+                jCBProvKeyPressed(evt);
             }
         });
-        jPanel2.add(jTFRecip, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 160, -1));
+        jPanel2.add(jCBProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 160, 20));
 
-        jLLab.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLLab.setText("Laboratorio:");
-        jPanel2.add(jLLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
+        jLLote.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLLote.setText("Lote:");
+        jPanel2.add(jLLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
 
-        jTFLab.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFLab.addKeyListener(new java.awt.event.KeyAdapter()
+        jTFLote.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFLote.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                jTFLabKeyPressed(evt);
+                jTFLoteKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt)
             {
-                jTFLabKeyReleased(evt);
+                jTFLoteKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                jTFLabKeyTyped(evt);
+                jTFLoteKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFLab, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 160, -1));
+        jPanel2.add(jTFLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 160, -1));
+
+        jLPrecioF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLPrecioF.setText("Precio fabricante:");
+        jPanel2.add(jLPrecioF, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, -1));
+
+        jTFPrecioF.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFPrecioF.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFPrecioFKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                jTFPrecioFKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFPrecioFKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTFPrecioF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 160, -1));
+
+        jLPrecioP.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLPrecioP.setText("Precio publico:");
+        jPanel2.add(jLPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+
+        jCBPrecioP.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jCBPrecioP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "S/N", "10%", "20%", "30%", "40%", "50%" }));
+        jCBPrecioP.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                jCBPrecioPItemStateChanged(evt);
+            }
+        });
+        jCBPrecioP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jCBPrecioPActionPerformed(evt);
+            }
+        });
+        jCBPrecioP.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jCBPrecioPKeyPressed(evt);
+            }
+        });
+        jPanel2.add(jCBPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 50, 20));
+
+        jTFPrecioP.setEnabled(false);
+        jPanel2.add(jTFPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 380, 90, -1));
+
+        jLExistencia.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLExistencia.setText("Existencia:");
+        jPanel2.add(jLExistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
+
+        jTFExistencia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFExistencia.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFExistenciaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                jTFExistenciaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFExistenciaKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jTFExistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 160, -1));
+
+        jBAlta.setText("Alta de producto");
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, -1, -1));
+
+        jBLimpia.setText("Limpiar");
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 110, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -277,7 +411,7 @@ public class vtnAdminAM extends javax.swing.JFrame
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
         this.dispose();
-        new vtnAdminBCU().setVisible(true);
+        new vtnAdminMMed().setVisible(true);
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
@@ -295,6 +429,21 @@ public class vtnAdminAM extends javax.swing.JFrame
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
+        Querys q = new Querys();
+        ArrayList<Object> provMap = new ArrayList<Object>();
+
+        try
+        {
+            provMap = q.Seleccion(con, "Id_proveedor, NombreProveedor", "proveedores", "", false);
+            for (int i = 0; i < provMap.size(); i = +2)
+            {
+                jCBProv.addItem(((String) provMap.get(i)).trim().concat("." + ((String) provMap.get(i + 1)).trim()));
+            }
+        } catch (Exception e)
+        {
+            System.out.println("Error al mapear los proveedores..." + e);
+        }
+
         CtrlInterfaz.selecciona(jTFNombreG);
     }//GEN-LAST:event_formWindowOpened
 
@@ -323,7 +472,7 @@ public class vtnAdminAM extends javax.swing.JFrame
     private void jTFNombreGKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreGKeyTyped
     {//GEN-HEADEREND:event_jTFNombreGKeyTyped
         Validaciones.validaAlfabeticos(evt);
-        if (jTFNombreG.getText().length() == 30)
+        if (jTFNombreG.getText().length() == 50)
         {
             evt.consume();
         }
@@ -336,73 +485,265 @@ public class vtnAdminAM extends javax.swing.JFrame
 
     private void jTFNombreCKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreCKeyReleased
     {//GEN-HEADEREND:event_jTFNombreCKeyReleased
-        // TODO add your handling code here:
+        if (jTFNombreC.getText().isEmpty())
+        {
+            jLNombreC.setForeground(Color.BLACK);
+        } else
+        {
+            jLNombreC.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jTADesc);
+        }
     }//GEN-LAST:event_jTFNombreCKeyReleased
 
     private void jTFNombreCKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreCKeyTyped
     {//GEN-HEADEREND:event_jTFNombreCKeyTyped
-        // TODO add your handling code here:
+        Validaciones.validaAlfabeticos(evt);
+        if (jTFNombreC.getText().length() == 50)
+        {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTFNombreCKeyTyped
 
-    private void jTFContenidoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFContenidoKeyPressed
-    {//GEN-HEADEREND:event_jTFContenidoKeyPressed
+    private void jTFMarcaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFMarcaKeyPressed
+    {//GEN-HEADEREND:event_jTFMarcaKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFContenidoKeyPressed
+    }//GEN-LAST:event_jTFMarcaKeyPressed
 
-    private void jTFContenidoKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFContenidoKeyReleased
-    {//GEN-HEADEREND:event_jTFContenidoKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFContenidoKeyReleased
+    private void jTFMarcaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFMarcaKeyReleased
+    {//GEN-HEADEREND:event_jTFMarcaKeyReleased
+        if (jTFMarca.getText().isEmpty())
+        {
+            jLMarca.setForeground(Color.BLACK);
+        } else
+        {
+            jLMarca.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jDCCaduc);
+        }
+    }//GEN-LAST:event_jTFMarcaKeyReleased
 
-    private void jTFContenidoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFContenidoKeyTyped
-    {//GEN-HEADEREND:event_jTFContenidoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFContenidoKeyTyped
+    private void jTFMarcaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFMarcaKeyTyped
+    {//GEN-HEADEREND:event_jTFMarcaKeyTyped
+        Validaciones.validaAlfabeticos(evt);
+        if (jTFMarca.getText().length() == 30)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFMarcaKeyTyped
 
-    private void jTFViaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFViaKeyPressed
-    {//GEN-HEADEREND:event_jTFViaKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFViaKeyPressed
+    private void jTFLoteKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLoteKeyPressed
+    {//GEN-HEADEREND:event_jTFLoteKeyPressed
 
-    private void jTFViaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFViaKeyReleased
-    {//GEN-HEADEREND:event_jTFViaKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFViaKeyReleased
+    }//GEN-LAST:event_jTFLoteKeyPressed
 
-    private void jTFViaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFViaKeyTyped
-    {//GEN-HEADEREND:event_jTFViaKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFViaKeyTyped
+    private void jTFLoteKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLoteKeyReleased
+    {//GEN-HEADEREND:event_jTFLoteKeyReleased
+        if (jTFLote.getText().isEmpty())
+        {
+            jLLote.setForeground(Color.BLACK);
+        } else
+        {
+            jLLote.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jTFPrecioF);
+        }
+    }//GEN-LAST:event_jTFLoteKeyReleased
 
-    private void jTFRecipKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFRecipKeyPressed
-    {//GEN-HEADEREND:event_jTFRecipKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFRecipKeyPressed
+    private void jTFLoteKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLoteKeyTyped
+    {//GEN-HEADEREND:event_jTFLoteKeyTyped
+        Validaciones.validaAlfanumerico(evt);
+        if (jTFLote.getText().length() == 15)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFLoteKeyTyped
 
-    private void jTFRecipKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFRecipKeyReleased
-    {//GEN-HEADEREND:event_jTFRecipKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFRecipKeyReleased
+    private void jTFPrecioFKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFPrecioFKeyPressed
+    {//GEN-HEADEREND:event_jTFPrecioFKeyPressed
+        DecimalFormat formato1 = new DecimalFormat("#.0");
+        float N = 0;
+        float porF;
 
-    private void jTFRecipKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFRecipKeyTyped
-    {//GEN-HEADEREND:event_jTFRecipKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFRecipKeyTyped
+        if (!jTFPrecioF.getText().isEmpty())
+        {
+            N = Float.parseFloat(jTFPrecioF.getText());
+        }
 
-    private void jTFLabKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLabKeyPressed
-    {//GEN-HEADEREND:event_jTFLabKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFLabKeyPressed
+        if (evt.getKeyChar() == '\n')
+        {
+            try
+            {
+                jTFPrecioF.setText(formato1.format(N));
+            } catch (Exception e)
+            {
+                System.out.println("Error al transformar a FLOAT..." + e);
+            }
+            jCBPrecioP.setSelectedIndex(0);
+            jTFPrecioP.setText("");
 
-    private void jTFLabKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLabKeyReleased
-    {//GEN-HEADEREND:event_jTFLabKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFLabKeyReleased
+        }
 
-    private void jTFLabKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLabKeyTyped
-    {//GEN-HEADEREND:event_jTFLabKeyTyped
+    }//GEN-LAST:event_jTFPrecioFKeyPressed
+
+    private void jTFPrecioFKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFPrecioFKeyReleased
+    {//GEN-HEADEREND:event_jTFPrecioFKeyReleased
+
+        if (jTFPrecioF.getText().isEmpty())
+        {
+            jLPrecioF.setForeground(Color.BLACK);
+        } else if (jTFPrecioF.getText().length() <= 6)
+        {
+            jLPrecioF.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jCBPrecioP);
+        } else
+        {
+            jLPrecioF.setForeground(Color.RED);
+        }
+    }//GEN-LAST:event_jTFPrecioFKeyReleased
+
+    private void jTFPrecioFKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFPrecioFKeyTyped
+    {//GEN-HEADEREND:event_jTFPrecioFKeyTyped
+        Validaciones.validaFlotantes(evt);
+    }//GEN-LAST:event_jTFPrecioFKeyTyped
+
+    private void jCBProvActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBProvActionPerformed
+    {//GEN-HEADEREND:event_jCBProvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFLabKeyTyped
+    }//GEN-LAST:event_jCBProvActionPerformed
+
+    private void jCBPrecioPActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBPrecioPActionPerformed
+    {//GEN-HEADEREND:event_jCBPrecioPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBPrecioPActionPerformed
+
+    private void jTFExistenciaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFExistenciaKeyPressed
+    {//GEN-HEADEREND:event_jTFExistenciaKeyPressed
+        DecimalFormat formato1 = new DecimalFormat("#.0");
+        float N = 0;
+        float porF;
+
+        if (!jTFExistencia.getText().isEmpty())
+        {
+            N = Float.parseFloat(jTFExistencia.getText());
+        }
+
+        if (evt.getKeyChar() == '\n')
+        {
+            try
+            {
+                jTFExistencia.setText(formato1.format(N));
+            } catch (Exception e)
+            {
+                System.out.println("Error al transformar a FLOAT..." + e);
+            }
+        }
+    }//GEN-LAST:event_jTFExistenciaKeyPressed
+
+    private void jTFExistenciaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFExistenciaKeyReleased
+    {//GEN-HEADEREND:event_jTFExistenciaKeyReleased
+        if (jTFExistencia.getText().isEmpty())
+        {
+            jLExistencia.setForeground(Color.BLACK);
+        } else if (jTFExistencia.getText().length() <= 6)
+        {
+            jLExistencia.setForeground(Color.GREEN);
+            Validaciones.enter(this, evt, jBAlta);
+        } else
+        {
+            jLExistencia.setForeground(Color.RED);
+        }
+    }//GEN-LAST:event_jTFExistenciaKeyReleased
+
+    private void jTFExistenciaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFExistenciaKeyTyped
+    {//GEN-HEADEREND:event_jTFExistenciaKeyTyped
+        Validaciones.validaFlotantes(evt);
+    }//GEN-LAST:event_jTFExistenciaKeyTyped
+
+    private void jTADescKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTADescKeyReleased
+    {//GEN-HEADEREND:event_jTADescKeyReleased
+        if (jTADesc.getText().isEmpty())
+        {
+            jLDesc.setForeground(Color.BLACK);
+        } else
+        {
+            jLDesc.setForeground(Color.GREEN);
+        }
+    }//GEN-LAST:event_jTADescKeyReleased
+
+    private void jTADescKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTADescKeyTyped
+    {//GEN-HEADEREND:event_jTADescKeyTyped
+        Validaciones.validaAlfanumerico(evt);
+        if (jTADesc.getText().length() == 50)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTADescKeyTyped
+
+    private void jDCCaducKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jDCCaducKeyTyped
+    {//GEN-HEADEREND:event_jDCCaducKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDCCaducKeyTyped
+
+    private void jDCCaducKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jDCCaducKeyPressed
+    {//GEN-HEADEREND:event_jDCCaducKeyPressed
+        Validaciones.enter(this, evt, jCBProv);
+    }//GEN-LAST:event_jDCCaducKeyPressed
+
+    private void jCBProvKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jCBProvKeyPressed
+    {//GEN-HEADEREND:event_jCBProvKeyPressed
+        Validaciones.enter(this, evt, jTFLote);
+    }//GEN-LAST:event_jCBProvKeyPressed
+
+    private void jCBProvItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_jCBProvItemStateChanged
+    {//GEN-HEADEREND:event_jCBProvItemStateChanged
+        if (jCBProv.getSelectedIndex() == 0)
+        {
+            jLProv.setForeground(Color.BLACK);
+        } else
+        {
+            jLProv.setForeground(Color.GREEN);
+        }
+    }//GEN-LAST:event_jCBProvItemStateChanged
+
+    private void jCBPrecioPItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_jCBPrecioPItemStateChanged
+    {//GEN-HEADEREND:event_jCBPrecioPItemStateChanged
+        float porF;
+
+        if (jCBPrecioP.getSelectedIndex() == 0)
+        {
+            jLPrecioP.setForeground(Color.BLACK);
+            jTFPrecioP.setText("");
+        } else if (jCBPrecioP.getSelectedIndex() == 1)
+        {
+            jLPrecioP.setForeground(Color.GREEN);
+            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.10);
+            jTFPrecioP.setText(String.valueOf(porF));
+
+        } else if (jCBPrecioP.getSelectedIndex() == 2)
+        {
+            jLPrecioP.setForeground(Color.GREEN);
+            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.20);
+            jTFPrecioP.setText(String.valueOf(porF));
+        } else if (jCBPrecioP.getSelectedIndex() == 3)
+        {
+            jLPrecioP.setForeground(Color.GREEN);
+            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.30);
+            jTFPrecioP.setText(String.valueOf(porF));
+        } else if (jCBPrecioP.getSelectedIndex() == 4)
+        {
+            jLPrecioP.setForeground(Color.GREEN);
+            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.40);
+            jTFPrecioP.setText(String.valueOf(porF));
+        } else if (jCBPrecioP.getSelectedIndex() == 5)
+        {
+            jLPrecioP.setForeground(Color.GREEN);
+            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.50);
+            jTFPrecioP.setText(String.valueOf(porF));
+        }
+    }//GEN-LAST:event_jCBPrecioPItemStateChanged
+
+    private void jCBPrecioPKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jCBPrecioPKeyPressed
+    {//GEN-HEADEREND:event_jCBPrecioPKeyPressed
+        Validaciones.enter(this, evt, jTFExistencia);
+    }//GEN-LAST:event_jCBPrecioPKeyPressed
 
     /**
      * @param args the command line arguments
@@ -455,22 +796,34 @@ public class vtnAdminAM extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAlta;
+    private javax.swing.JButton jBLimpia;
+    private javax.swing.JComboBox<String> jCBPrecioP;
+    private javax.swing.JComboBox<String> jCBProv;
+    private com.toedter.calendar.JDateChooser jDCCaduc;
+    private javax.swing.JLabel jLCaduc;
     private javax.swing.JLabel jLCerrar;
-    private javax.swing.JLabel jLContenido;
-    private javax.swing.JLabel jLLab;
+    private javax.swing.JLabel jLDesc;
+    private javax.swing.JLabel jLExistencia;
+    private javax.swing.JLabel jLLote;
+    private javax.swing.JLabel jLMarca;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLNombreC;
     private javax.swing.JLabel jLNombreG;
-    private javax.swing.JLabel jLRecip;
+    private javax.swing.JLabel jLPrecioF;
+    private javax.swing.JLabel jLPrecioP;
+    private javax.swing.JLabel jLProv;
     private javax.swing.JLabel jLTitulo1;
-    private javax.swing.JLabel jLVia;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTFContenido;
-    private javax.swing.JTextField jTFLab;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTADesc;
+    private javax.swing.JTextField jTFExistencia;
+    private javax.swing.JTextField jTFLote;
+    private javax.swing.JTextField jTFMarca;
     private javax.swing.JTextField jTFNombreC;
     private javax.swing.JTextField jTFNombreG;
-    private javax.swing.JTextField jTFRecip;
-    private javax.swing.JTextField jTFVia;
+    private javax.swing.JTextField jTFPrecioF;
+    private javax.swing.JTextField jTFPrecioP;
     // End of variables declaration//GEN-END:variables
 }

@@ -277,9 +277,7 @@ public class vtnLogin extends javax.swing.JFrame
             jBLimpiarActionPerformed(null);
             CtrlInterfaz.selecciona(jTFCorreo);
         }else
-        {
-            String lol = "dasd sdad a      ";
-            
+        {   
             if (consulta1.get(6).equals(jPFContra.getText()))
             {
                 System.out.println("Password correcto");

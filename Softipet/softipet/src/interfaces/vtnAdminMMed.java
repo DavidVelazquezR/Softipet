@@ -200,7 +200,7 @@ public class vtnAdminMMed extends javax.swing.JFrame
     private void jBAltaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAltaActionPerformed
     {//GEN-HEADEREND:event_jBAltaActionPerformed
         this.dispose();
-        new vtnAdminAU().setVisible(true);
+        new vtnAdminAM().setVisible(true);
     }//GEN-LAST:event_jBAltaActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
@@ -307,7 +307,7 @@ public class vtnAdminMMed extends javax.swing.JFrame
             modelo = (new DefaultTableModel(
                     null, new String[]
                     {
-                        "Folio", "Nombre", "Contenido", "Precio Fabricante", "Precio Publico", "Existencia"
+                        "Folio", "Nombre", "Descripción", "Precio Fabricante", "Precio Publico", "Existencia"
                     })
             {
                 Class[] types = new Class[]
@@ -351,21 +351,21 @@ public class vtnAdminMMed extends javax.swing.JFrame
         modelo.setRowCount(0);
         try
         {
-            mapeoUsers = q.Seleccion(con, "*", "medicamentos", "", true);
+            mapeoUsers = q.Seleccion(con, "*", "medicamentos", "", false);
 
             Object[] filas = new Object[6];
 
             while (!mapeoUsers.isEmpty())
             {
 
-                filas[0] = mapeoUsers.get(0);
-                filas[1] = mapeoUsers.get(1);
-                filas[2] = mapeoUsers.get(3);
-                filas[3] = mapeoUsers.get(10);
-                filas[4] = mapeoUsers.get(11);
-                filas[5] = mapeoUsers.get(12);
+                filas[0] = ((String)mapeoUsers.get(0)).trim();
+                filas[1] = ((String)mapeoUsers.get(1)).trim();
+                filas[2] = ((String)mapeoUsers.get(3)).trim();
+                filas[3] = ((String)mapeoUsers.get(8)).trim();
+                filas[4] = ((String)mapeoUsers.get(9)).trim();
+                filas[5] = ((String)mapeoUsers.get(10)).trim();
 
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 11; i++)
                 {
                     mapeoUsers.remove(0);
                 }
