@@ -52,7 +52,7 @@ public class vtnAdminBCU extends javax.swing.JFrame
         jLTitulo1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTUsers = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jBNewUser = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBModificar = new javax.swing.JButton();
 
@@ -137,15 +137,15 @@ public class vtnAdminBCU extends javax.swing.JFrame
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 510, 360));
 
-        jButton1.setText("Nuevo usuario");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
+        jBNewUser.setText("Nuevo usuario");
+        jBNewUser.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton1ActionPerformed(evt);
+                jBNewUserActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, -1));
+        jPanel1.add(jBNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, -1));
 
         jBEliminar.setText("Eliminar usuario");
         jBEliminar.addActionListener(new java.awt.event.ActionListener()
@@ -197,11 +197,11 @@ public class vtnAdminBCU extends javax.swing.JFrame
         xy = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
-    {//GEN-HEADEREND:event_jButton1ActionPerformed
+    private void jBNewUserActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBNewUserActionPerformed
+    {//GEN-HEADEREND:event_jBNewUserActionPerformed
         this.dispose();
         new vtnAdminAU().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBNewUserActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
@@ -448,7 +448,7 @@ public class vtnAdminBCU extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBModificar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBNewUser;
     private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLTitulo1;

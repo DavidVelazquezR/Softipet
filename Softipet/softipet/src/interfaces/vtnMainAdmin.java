@@ -43,6 +43,11 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         jLMU2 = new javax.swing.JLabel();
         jLMU3 = new javax.swing.JLabel();
         jLMU4 = new javax.swing.JLabel();
+        jLMU5 = new javax.swing.JLabel();
+        jLMU6 = new javax.swing.JLabel();
+        jLMU7 = new javax.swing.JLabel();
+        jLMU8 = new javax.swing.JLabel();
+        jLManageDrugs = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -147,6 +152,49 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(jLMU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 40, 40));
 
+        jLMU5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/farmaco.png"))); // NOI18N
+        jLMU5.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLMU5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 40, 40));
+
+        jLMU6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/droga.png"))); // NOI18N
+        jLMU6.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLMU6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 40, 40));
+
+        jLMU7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/jeringuilla.png"))); // NOI18N
+        jLMU7.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLMU7MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 40, 40));
+
+        jLMU8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/veterinario.png"))); // NOI18N
+        jLMU8.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLMU8MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 40, 40));
+
+        jLManageDrugs.setText("Administración de productos");
+        jPanel1.add(jLManageDrugs, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 140, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
         pack();
@@ -208,6 +256,30 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         new vtnAdminBCU().setVisible(true);
     }//GEN-LAST:event_jLMU1MouseClicked
 
+    private void jLMU5MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU5MouseClicked
+    {//GEN-HEADEREND:event_jLMU5MouseClicked
+        this.dispose();
+        new vtnAdminMMed().setVisible(true);
+    }//GEN-LAST:event_jLMU5MouseClicked
+
+    private void jLMU6MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU6MouseClicked
+    {//GEN-HEADEREND:event_jLMU6MouseClicked
+        this.dispose();
+        new vtnAdminMMed().setVisible(true);
+    }//GEN-LAST:event_jLMU6MouseClicked
+
+    private void jLMU7MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU7MouseClicked
+    {//GEN-HEADEREND:event_jLMU7MouseClicked
+        this.dispose();
+        new vtnAdminMMed().setVisible(true);
+    }//GEN-LAST:event_jLMU7MouseClicked
+
+    private void jLMU8MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU8MouseClicked
+    {//GEN-HEADEREND:event_jLMU8MouseClicked
+        this.dispose();
+        new vtnAdminMMed().setVisible(true);
+    }//GEN-LAST:event_jLMU8MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +321,11 @@ public class vtnMainAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLMU2;
     private javax.swing.JLabel jLMU3;
     private javax.swing.JLabel jLMU4;
+    private javax.swing.JLabel jLMU5;
+    private javax.swing.JLabel jLMU6;
+    private javax.swing.JLabel jLMU7;
+    private javax.swing.JLabel jLMU8;
+    private javax.swing.JLabel jLManageDrugs;
     private javax.swing.JLabel jLManageUsers;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLTitulo;
