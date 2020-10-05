@@ -392,9 +392,23 @@ public class vtnAdminAM extends javax.swing.JFrame
         jPanel2.add(jTFExistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 160, -1));
 
         jBAlta.setText("Alta de producto");
+        jBAlta.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBAltaActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, -1, -1));
 
         jBLimpia.setText("Limpiar");
+        jBLimpia.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBLimpiaActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 110, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
@@ -714,8 +728,14 @@ public class vtnAdminAM extends javax.swing.JFrame
         } else if (jCBPrecioP.getSelectedIndex() == 1)
         {
             jLPrecioP.setForeground(Color.GREEN);
-            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.10);
-            jTFPrecioP.setText(String.valueOf(porF));
+            try
+            {
+                porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.10);
+                jTFPrecioP.setText(String.valueOf(porF));
+            } catch (Exception e)
+            {
+                System.out.println("Error al cambiar precio float..." + e);
+            }
 
         } else if (jCBPrecioP.getSelectedIndex() == 2)
         {
@@ -744,6 +764,100 @@ public class vtnAdminAM extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jCBPrecioPKeyPressed
         Validaciones.enter(this, evt, jTFExistencia);
     }//GEN-LAST:event_jCBPrecioPKeyPressed
+
+    private void jBAltaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAltaActionPerformed
+    {//GEN-HEADEREND:event_jBAltaActionPerformed
+        Querys q = new Querys();
+        ArrayList<Object> id = new ArrayList<Object>();
+
+        if (jLNombreG.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLNombreC.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLDesc.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLMarca.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLCaduc.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLProv.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLLote.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLPrecioF.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLPrecioP.getForeground().getRGB() == Color.GREEN.getRGB()
+                && jLExistencia.getForeground().getRGB() == Color.GREEN.getRGB())
+        {
+
+            try
+            {
+                id = q.Seleccion(con, "MAX(Id_empleado)", "usuarios", "", true);
+            } catch (Exception e)
+            {
+                System.out.println("consulta max id producto erronea" + e);
+            }
+
+            int idFinal = Integer.parseInt((String) id.get(0)) + 1;
+
+            Date fecha1 = jDCCaduc.getDate();
+            DateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+            String fecha2 = f.format(fecha1);
+            
+            
+            String proveedorAux = (String) jCBProv.getSelectedItem();
+            String[] parts = proveedorAux.split("\\.");
+            String part1 = parts[0];
+            String part2 = parts[1];
+            
+            String values = "'" + idFinal + "',"
+                    + "'" + jTFNombreG.getText() + "',"
+                    + "'" + jTFNombreC.getText() + "',"
+                    + "'" + jTADesc.getText() + "',"
+                    + "'" + jTFMarca.getText() + "',"
+                    + "'" + fecha2 + "',"
+                    + "'" + part1 + "',"
+                    + "'" + jTFLote.getText() + "',"
+                    + "'" + jTFPrecioF.getText() + "',"
+                    + "'" + jTFPrecioP.getText() + "',"
+                    + "'" + jTFExistencia.getText() + "'";
+            
+            if (Mensaje.pregunta(this, "¿Estas seguro de dar de alta el producto?") == JOptionPane.YES_OPTION)
+                {
+                    try
+                    {
+                        q.Insertar(con, "medicamentos", values);
+                    } catch (Exception e)
+                    {
+                        System.out.println("insercion erronea" + e);
+                    }
+
+                    Mensaje.exito(this, "Se dio de alta el producto correctamente");
+                    jBLimpiaActionPerformed(null);
+                } else
+                {
+                    Mensaje.error(this, "No se dio de alta el producto");
+                }
+            
+
+        } else
+        {
+            Mensaje.error(this, "Verifique que todos los campos esten en verde");
+        }
+
+    }//GEN-LAST:event_jBAltaActionPerformed
+
+    private void jBLimpiaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBLimpiaActionPerformed
+    {//GEN-HEADEREND:event_jBLimpiaActionPerformed
+        CtrlInterfaz.limpia(jTFNombreG, jTFNombreC, jTADesc, jTFMarca, jDCCaduc,
+                jTFLote, jTFPrecioF, jTFPrecioP, jTFExistencia);
+        jCBProv.setSelectedIndex(0);
+        
+        jLNombreG.setForeground(Color.BLACK);
+        jLNombreC.setForeground(Color.BLACK);
+        jLDesc.setForeground(Color.BLACK);
+        jLMarca.setForeground(Color.BLACK);
+        jLCaduc.setForeground(Color.BLACK);
+        jLProv.setForeground(Color.BLACK);
+        jLLote.setForeground(Color.BLACK);
+        jLPrecioF.setForeground(Color.BLACK);
+        jLPrecioP.setForeground(Color.BLACK);
+        jLExistencia.setForeground(Color.BLACK);
+        
+        CtrlInterfaz.selecciona(jTFNombreG);
+    }//GEN-LAST:event_jBLimpiaActionPerformed
 
     /**
      * @param args the command line arguments

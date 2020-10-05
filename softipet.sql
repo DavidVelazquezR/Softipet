@@ -47,7 +47,7 @@ CREATE TABLE MEDICAMENTOS(
 	Lote VARCHAR(15) NOT NULL,
 	Precio_fabricante DECIMAL(5, 2) NOT NULL,
 	Precio_publico DECIMAL(5, 2) NOT NULL,
-	Existencia DECIMAL(5, 2) NOT NULL,
+	Existencia INT(10) NOT NULL,
 	PRIMARY KEY(Id_medicamento),
 	FOREIGN KEY(Id_proveedor) REFERENCES PROVEEDORES(Id_proveedor)
 );
