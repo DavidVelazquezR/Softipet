@@ -14,7 +14,7 @@ import bd.Sesion;
 public class vtnMainAdmin extends javax.swing.JFrame {
 
     int xy, xx;
-    
+
     /**
      * Creates new form vtnMainAdmin
      */
@@ -29,8 +29,7 @@ public class vtnMainAdmin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
         jLMinimizar = new javax.swing.JLabel();
@@ -47,14 +46,14 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         jLMU6 = new javax.swing.JLabel();
         jLMU7 = new javax.swing.JLabel();
         jLMU8 = new javax.swing.JLabel();
+        jLMU9 = new javax.swing.JLabel();
         jLManageDrugs = new javax.swing.JLabel();
+        jLManageProv = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowOpened(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
@@ -62,37 +61,29 @@ public class vtnMainAdmin extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(0, 35));
-        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseDragged(java.awt.event.MouseEvent evt)
-            {
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
             }
         });
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPanel3MousePressed(evt);
             }
         });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/minimizar-icon.png"))); // NOI18N
-        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMinimizarMouseClicked(evt);
             }
         });
         jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 40));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-sesion.png"))); // NOI18N
-        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLCerrarMouseClicked(evt);
             }
         });
@@ -110,90 +101,85 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 230, 20));
 
         jLManageUsers.setText("Administracion de usuarios");
-        jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, 20));
+        jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 20));
 
         jLMU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario (1).png"))); // NOI18N
-        jLMU1.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 40, 40));
+        jPanel1.add(jLMU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 40, 40));
 
         jLMU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/anadir.png"))); // NOI18N
-        jLMU2.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU2MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 40, 40));
+        jPanel1.add(jLMU2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 40, 40));
 
         jLMU3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/editar.png"))); // NOI18N
-        jLMU3.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU3MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 40, 40));
+        jPanel1.add(jLMU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 40, 40));
 
         jLMU4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario.png"))); // NOI18N
-        jLMU4.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU4MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 40, 40));
+        jPanel1.add(jLMU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 40, 40));
 
         jLMU5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/farmaco.png"))); // NOI18N
-        jLMU5.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU5MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 40, 40));
+        jPanel1.add(jLMU5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 40, 40));
 
         jLMU6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/droga.png"))); // NOI18N
-        jLMU6.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU6MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 40, 40));
+        jPanel1.add(jLMU6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 40, 40));
 
         jLMU7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/jeringuilla.png"))); // NOI18N
-        jLMU7.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU7MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 40, 40));
+        jPanel1.add(jLMU7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 40, 40));
 
         jLMU8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/veterinario.png"))); // NOI18N
-        jLMU8.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMU8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU8MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 40, 40));
+        jPanel1.add(jLMU8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 40, 40));
+
+        jLMU9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/inventario (1).png"))); // NOI18N
+        jLMU9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLMU9MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 80, 80));
 
         jLManageDrugs.setText("Administración de productos");
-        jPanel1.add(jLManageDrugs, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 140, 20));
+        jPanel1.add(jLManageDrugs, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 170, 20));
+
+        jLManageProv.setText("Administración de proveedores");
+        jPanel1.add(jLManageProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 180, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -228,8 +214,8 @@ public class vtnMainAdmin extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
-        
-        jLUser.setText((String)Sesion.datosUsuario.get(1));
+
+        jLUser.setText((String) Sesion.datosUsuario.get(1));
     }//GEN-LAST:event_formWindowOpened
 
     private void jLMU2MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMU2MouseClicked
@@ -280,6 +266,11 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         new vtnAdminMMed().setVisible(true);
     }//GEN-LAST:event_jLMU8MouseClicked
 
+    private void jLMU9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMU9MouseClicked
+        this.dispose();
+        new vtnAdminMP().setVisible(true);
+    }//GEN-LAST:event_jLMU9MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -287,7 +278,7 @@ public class vtnMainAdmin extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -325,7 +316,9 @@ public class vtnMainAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLMU6;
     private javax.swing.JLabel jLMU7;
     private javax.swing.JLabel jLMU8;
+    private javax.swing.JLabel jLMU9;
     private javax.swing.JLabel jLManageDrugs;
+    private javax.swing.JLabel jLManageProv;
     private javax.swing.JLabel jLManageUsers;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLTitulo;

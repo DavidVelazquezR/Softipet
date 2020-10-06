@@ -33,6 +33,7 @@ CREATE TABLE PROVEEDORES(
 	NombreProveedor VARCHAR(30) NOT NULL,
 	Telefono VARCHAR(10) NOT NULL,
 	Email VARCHAR(30) NOT NULL,
+	RFC VARCHAR(13) NOT NULL,
 	PRIMARY KEY(Id_proveedor)
 );
 
@@ -84,7 +85,8 @@ INSERT INTO PROVEEDORES VALUES(
 	1,
 	"ProveedorTest",
 	"1234567890",
-	"proveedor@pro.com"
+	"proveedor@pro.com",
+	"1234567890123"
 );
 
 INSERT INTO MEDICAMENTOS VALUES(

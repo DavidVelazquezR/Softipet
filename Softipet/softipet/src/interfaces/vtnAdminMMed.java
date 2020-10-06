@@ -21,8 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author david
  */
-public class vtnAdminMMed extends javax.swing.JFrame
-{
+public class vtnAdminMMed extends javax.swing.JFrame {
 
     int xy, xx;
     DefaultTableModel modelo = new DefaultTableModel();
@@ -30,8 +29,7 @@ public class vtnAdminMMed extends javax.swing.JFrame
     /**
      * Creates new form vtnAdminAU
      */
-    public vtnAdminMMed()
-    {
+    public vtnAdminMMed() {
         initComponents();
     }
 
@@ -42,8 +40,7 @@ public class vtnAdminMMed extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
         jLMinimizar = new javax.swing.JLabel();
@@ -53,15 +50,12 @@ public class vtnAdminMMed extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         jTUsers = new javax.swing.JTable();
         jBAlta = new javax.swing.JButton();
-        jBBaja = new javax.swing.JButton();
         jBAll = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowOpened(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
@@ -69,37 +63,29 @@ public class vtnAdminMMed extends javax.swing.JFrame
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(0, 35));
-        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseDragged(java.awt.event.MouseEvent evt)
-            {
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
             }
         });
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPanel3MousePressed(evt);
             }
         });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/minimizar-icon.png"))); // NOI18N
-        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMinimizarMouseClicked(evt);
             }
         });
         jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 40));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/regreso.png"))); // NOI18N
-        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLCerrarMouseClicked(evt);
             }
         });
@@ -107,10 +93,8 @@ public class vtnAdminMMed extends javax.swing.JFrame
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
             }
         });
@@ -121,15 +105,13 @@ public class vtnAdminMMed extends javax.swing.JFrame
         jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jTUsers.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
-            new String []
-            {
+            new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
@@ -138,30 +120,16 @@ public class vtnAdminMMed extends javax.swing.JFrame
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 730, 320));
 
         jBAlta.setText("Alta de productos");
-        jBAlta.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 140, -1));
-
-        jBBaja.setText("Baja de productos");
-        jBBaja.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jBBajaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 140, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 140, -1));
 
         jBAll.setText("Ver todo");
-        jBAll.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAllActionPerformed(evt);
             }
         });
@@ -209,86 +177,6 @@ public class vtnAdminMMed extends javax.swing.JFrame
         llenaTabla();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jBBajaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBBajaActionPerformed
-    {//GEN-HEADEREND:event_jBBajaActionPerformed
-
-        if (jTUsers.getSelectedRow() == -1)
-        {
-            Mensaje.error(this, "No hay valores seleccionados en la tabla");
-        } else
-        {
-            int row = jTUsers.getSelectedRow();
-            String idEmpleado = (String) jTUsers.getValueAt(row, 0);
-            String name = (String) jTUsers.getValueAt(row, 1);
-            String aP = (String) jTUsers.getValueAt(row, 2);
-            String aM = (String) jTUsers.getValueAt(row, 3);
-            String email = (String) jTUsers.getValueAt(row, 4);
-            String rol = (String) jTUsers.getValueAt(row, 5);
-
-            if (rol.equals("Médico"))
-            {
-                Querys q = new Querys();
-                ArrayList<Object> id = new ArrayList<Object>();
-
-                if (Mensaje.pregunta(this, "¿Estas seguro de eliminar al usuario?") == JOptionPane.YES_OPTION)
-                {
-                    try
-                    {
-                        q.Delete(con, "medicos", "Id_medico", idEmpleado);
-
-                        q.Delete(con, "usuarios", "Id_empleado", idEmpleado);
-                    } catch (Exception e)
-                    {
-                        System.out.println("Error al eliminar... " + e);
-                    }
-
-                    Mensaje.exito(this, "Se elimino el usuario correctamente");
-
-                    int rowCount = modelo.getRowCount();
-                    for (int i = rowCount - 1; i >= 0; i--)
-                    {
-                        modelo.removeRow(i);
-                    }
-                    formWindowOpened(null);
-                } else
-                {
-                    Mensaje.error(this, "No se elimino ningun usuario");
-                }
-
-            } else
-            {
-                Querys q = new Querys();
-                ArrayList<Object> id = new ArrayList<Object>();
-
-                if (Mensaje.pregunta(this, "¿Estas seguro de eliminar al usuario?") == JOptionPane.YES_OPTION)
-                {
-                    try
-                    {
-                        q.Delete(con, "usuarios", "Id_empleado", idEmpleado);
-                    } catch (Exception e)
-                    {
-                        System.out.println("Error al eliminar... " + e);
-                    }
-
-                    Mensaje.exito(this, "Se elimino el usuario correctamente");
-                    int rowCount = modelo.getRowCount();
-                    for (int i = rowCount - 1; i >= 0; i--)
-                    {
-                        modelo.removeRow(i);
-                    }
-                    formWindowOpened(null);
-                } else
-                {
-                    Mensaje.error(this, "No se elimino ningun usuario");
-                }
-            }
-
-            System.out.println(idEmpleado + name + aP + aM + email + rol);
-        }
-
-
-    }//GEN-LAST:event_jBBajaActionPerformed
-
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel1MouseClicked
     {//GEN-HEADEREND:event_jPanel1MouseClicked
         jTUsers.clearSelection();
@@ -300,80 +188,65 @@ public class vtnAdminMMed extends javax.swing.JFrame
         new vtnAdminMMedAll().setVisible(true);
     }//GEN-LAST:event_jBAllActionPerformed
 
-    private void CrearModelo()
-    {
-        try
-        {
+    private void CrearModelo() {
+        try {
             modelo = (new DefaultTableModel(
-                    null, new String[]
-                    {
+                    null, new String[]{
                         "Folio", "Nombre", "Descripción", "Precio Fabricante", "Precio Publico", "Existencia"
-                    })
-            {
-                Class[] types = new Class[]
-                {
+                    }) {
+                Class[] types = new Class[]{
                     java.lang.Object.class,
                     java.lang.Object.class,
                     java.lang.Object.class,
                     java.lang.Object.class,
                     java.lang.Object.class,
-                    java.lang.Object.class,
-                };
-                boolean[] canEdit = new boolean[]
-                {
+                    java.lang.Object.class,};
+                boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, false
                 };
 
                 @Override
-                public Class getColumnClass(int columnIndex)
-                {
+                public Class getColumnClass(int columnIndex) {
                     return types[columnIndex];
                 }
 
                 @Override
-                public boolean isCellEditable(int rowIndex, int colIndex)
-                {
+                public boolean isCellEditable(int rowIndex, int colIndex) {
                     return canEdit[colIndex];
                 }
             });
             jTUsers.setModel(modelo);
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString() + "error en la creacion del modelo");
         }
     }
 
-    public void llenaTabla()
-    {
+    public void llenaTabla() {
         ArrayList<Object> mapeoUsers = new ArrayList<Object>();
         Querys q = new Querys();
         modelo.setRowCount(0);
-        try
-        {
+        try {
             mapeoUsers = q.Seleccion(con, "*", "medicamentos", "", false);
 
             Object[] filas = new Object[6];
 
-            while (!mapeoUsers.isEmpty())
-            {
+            while (!mapeoUsers.isEmpty()) {
 
-                filas[0] = ((String)mapeoUsers.get(0)).trim();
-                filas[1] = ((String)mapeoUsers.get(1)).trim();
-                filas[2] = ((String)mapeoUsers.get(3)).trim();
-                filas[3] = ((String)mapeoUsers.get(8)).trim();
-                filas[4] = ((String)mapeoUsers.get(9)).trim();
-                filas[5] = ((String)mapeoUsers.get(10)).trim();
+                filas[0] = ((String) mapeoUsers.get(0)).trim();
+                filas[1] = ((String) mapeoUsers.get(1)).trim();
+                filas[2] = ((String) mapeoUsers.get(3)).trim();
+                filas[3] = ((String) mapeoUsers.get(8)).trim();
+                filas[4] = ((String) mapeoUsers.get(9)).trim();
+                filas[5] = ((String) mapeoUsers.get(10)).trim();
 
-                for (int i = 0; i < 11; i++)
-                {
+                for (int i = 0; i < 11; i++) {
                     mapeoUsers.remove(0);
                 }
                 modelo.addRow(filas);
             }
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Error en el llenado de la tabla: " + e.toString());
         }
     }
@@ -381,34 +254,26 @@ public class vtnAdminMMed extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(vtnAdminMMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(vtnAdminMMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(vtnAdminMMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(vtnAdminMMed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -421,10 +286,8 @@ public class vtnAdminMMed extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 new vtnAdminMMed().setVisible(true);
             }
         });
@@ -433,7 +296,6 @@ public class vtnAdminMMed extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAll;
     private javax.swing.JButton jBAlta;
-    private javax.swing.JButton jBBaja;
     private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLTitulo1;
