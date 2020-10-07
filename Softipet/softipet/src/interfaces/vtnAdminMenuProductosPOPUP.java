@@ -21,15 +21,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author david
  */
-public class vtnAdminMenuBodega extends javax.swing.JFrame {
+public class vtnAdminMenuProductosPOPUP extends javax.swing.JFrame {
 
     int xy, xx;
     DefaultTableModel modelo = new DefaultTableModel();
+    ArrayList<Object> mapeoFiltro = null;
 
     /**
      * Creates new form vtnAdminAU
      */
-    public vtnAdminMenuBodega() {
+    public vtnAdminMenuProductosPOPUP() {
         initComponents();
     }
 
@@ -43,15 +44,16 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLMinimizar = new javax.swing.JLabel();
         jLCerrar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLTitulo1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTUsers = new javax.swing.JTable();
-        jBBaja = new javax.swing.JButton();
+        jLIDProducto = new javax.swing.JLabel();
+        jTFFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -74,23 +76,15 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/minimizar-icon.png"))); // NOI18N
-        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLMinimizarMouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, -1, 40));
-
-        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/regreso.png"))); // NOI18N
+        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-icon.png"))); // NOI18N
         jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLCerrarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, 30, 40));
+        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 30, 40));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 40));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 40));
 
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,7 +94,7 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLTitulo1.setText("Bodega:");
+        jLTitulo1.setText("Productos");
         jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jTUsers.setModel(new javax.swing.table.DefaultTableModel(
@@ -116,31 +110,28 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 930, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 550, 240));
 
-        jBBaja.setText("Recibir pedido");
-        jBBaja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBBajaActionPerformed(evt);
+        jLIDProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLIDProducto.setText("Filtrar por nombre:");
+        jPanel1.add(jLIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+
+        jTFFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFFiltroKeyReleased(evt);
             }
         });
-        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 160, -1));
+        jPanel1.add(jTFFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 160, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1000, 460));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 590, 340));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLMinimizarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMinimizarMouseClicked
-    {//GEN-HEADEREND:event_jLMinimizarMouseClicked
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_jLMinimizarMouseClicked
-
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
         this.dispose();
-        new vtnAdminMenu().setVisible(true);
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
@@ -159,7 +150,7 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
         CrearModelo();
-        llenaTabla();
+        llenaTabla(mapeoFiltro);
     }//GEN-LAST:event_formWindowOpened
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel1MouseClicked
@@ -167,21 +158,33 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         jTUsers.clearSelection();
     }//GEN-LAST:event_jPanel1MouseClicked
 
-    private void jBBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBajaActionPerformed
-        this.dispose();
-        new vtnAdminMenuBodegaA().setVisible(true);
-    }//GEN-LAST:event_jBBajaActionPerformed
+    private void jTFFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFFiltroKeyReleased
+        Querys q = new Querys();
+        mapeoFiltro = new ArrayList<Object>();
+
+        try {
+            mapeoFiltro = q.Seleccion(con, "*", "medicamentos",
+                    "Nombre_generico LIKE '%" + jTFFiltro.getText() + "%'", false);
+
+            int rowCount = modelo.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+            CrearModelo();
+            llenaTabla(mapeoFiltro);
+            mapeoFiltro.clear();
+            mapeoFiltro = null;
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTFFiltroKeyReleased
 
     private void CrearModelo() {
         try {
             modelo = (new DefaultTableModel(
                     null, new String[]{
-                        "ID Hitorial", "Empleado", "Medicamento", "Proveedor",
-                        "Catidad recibida", "Nombre Proveedor", "Fecha de entrega", "Hora de entrega"
+                        "Folio", "Nombre", "Descripción", "Precio Fabricante", "Precio Publico", "Existencia"
                     }) {
                 Class[] types = new Class[]{
-                    java.lang.Object.class,
-                    java.lang.Object.class,
                     java.lang.Object.class,
                     java.lang.Object.class,
                     java.lang.Object.class,
@@ -209,68 +212,61 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         }
     }
 
-    public void llenaTabla() {
-        ArrayList<Object> mapeoBod = new ArrayList<Object>();
-        ArrayList<Object> mapeoEmp = new ArrayList<Object>();
-        ArrayList<Object> mapeoMed = new ArrayList<Object>();
-        ArrayList<Object> mapeoProv = new ArrayList<Object>();
-
+    public void llenaTabla(ArrayList<Object> filtro) {
+        ArrayList<Object> mapeoUsers = new ArrayList<Object>();
+        ArrayList<Object> filtroFinal = filtro;
         Querys q = new Querys();
         modelo.setRowCount(0);
-        try {
-            mapeoBod = q.Seleccion(con, "*", "bodega", "", false);
 
-            Object[] filas = new Object[8];
+        if (filtroFinal == null) {
+            try {
+                mapeoUsers = q.Seleccion(con, "*", "medicamentos", "", false);
 
-            while (!mapeoBod.isEmpty()) {
+                Object[] filas = new Object[6];
 
-                filas[0] = ((String) mapeoBod.get(0)).trim();
+                while (!mapeoUsers.isEmpty()) {
 
-                try {
-                    mapeoEmp = q.Seleccion(con, "Nombre, Apellido_paterno, Apellido_materno", "usuarios",
-                            "Id_empleado='" + ((String) mapeoBod.get(1)).trim() + "'", false);
-                    filas[1] = ((String) mapeoEmp.get(0)).trim() + " "
-                            + ((String) mapeoEmp.get(1)).trim() + " "
-                            + ((String) mapeoEmp.get(2)).trim();
-                } catch (Exception e) {
-                    System.out.println("Error accediendo a empleados..." + e);
+                    filas[0] = ((String) mapeoUsers.get(0)).trim();
+                    filas[1] = ((String) mapeoUsers.get(1)).trim();
+                    filas[2] = ((String) mapeoUsers.get(3)).trim();
+                    filas[3] = ((String) mapeoUsers.get(8)).trim();
+                    filas[4] = ((String) mapeoUsers.get(9)).trim();
+                    filas[5] = ((String) mapeoUsers.get(10)).trim();
+
+                    for (int i = 0; i < 11; i++) {
+                        mapeoUsers.remove(0);
+                    }
+                    modelo.addRow(filas);
                 }
 
-                try {
-                    mapeoMed = q.Seleccion(con, "Nombre_generico, Id_proveedor", "medicamentos",
-                            "Id_medicamento='" + ((String) mapeoBod.get(2)).trim() + "'", false);
-                    filas[2] = ((String) mapeoMed.get(0)).trim();
-                } catch (Exception e) {
-                    System.out.println("Error accediendo a medicamnetos..." + e);
-                }
-
-                try {
-                    mapeoProv = q.Seleccion(con, "NombreProveedor", "proveedores",
-                            "Id_proveedor='" + ((String) mapeoMed.get(1)).trim() + "'", false);
-                    filas[3] = ((String) mapeoProv.get(0)).trim();
-                } catch (Exception e) {
-                    System.out.println("Error accediendo a proveedores..." + e);
-                }
-
-                filas[4] = ((String) mapeoBod.get(3)).trim();
-
-                filas[5] = ((String) mapeoBod.get(4)).trim() + " "
-                        + ((String) mapeoBod.get(5)).trim() + " "
-                        + ((String) mapeoBod.get(6)).trim();
-
-                filas[6] = ((String) mapeoBod.get(7)).trim();
-
-                filas[7] = ((String) mapeoBod.get(8)).trim();
-
-                for (int i = 0; i < 9; i++) {
-                    mapeoBod.remove(0);
-                }
-                modelo.addRow(filas);
+            } catch (Exception e) {
+                System.out.println("Error en el llenado de la tabla WINDOW OPENED: " + e.toString());
             }
+        } else {
+            try {
 
-        } catch (Exception e) {
-            System.out.println("Error en el llenado de la tabla: " + e.toString());
+                Object[] filas = new Object[6];
+
+                while (!filtroFinal.isEmpty()) {
+
+                    filas[0] = ((String) filtroFinal.get(0)).trim();
+                    filas[1] = ((String) filtroFinal.get(1)).trim();
+                    filas[2] = ((String) filtroFinal.get(3)).trim();
+                    filas[3] = ((String) filtroFinal.get(8)).trim();
+                    filas[4] = ((String) filtroFinal.get(9)).trim();
+                    filas[5] = ((String) filtroFinal.get(10)).trim();
+
+                    for (int i = 0; i < 11; i++) {
+                        filtroFinal.remove(0);
+                    }
+                    modelo.addRow(filas);
+                }
+
+            } catch (Exception e) {
+                System.out.println("Error en el llenado de la tabla: " + e.toString());
+            }
         }
+
     }
 
     /**
@@ -290,50 +286,14 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vtnAdminMenuBodega.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vtnAdminMenuProductosPOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vtnAdminMenuBodega.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vtnAdminMenuProductosPOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vtnAdminMenuBodega.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vtnAdminMenuProductosPOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vtnAdminMenuBodega.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vtnAdminMenuProductosPOPUP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -370,19 +330,19 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vtnAdminMenuBodega().setVisible(true);
+                new vtnAdminMenuProductosPOPUP().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBBaja;
     private javax.swing.JLabel jLCerrar;
-    private javax.swing.JLabel jLMinimizar;
+    private javax.swing.JLabel jLIDProducto;
     private javax.swing.JLabel jLTitulo1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTFFiltro;
     private javax.swing.JTable jTUsers;
     // End of variables declaration//GEN-END:variables
 }
