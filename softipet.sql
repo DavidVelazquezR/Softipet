@@ -38,7 +38,7 @@ CREATE TABLE PROVEEDORES(
 );
 
 CREATE TABLE MEDICAMENTOS(
-	Id_medicamento INT,
+	Id_medicamento INT(10) AUTO_INCREMENT,
 	Nombre_generico VARCHAR(60) NOT NULL,
 	Nombre_comercial VARCHAR(60) NOT NULL,
 	Descripcion VARCHAR(50) NOT NULL,
@@ -51,6 +51,21 @@ CREATE TABLE MEDICAMENTOS(
 	Existencia INT(10) NOT NULL,
 	PRIMARY KEY(Id_medicamento),
 	FOREIGN KEY(Id_proveedor) REFERENCES PROVEEDORES(Id_proveedor)
+);
+
+CREATE TABLE BODEGA(
+	Id_historial INT(10) AUTO_INCREMENT,
+	Id_empleado INT(10) NOT NULL,
+	Id_medicamento INT(10) NOT NULL,
+	Cantidad INT(10) NOT NULL,
+	Nombre_trabajador VARCHAR(30) NOT NULL,
+	AP_trabajador VARCHAR(30) NOT NULL,
+	AM_trabajador VARCHAR(30) NOT NULL,
+	Fecha_entrega DATE,
+	Hora_entrega TIME,
+	PRIMARY KEY(Id_historial),
+	FOREIGN KEY(Id_medicamento) REFERENCES MEDICAMENTOS(Id_medicamento),
+	FOREIGN KEY(Id_empleado) REFERENCES USUARIOS(Id_empleado)
 );
 
 CREATE TABLE RECETA(
@@ -100,7 +115,7 @@ INSERT INTO MEDICAMENTOS VALUES(
 	"AE-35",
 	20.0,
 	30.0,
-	100
+	50
 );
 
 INSERT INTO MEDICAMENTOS VALUES(
@@ -114,5 +129,29 @@ INSERT INTO MEDICAMENTOS VALUES(
 	"AE-36",
 	45.00,
 	60.00,
-	100
+	50
+);
+
+INSERT INTO BODEGA VALUES(
+	1,
+	1,
+	1,
+	50,
+	"Roberto",
+	"Cruz",
+	"Perez",
+	"2023-01-12",
+	"12:05:06"
+);
+
+INSERT INTO BODEGA VALUES(
+	2,
+	1,
+	2,
+	50,
+	"Roberto",
+	"Cruz",
+	"Perez",
+	"2023-01-12",
+	"12:15:06"
 );

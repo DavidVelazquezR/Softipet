@@ -285,19 +285,19 @@ public class vtnLogin extends javax.swing.JFrame
                 if (consulta1.get(11).equals("1"))
                 {
                     Sesion.datosUsuario = consulta1;
-                    new vtnMainAdmin().setVisible(true);
+                    new vtnAdminMenu().setVisible(true);
                     this.dispose();
                 }
                 if (consulta1.get(11).equals("2"))
                 {
                     Sesion.datosUsuario = consulta1;
-                    new vtnMainMedico().setVisible(true);
+                    new vtnMedicoMenu().setVisible(true);
                     this.dispose();
                 }
                 if (consulta1.get(11).equals("3"))
                 {
                     Sesion.datosUsuario = consulta1;
-                    new vtnMainEmpleado().setVisible(true);
+                    new vtnEmpleadoMenu().setVisible(true);
                     this.dispose();
                 }
             } else
