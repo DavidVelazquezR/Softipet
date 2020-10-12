@@ -262,7 +262,7 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
 
     private void jTFNombreKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreKeyTyped
     {//GEN-HEADEREND:event_jTFNombreKeyTyped
-        Validaciones.validaAlfabeticos(evt);
+        Validaciones.validaAlfanumerico(evt);
         if (jTFNombre.getText().length() == 30) {
             evt.consume();
         }

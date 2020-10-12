@@ -306,7 +306,8 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         ArrayList<Object> mapeoProductosF = new ArrayList<Object>();
 
         try {
-            mapeoProductos = q.Seleccion(con, "Id_medicamento, Nombre_generico", "medicamentos", "", false);
+            mapeoProductos = q.Seleccion(con, "Id_medicamento, Nombre_generico", "medicamentos",
+                    "Caducidad >= CURDATE()", false);
             int constant = mapeoProductos.size() / 2;
             int id;
             for (int i = 0; i < constant; i++) {

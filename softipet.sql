@@ -69,7 +69,7 @@ CREATE TABLE BODEGA(
 );
 
 CREATE TABLE RECETA(
-	Folio INT AUTO_INCREMENT,
+	Folio INT(10) AUTO_INCREMENT,
 	Id_medico INT(10) NOT NULL,
 	Nombre_medico VARCHAR(60) NOT NULL,
 	Cedula VARCHAR(120) NOT NULL,
@@ -79,6 +79,16 @@ CREATE TABLE RECETA(
 	Medicacion TEXT NOT NULL,
 	PRIMARY KEY (Folio),
 	FOREIGN KEY (Id_medico) REFERENCES MEDICOS(Id_medico)
+);
+
+CREATE TABLE PERDIDAS(
+	Id_perdida INT(10) AUTO_INCREMENT,
+	Id_medicamento INT(10),
+	Cantidad INT(10),
+	Total FLOAT,
+	FechaRetiro DATE,
+	PRIMARY KEY (Id_perdida),
+	FOREIGN KEY (Id_medicamento) REFERENCES MEDICAMENTOS (Id_medicamento)
 );
 
 INSERT INTO USUARIOS VALUES(
@@ -110,7 +120,7 @@ INSERT INTO MEDICAMENTOS VALUES(
 	"Acertar",
 	"6 Tabletas Oral Caja",
 	"Farmacon",
-	"2022-12-12",
+	"2020-10-12",
 	1,
 	"AE-35",
 	20.0,
@@ -124,7 +134,7 @@ INSERT INTO MEDICAMENTOS VALUES(
 	"Arapride",
 	"Tableta 12mg Oral Caja",
 	"AstraZeneca",
-	"2023-12-20",
+	"2020-11-20",
 	1,
 	"AE-36",
 	45.00,
@@ -140,7 +150,7 @@ INSERT INTO BODEGA VALUES(
 	"Roberto",
 	"Cruz",
 	"Perez",
-	"2023-01-12",
+	"2020-10-10",
 	"12:05:06"
 );
 
@@ -152,6 +162,6 @@ INSERT INTO BODEGA VALUES(
 	"Roberto",
 	"Cruz",
 	"Perez",
-	"2023-01-12",
+	"2020-10-10",
 	"12:15:06"
 );
