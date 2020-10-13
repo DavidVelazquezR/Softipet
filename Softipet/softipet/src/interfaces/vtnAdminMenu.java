@@ -7,6 +7,7 @@ package interfaces;
 
 import bd.Querys;
 import bd.Sesion;
+import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -415,7 +416,9 @@ public class vtnAdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLMU10MouseClicked
 
     private void jLNotifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLNotifyMouseClicked
-        if (!jLNotify.getIcon().equals(a1)) {
+        if (jLNotify.getIcon().equals(a1)) {
+            Mensaje.error(this, "No hay notificaciones");
+        } else if (jLNotify.getIcon().equals(a3)) {
             this.dispose();
             new vtnAdminMenuBodegaNotify().setVisible(true);
         }
@@ -423,7 +426,8 @@ public class vtnAdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLNotifyMouseClicked
 
     private void jLMU11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMU11MouseClicked
-
+        this.dispose();
+        new vtnAdminMenuVentas().setVisible(true);
     }//GEN-LAST:event_jLMU11MouseClicked
 
     /**

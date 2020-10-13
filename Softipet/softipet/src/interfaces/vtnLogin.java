@@ -9,17 +9,17 @@ import java.awt.Color;
 import cjb.ci.*;
 import java.util.ArrayList;
 import bd.*;
+import static java.lang.System.exit;
 import java.sql.Connection;
 
 /**
  *
  * @author david
  */
-public class vtnLogin extends javax.swing.JFrame
-{
-    
+public class vtnLogin extends javax.swing.JFrame {
+
     int xy, xx;
-    static  Connection con = null;
+    static Connection con = null;
     public static boolean flag;
     public ArrayList<Object> consulta1 = new ArrayList<Object>();
     Querys q;
@@ -27,8 +27,7 @@ public class vtnLogin extends javax.swing.JFrame
     /**
      * Creates new form vtnLogin
      */
-    public vtnLogin()
-    {
+    public vtnLogin() {
         initComponents();
         jPOverlay.setBackground(new Color(0, 50, 100, 100));//Hace el panel transparente
     }
@@ -201,6 +200,7 @@ public class vtnLogin extends javax.swing.JFrame
 
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCerrarMouseClicked
         this.dispose();
+        exit(0);
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jLMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMinimizarMouseClicked
@@ -228,12 +228,10 @@ public class vtnLogin extends javax.swing.JFrame
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
         con = ConectarBase.conectaBD();
-        
-        if (flag)
-        {
+
+        if (flag) {
             System.out.println("Se conecto correctamente a la BD");
-        } else
-        {
+        } else {
             Mensaje.error(this, "Error con la conexion a la BD, verifica tu conexion.");
             this.dispose();
         }
@@ -241,7 +239,7 @@ public class vtnLogin extends javax.swing.JFrame
 
     private void jTFCorreoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyTyped
     {//GEN-HEADEREND:event_jTFCorreoKeyTyped
-        
+
     }//GEN-LAST:event_jTFCorreoKeyTyped
 
     private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyPressed
@@ -262,46 +260,37 @@ public class vtnLogin extends javax.swing.JFrame
     private void jBIniciarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBIniciarActionPerformed
     {//GEN-HEADEREND:event_jBIniciarActionPerformed
         q = new Querys();
-        try
-        {
+        try {
             consulta1 = q.Seleccion(con, "*", "usuarios", "Email='" + jTFCorreo.getText() + "'", true);
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Error: exception ->" + e);
         }
-        
-        if (consulta1.isEmpty())
-        {
+
+        if (consulta1.isEmpty()) {
             Mensaje.error(this, "El correo ingresado no existe\nCapture un correo valido");
             jBLimpiarActionPerformed(null);
             CtrlInterfaz.selecciona(jTFCorreo);
-        }else
-        {   
-            if (consulta1.get(6).equals(jPFContra.getText()))
-            {
+        } else {
+            if (consulta1.get(6).equals(jPFContra.getText())) {
                 System.out.println("Password correcto");
-                
-                if (consulta1.get(11).equals("1"))
-                {
+
+                if (consulta1.get(11).equals("1")) {
                     Sesion.datosUsuario = consulta1;
                     new vtnAdminMenu().setVisible(true);
                     this.dispose();
                 }
-                if (consulta1.get(11).equals("2"))
-                {
+                if (consulta1.get(11).equals("2")) {
                     Sesion.datosUsuario = consulta1;
                     new vtnMedicoMenu().setVisible(true);
                     this.dispose();
                 }
-                if (consulta1.get(11).equals("3"))
-                {
+                if (consulta1.get(11).equals("3")) {
                     Sesion.datosUsuario = consulta1;
                     new vtnEmpleadoMenu().setVisible(true);
                     this.dispose();
                 }
-            } else
-            {
+            } else {
                 Mensaje.error(this, "La contraseña ingresada es erronea\nCapture una contraseña valida");
                 CtrlInterfaz.selecciona(jPFContra);
                 CtrlInterfaz.limpia(jPFContra);
@@ -322,8 +311,7 @@ public class vtnLogin extends javax.swing.JFrame
 
     private void jBIniciarKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jBIniciarKeyPressed
     {//GEN-HEADEREND:event_jBIniciarKeyPressed
-        if (evt.getKeyChar() == '\n')
-        {
+        if (evt.getKeyChar() == '\n') {
             jBIniciarActionPerformed(null);
         }
     }//GEN-LAST:event_jBIniciarKeyPressed
@@ -331,43 +319,33 @@ public class vtnLogin extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Windows".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 new vtnLogin().setVisible(true);
             }
         });

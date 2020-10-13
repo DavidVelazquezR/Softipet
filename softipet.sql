@@ -91,6 +91,24 @@ CREATE TABLE PERDIDAS(
 	FOREIGN KEY (Id_medicamento) REFERENCES MEDICAMENTOS (Id_medicamento)
 );
 
+CREATE TABLE VENTAPRODUCTO(
+	Id_ventaP INT(10) AUTO_INCREMENT,
+	Id_medicamento INT(10),
+	Cantidad INT(10),
+	Total FLOAT,
+	FechaVenta DATE,
+	HoraVenta TIME,
+	PRIMARY KEY (Id_ventaP),
+	FOREIGN KEY (Id_medicamento) REFERENCES MEDICAMENTOS(Id_medicamento)
+);
+
+CREATE TABLE VENTATOTAL(
+	Id_ventaT INT(10) AUTO_INCREMENT,
+	IDSVentas VARCHAR(500),
+	Total FLOAT,
+	PRIMARY KEY (Id_ventaT)
+);
+
 INSERT INTO USUARIOS VALUES(
 	1,
 	"ADMIN",
