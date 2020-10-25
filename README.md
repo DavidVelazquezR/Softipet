@@ -8,4 +8,5 @@ Sistema escrito en **Java** para una veterinaria que contiene:
 3. Control de proveedores y bodega
 4. Control de ventas
 5. Control de recetas
+6. Notifcaciones
 
