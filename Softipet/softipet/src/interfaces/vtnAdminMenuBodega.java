@@ -25,12 +25,18 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
 
     int xy, xx;
     DefaultTableModel modelo = new DefaultTableModel();
+    int rol;
 
     /**
      * Creates new form vtnAdminAU
      */
-    public vtnAdminMenuBodega() {
+    public vtnAdminMenuBodega(int x) {
         initComponents();
+        rol = x;
+    }
+
+    vtnAdminMenuBodega() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -139,8 +145,14 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
 
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
-        this.dispose();
-        new vtnAdminMenu().setVisible(true);
+        if (Integer.parseInt((String) Sesion.datosUsuario.get(11)) == 1) {
+            this.dispose();
+            new vtnAdminMenu().setVisible(true);
+        } else {
+            this.dispose();
+            new vtnEmpleadoMenu().setVisible(true);
+        }
+
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged

@@ -86,6 +86,11 @@ public class vtnAdminMenuProductosPOPUP extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 40));
 
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel1MouseMoved(evt);
+            }
+        });
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -178,6 +183,11 @@ public class vtnAdminMenuProductosPOPUP extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jTFFiltroKeyReleased
+
+    private void jPanel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
+        CrearModelo();
+        llenaTabla(mapeoFiltro);
+    }//GEN-LAST:event_jPanel1MouseMoved
 
     private void CrearModelo() {
         try {

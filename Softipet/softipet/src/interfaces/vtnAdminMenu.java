@@ -209,10 +209,10 @@ public class vtnAdminMenu extends javax.swing.JFrame {
                 jLMU10MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 80, 80));
+        jPanel1.add(jLMU10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 80, 80));
 
         jLManageBod.setText("Adminitrar bodega");
-        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 110, 20));
+        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 110, 20));
 
         jLNotify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/notificacion1.png"))); // NOI18N
         jLNotify.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -228,10 +228,10 @@ public class vtnAdminMenu extends javax.swing.JFrame {
                 jLMU11MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 80, 80));
+        jPanel1.add(jLMU11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 80, 80));
 
         jLManageBod1.setText("Ventas");
-        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 70, 20));
+        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 70, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -412,7 +412,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
 
     private void jLMU10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMU10MouseClicked
         this.dispose();
-        new vtnAdminMenuBodega().setVisible(true);
+        new vtnAdminMenuBodega(Integer.parseInt((String) Sesion.datosUsuario.get(11))).setVisible(true);
     }//GEN-LAST:event_jLMU10MouseClicked
 
     private void jLNotifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLNotifyMouseClicked
@@ -420,14 +420,14 @@ public class vtnAdminMenu extends javax.swing.JFrame {
             Mensaje.error(this, "No hay notificaciones");
         } else if (jLNotify.getIcon().equals(a3)) {
             this.dispose();
-            new vtnAdminMenuBodegaNotify().setVisible(true);
+            new vtnAdminMenuBodegaNotify(Integer.parseInt((String) Sesion.datosUsuario.get(11))).setVisible(true);
         }
 
     }//GEN-LAST:event_jLNotifyMouseClicked
 
     private void jLMU11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMU11MouseClicked
         this.dispose();
-        new vtnAdminMenuVentas().setVisible(true);
+        new vtnAdminMenuVentas(Integer.parseInt((String) Sesion.datosUsuario.get(11))).setVisible(true);
     }//GEN-LAST:event_jLMU11MouseClicked
 
     /**

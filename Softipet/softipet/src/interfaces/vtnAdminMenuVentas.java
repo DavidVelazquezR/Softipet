@@ -38,13 +38,19 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
     TextAutoCompleter ac;
     float Total = 0;
     ArrayList<Object> listaVenta = new ArrayList<Object>();
+    int rol;
 
     /**
      * Creates new form vtnAdminMenuUsuariosA
      */
-    public vtnAdminMenuVentas() {
+    public vtnAdminMenuVentas(int x) {
         initComponents();
         ac = new TextAutoCompleter(jTFProducto);
+        rol = x;
+    }
+
+    vtnAdminMenuVentas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -257,8 +263,13 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
 
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
-        this.dispose();
-        new vtnAdminMenu().setVisible(true);
+        if (Integer.parseInt((String) Sesion.datosUsuario.get(11)) == 1) {
+            this.dispose();
+            new vtnAdminMenu().setVisible(true);
+        } else {
+            this.dispose();
+            new vtnEmpleadoMenu().setVisible(true);
+        }
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
@@ -478,6 +489,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                     if (mapVP.get(0).equals("null")) {
                         values1 = "'" + 1 + "',"
                                 + "'" + (String) jTVentas.getValueAt(i, 0) + "',"
+                                + "'" + Sesion.datosUsuario.get(0) + "',"
                                 + "'" + (String) jTVentas.getValueAt(i, 3) + "',"
                                 + "'" + (String) jTVentas.getValueAt(i, 5) + "',"
                                 + "'" + f1.format(fechaActual) + "',"
@@ -516,6 +528,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                         int idFinal1 = Integer.parseInt((String) mapVP.get(0)) + 1;
                         values1 = "'" + idFinal1 + "',"
                                 + "'" + (String) jTVentas.getValueAt(i, 0) + "',"
+                                + "'" + Sesion.datosUsuario.get(0) + "',"
                                 + "'" + (String) jTVentas.getValueAt(i, 3) + "',"
                                 + "'" + (String) jTVentas.getValueAt(i, 5) + "',"
                                 + "'" + f1.format(fechaActual) + "',"
@@ -558,6 +571,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
 
                 if (mapVT.get(0).equals("null")) {
                     values2 = "'" + 1 + "',"
+                            + "'" + Sesion.datosUsuario.get(0) + "',"
                             + "'" + idsVentaT + "',"
                             + "'" + Total + "'";
                     try {
@@ -569,6 +583,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                 } else {
                     int idFinal2 = Integer.parseInt((String) mapVT.get(0)) + 1;
                     values2 = "'" + idFinal2 + "',"
+                            + "'" + Sesion.datosUsuario.get(0) + "',"
                             + "'" + idsVentaT + "',"
                             + "'" + Total + "'";
 

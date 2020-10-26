@@ -5,6 +5,15 @@
  */
 package interfaces;
 
+import bd.Querys;
+import bd.Sesion;
+import static interfaces.vtnLogin.con;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author david
@@ -12,7 +21,7 @@ package interfaces;
 public class vtnMedicoMenu extends javax.swing.JFrame {
 
     int xy, xx;
-    
+
     /**
      * Creates new form vtnMainMedico
      */
@@ -32,9 +41,19 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLMinimizar = new javax.swing.JLabel();
         jLCerrar = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLTitulo = new javax.swing.JLabel();
+        jLUser = new javax.swing.JLabel();
+        jLManageBod2 = new javax.swing.JLabel();
+        jLMU12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -59,7 +78,7 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
         });
         jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 40));
 
-        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-icon.png"))); // NOI18N
+        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-sesion.png"))); // NOI18N
         jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLCerrarMouseClicked(evt);
@@ -69,6 +88,29 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLTitulo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo.setText("Bienvenido:");
+        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLUser.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 230, 20));
+
+        jLManageBod2.setText("Recetas");
+        jPanel1.add(jLManageBod2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 70, 20));
+
+        jLMU12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/libro-de-recetas.png"))); // NOI18N
+        jLMU12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLMU12MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLMU12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 80, 80));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -77,11 +119,6 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jLMinimizarMouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jLMinimizarMouseClicked
-
-    private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
-    {//GEN-HEADEREND:event_jLCerrarMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
     {//GEN-HEADEREND:event_jPanel3MouseDragged
@@ -96,6 +133,109 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
         xy = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
+    private void jLMU12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMU12MouseClicked
+        this.dispose();
+        new vtnAdminMenuRecetas().setVisible(true);
+    }//GEN-LAST:event_jLMU12MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        //Genera las perdidas correspondientes
+        Querys q = new Querys();
+        ArrayList<Object> mapeoProduct = new ArrayList<Object>();
+        ArrayList<Object> mapeoPerdidas = new ArrayList<Object>();
+
+        try {
+            mapeoProduct = q.Seleccion(con,
+                    "Id_medicamento, Caducidad, Existencia, Precio_fabricante", "medicamentos", "", false);
+        } catch (Exception e) {
+            System.out.println("Error al seleccionar los medicamentos..." + e);
+        }
+        String fechaCad;
+        String idMedicamento;
+        String existencia;
+        String precio;
+        String values = null;
+        DateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaC = new Date();
+        Date fechaActual = new Date();
+        String fechaF = f.format(fechaActual);
+
+        for (int i = 0; i < mapeoProduct.size(); i++) {
+            idMedicamento = ((String) mapeoProduct.get(0)).trim();
+            fechaCad = ((String) mapeoProduct.get(1)).trim();
+            existencia = ((String) mapeoProduct.get(2)).trim();
+            precio = ((String) mapeoProduct.get(3)).trim();
+
+            float costoTotal = Float.parseFloat(precio) * Float.parseFloat(existencia);
+            try {
+                fechaC = f.parse(fechaCad);
+            } catch (ParseException ex) {
+                System.out.println("Error al tranformar string a date..." + ex);
+            }
+            if (fechaC.before(fechaActual) && Integer.parseInt(existencia) >= 1) {
+                try {
+                    q.Modificar(con, "medicamentos", "Existencia", "0", "Id_medicamento = " + idMedicamento);
+                } catch (Exception e) {
+                    System.out.println("Error en el modifica en medicamnetos..." + e);
+                }
+                try {
+                    mapeoPerdidas = q.Seleccion(con, "MAX(Id_perdida)", "perdidas", "", false);
+                } catch (Exception e) {
+                    System.out.println("Error en la seleccion de perdidas..." + e);
+                }
+
+                if (mapeoPerdidas.get(0).equals("null")) {
+                    values = "'" + 1 + "',"
+                            + "'" + idMedicamento + "',"
+                            + "'" + existencia + "',"
+                            + "'" + costoTotal + "',"
+                            + "'" + fechaF + "'";
+                } else {
+                    values = "'" + ((String) mapeoPerdidas.get(0)).trim() + "',"
+                            + "'" + idMedicamento + "',"
+                            + "'" + existencia + "',"
+                            + "'" + costoTotal + "',"
+                            + "'" + fechaF + "'";
+                }
+                try {
+                    q.Insertar(con, "perdidas", values);
+                } catch (Exception e) {
+                    System.out.println("Error al insertar en perdidas..." + e);
+                }
+                System.out.println("Se quitaron los stocks caducados");
+            }
+            mapeoProduct.remove(0);
+            mapeoProduct.remove(0);
+            mapeoProduct.remove(0);
+            mapeoProduct.remove(0);
+        }
+
+        //Verifica si hay notificaciones
+        ArrayList<Object> mapeoProducto = new ArrayList<Object>();
+
+        try {
+            mapeoProducto = q.Seleccion(con, "Caducidad, Existencia", "medicamentos", "Existencia <= '20' OR "
+                    + "Caducidad < DATE_ADD(NOW(),INTERVAL 2 MONTH)", false);
+        } catch (Exception e) {
+            System.out.println("Error al consultar medicamnetos..." + e);
+        }
+
+        if (mapeoProducto.get(0).equals("null")
+                || mapeoProducto.get(0).equals("")
+                || mapeoProducto.get(0).equals(" ")) {
+
+        } else {
+
+        }
+        jLUser.setText((String) Sesion.datosUsuario.get(1));
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCerrarMouseClicked
+        this.dispose();
+        new vtnLogin().setVisible(true);
+        Sesion.datosUsuario.clear();
+    }//GEN-LAST:event_jLCerrarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -103,7 +243,7 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -134,7 +274,12 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLCerrar;
+    private javax.swing.JLabel jLMU12;
+    private javax.swing.JLabel jLManageBod2;
     private javax.swing.JLabel jLMinimizar;
+    private javax.swing.JLabel jLTitulo;
+    private javax.swing.JLabel jLUser;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

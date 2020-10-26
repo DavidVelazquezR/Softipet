@@ -69,16 +69,15 @@ CREATE TABLE BODEGA(
 );
 
 CREATE TABLE RECETA(
-	Folio INT(10) AUTO_INCREMENT,
-	Id_medico INT(10) NOT NULL,
-	Nombre_medico VARCHAR(60) NOT NULL,
-	Cedula VARCHAR(120) NOT NULL,
+	Id_receta INT(10) AUTO_INCREMENT,
+	Folio INT(10) NOT NULL,
 	Fecha_consulta DATE,
-	Paciente VARCHAR(60) NOT NULL,
-	Padecimiento TEXT NOT NULL,
+	SujetoConsulta VARCHAR(30) NOT NULL,
+	Raza VARCHAR(20) NOT NULL,
+	Diagnostico TEXT NOT NULL,
 	Medicacion TEXT NOT NULL,
-	PRIMARY KEY (Folio),
-	FOREIGN KEY (Id_medico) REFERENCES MEDICOS(Id_medico)
+	PRIMARY KEY (Id_receta),
+	FOREIGN KEY (Folio) REFERENCES MEDICOS(Folio)
 );
 
 CREATE TABLE PERDIDAS(
@@ -94,19 +93,23 @@ CREATE TABLE PERDIDAS(
 CREATE TABLE VENTAPRODUCTO(
 	Id_ventaP INT(10) AUTO_INCREMENT,
 	Id_medicamento INT(10),
+	Id_empleado INT(10),
 	Cantidad INT(10),
 	Total FLOAT,
 	FechaVenta DATE,
 	HoraVenta TIME,
 	PRIMARY KEY (Id_ventaP),
-	FOREIGN KEY (Id_medicamento) REFERENCES MEDICAMENTOS(Id_medicamento)
+	FOREIGN KEY (Id_medicamento) REFERENCES MEDICAMENTOS(Id_medicamento),
+	FOREIGN KEY (Id_empleado) REFERENCES USUARIOS(Id_empleado)
 );
 
 CREATE TABLE VENTATOTAL(
 	Id_ventaT INT(10) AUTO_INCREMENT,
+	Id_empleado INT(10),
 	IDSVentas VARCHAR(500),
 	Total FLOAT,
-	PRIMARY KEY (Id_ventaT)
+	PRIMARY KEY (Id_ventaT),
+	FOREIGN KEY (Id_empleado) REFERENCES USUARIOS(Id_empleado)
 );
 
 INSERT INTO USUARIOS VALUES(
@@ -122,6 +125,51 @@ INSERT INTO USUARIOS VALUES(
 	"2020-01-01",
 	"Unknown",
 	1
+);
+
+INSERT INTO USUARIOS VALUES(
+	2,
+	"David",
+	"Velazquez",
+	"Ramirez",
+	"5584926449",
+	"dv@gmail.com",
+	"00000000",
+	"VERD991031HMCLMV08",
+	"Masculino",
+	"1999-10-31",
+	"StreetView 40",
+	1
+);
+
+INSERT INTO USUARIOS VALUES(
+	3,
+	"Sam",
+	"Cruz",
+	"Lopez",
+	"5584926449",
+	"sam@gmail.com",
+	"00000000",
+	"123456789012345670",
+	"Femenino",
+	"1999-09-05",
+	"StreetView 80",
+	2
+);
+
+INSERT INTO USUARIOS VALUES(
+	4,
+	"Juan",
+	"Rodriguez",
+	"Hernandez",
+	"7894568524",
+	"juan@gmail.com",
+	"00000000",
+	"123456789012342690",
+	"Masculino",
+	"1999-04-20",
+	"StreetView 10",
+	3
 );
 
 INSERT INTO PROVEEDORES VALUES(
@@ -182,4 +230,11 @@ INSERT INTO BODEGA VALUES(
 	"Perez",
 	"2020-10-10",
 	"12:15:06"
+);
+
+INSERT INTO MEDICOS VALUES(
+	1,
+	1,
+	"CEDULA11",
+	"UAEMEX"
 );

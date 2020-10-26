@@ -283,7 +283,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
         this.dispose();
-        new vtnAdminMenuBodega().setVisible(true);
+        new vtnAdminMenuBodega(Integer.parseInt((String) Sesion.datosUsuario.get(11))).setVisible(true);
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
@@ -334,6 +334,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jBAltaActionPerformed
         Querys q = new Querys();
         ArrayList<Object> mapBodega = new ArrayList<Object>();
+        ArrayList<Object> existencia = new ArrayList<Object>();
 
         if (jLIDProducto.getForeground().getRGB() == Color.GREEN.getRGB()
                 && jLIDProveedor.getForeground().getRGB() == Color.GREEN.getRGB()
@@ -362,6 +363,14 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
             String part1 = parts[0];
             String part2 = parts[1];
 
+            try {
+                existencia = q.Seleccion(con, "Existencia", "medicamentos",
+                        "Id_medicamento = " + part2, false);
+            } catch (Exception e) {
+                System.out.println("Error al consultar existencia dle producto a actualizar..." + e);
+            }
+            int existenciaFinal = Integer.parseInt((String) existencia.get(0)) + Integer.parseInt((String) jTFCantidad.getText());
+
             String values = "'" + idFinal + "',"
                     + "'" + Sesion.datosUsuario.get(0) + "',"
                     + "'" + part2 + "',"
@@ -372,7 +381,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                     + "'" + fechaF + "',"
                     + "'" + horaF + "'";
             String campos = "Existencia";
-            String values2 = "'" + jTFCantidad.getText() + "'";
+            String values2 = "'" + existenciaFinal + "'";
 
             if (Mensaje.pregunta(this, "¿Estas seguro que deseas recibir el pedido en bodega?") == JOptionPane.YES_OPTION) {
                 try {
@@ -383,6 +392,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                 }
 
                 try {
+
                     q.Modificar(con, "medicamentos", campos, values2,
                             "Id_medicamento=" + part2);
 

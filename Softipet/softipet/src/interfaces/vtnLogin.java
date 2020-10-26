@@ -9,8 +9,10 @@ import java.awt.Color;
 import cjb.ci.*;
 import java.util.ArrayList;
 import bd.*;
+import java.awt.Font;
 import static java.lang.System.exit;
 import java.sql.Connection;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -39,17 +41,18 @@ public class vtnLogin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLCorreo = new javax.swing.JLabel();
-        jLContrasena = new javax.swing.JLabel();
         jLLogin = new javax.swing.JLabel();
-        jPFContra = new javax.swing.JPasswordField();
-        jTFCorreo = new javax.swing.JTextField();
         jBIniciar = new javax.swing.JButton();
-        jBLimpiar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPContra = new javax.swing.JPanel();
+        jPFContra = new javax.swing.JPasswordField();
+        jLContrasena = new javax.swing.JLabel();
+        jPCorreo = new javax.swing.JPanel();
+        jTFCorreo = new javax.swing.JTextField();
+        jLCorreo = new javax.swing.JLabel();
         jPOverlay = new javax.swing.JPanel();
         jLBackground = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -58,92 +61,103 @@ public class vtnLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosed(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
-            public void windowOpened(java.awt.event.WindowEvent evt)
-            {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(100, 162, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLCorreo.setText("Correo:");
-        jPanel2.add(jLCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+        jLLogin.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLLogin.setText("Ingresar ");
+        jPanel2.add(jLLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 80, -1));
 
-        jLContrasena.setText("Contraseña:");
-        jPanel2.add(jLContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
-
-        jLLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLLogin.setText("Login");
-        jPanel2.add(jLLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
-        jPFContra.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                jPFContraKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                jPFContraKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jPFContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 190, -1));
-
-        jTFCorreo.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                jTFCorreoKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                jTFCorreoKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTFCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 190, -1));
-
-        jBIniciar.setText("Iniciar sesion");
-        jBIniciar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBIniciar.setBackground(new java.awt.Color(102, 204, 255));
+        jBIniciar.setText("---->");
+        jBIniciar.setBorder(null);
+        jBIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBIniciarActionPerformed(evt);
             }
         });
-        jBIniciar.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        jBIniciar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 jBIniciarKeyPressed(evt);
             }
         });
-        jPanel2.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 100, -1));
+        jPanel2.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 100, 20));
 
-        jBLimpiar.setText("Limpiar");
-        jBLimpiar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jBLimpiarActionPerformed(evt);
+        jLabel1.setText("Beta Version 1.1");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
+
+        jPContra.setBackground(new java.awt.Color(255, 255, 255));
+        jPContra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPContra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPFContra.setBorder(null);
+        jPFContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPFContraKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPFContraKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPFContraKeyTyped(evt);
             }
         });
-        jPanel2.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 100, -1));
+        jPContra.add(jPFContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 150, 20));
+
+        jLContrasena.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLContrasena.setText("Contraseña:");
+        jPContra.add(jLContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel2.add(jPContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 210, 50));
+
+        jPCorreo.setBackground(new java.awt.Color(255, 255, 255));
+        jPCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPCorreo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTFCorreo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTFCorreo.setAlignmentX(2.0F);
+        jTFCorreo.setAlignmentY(2.0F);
+        jTFCorreo.setBorder(null);
+        jTFCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCorreoActionPerformed(evt);
+            }
+        });
+        jTFCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFCorreoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFCorreoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFCorreoKeyTyped(evt);
+            }
+        });
+        jPCorreo.add(jTFCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 150, 20));
+
+        jLCorreo.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLCorreo.setText("Correo:");
+        jPCorreo.add(jLCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel2.add(jPCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 210, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 380, 400));
 
         jPOverlay.setPreferredSize(new java.awt.Dimension(350, 400));
-        jPOverlay.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseDragged(java.awt.event.MouseEvent evt)
-            {
+        jPOverlay.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPOverlayMouseDragged(evt);
             }
         });
@@ -156,37 +170,29 @@ public class vtnLogin extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(0, 35));
-        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseDragged(java.awt.event.MouseEvent evt)
-            {
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
             }
         });
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPanel3MousePressed(evt);
             }
         });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/minimizar-icon.png"))); // NOI18N
-        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMinimizarMouseClicked(evt);
             }
         });
         jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 0, -1, 40));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-icon.png"))); // NOI18N
-        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLCerrarMouseClicked(evt);
             }
         });
@@ -237,16 +243,6 @@ public class vtnLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void jTFCorreoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyTyped
-    {//GEN-HEADEREND:event_jTFCorreoKeyTyped
-
-    }//GEN-LAST:event_jTFCorreoKeyTyped
-
-    private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyPressed
-    {//GEN-HEADEREND:event_jTFCorreoKeyPressed
-        Validaciones.enter(this, evt, jPFContra);
-    }//GEN-LAST:event_jTFCorreoKeyPressed
-
     private void jPFContraKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContraKeyTyped
     {//GEN-HEADEREND:event_jPFContraKeyTyped
         Validaciones.validaAlfanumerico(evt);
@@ -254,7 +250,7 @@ public class vtnLogin extends javax.swing.JFrame {
 
     private void jPFContraKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContraKeyPressed
     {//GEN-HEADEREND:event_jPFContraKeyPressed
-        Validaciones.enter(this, evt, jBIniciar);
+        jBIniciarKeyPressed(evt);
     }//GEN-LAST:event_jPFContraKeyPressed
 
     private void jBIniciarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBIniciarActionPerformed
@@ -269,7 +265,7 @@ public class vtnLogin extends javax.swing.JFrame {
 
         if (consulta1.isEmpty()) {
             Mensaje.error(this, "El correo ingresado no existe\nCapture un correo valido");
-            jBLimpiarActionPerformed(null);
+            clean();
             CtrlInterfaz.selecciona(jTFCorreo);
         } else {
             if (consulta1.get(6).equals(jPFContra.getText())) {
@@ -293,7 +289,12 @@ public class vtnLogin extends javax.swing.JFrame {
             } else {
                 Mensaje.error(this, "La contraseña ingresada es erronea\nCapture una contraseña valida");
                 CtrlInterfaz.selecciona(jPFContra);
-                CtrlInterfaz.limpia(jPFContra);
+                jPContra.setBackground(new Color(240, 128, 128));
+                jLContrasena.setForeground(new Color(123, 36, 28));
+                jPFContra.setBackground(new Color(240, 128, 128));
+                jPFContra.setForeground(new Color(123, 36, 28));
+                jPContra.setBorder(BorderFactory.createLineBorder(new Color(123, 36, 28)));
+
             }
         }
     }//GEN-LAST:event_jBIniciarActionPerformed
@@ -303,18 +304,63 @@ public class vtnLogin extends javax.swing.JFrame {
         ConectarBase.desconectaBD(con);
     }//GEN-LAST:event_formWindowClosed
 
-    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBLimpiarActionPerformed
-    {//GEN-HEADEREND:event_jBLimpiarActionPerformed
-        CtrlInterfaz.limpia(jTFCorreo, jPFContra);
-        CtrlInterfaz.selecciona(jTFCorreo);
-    }//GEN-LAST:event_jBLimpiarActionPerformed
-
     private void jBIniciarKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jBIniciarKeyPressed
     {//GEN-HEADEREND:event_jBIniciarKeyPressed
         if (evt.getKeyChar() == '\n') {
             jBIniciarActionPerformed(null);
         }
     }//GEN-LAST:event_jBIniciarKeyPressed
+
+    private void jTFCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCorreoActionPerformed
+
+    private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCorreoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCorreoKeyPressed
+
+    private void jTFCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCorreoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCorreoKeyTyped
+
+    private void jTFCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCorreoKeyReleased
+
+        if (jTFCorreo.getText().isEmpty()) {
+            jPCorreo.setBackground(Color.white);
+            jLCorreo.setForeground(Color.BLACK);
+            jTFCorreo.setBackground(Color.white);
+            jTFCorreo.setForeground(Color.BLACK);
+            jPCorreo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        } else if (jTFCorreo.getText().matches("^[^@]+@[^@]+\\.[a-zA-Z]{2,}$")) {
+            Validaciones.enter(this, evt, jPFContra);
+            jPCorreo.setBackground(new Color(187, 212, 236));
+            jLCorreo.setForeground(new Color(80, 117, 144));
+            jTFCorreo.setBackground(new Color(187, 212, 236));
+            jTFCorreo.setForeground(new Color(80, 117, 144));
+            jPCorreo.setBorder(BorderFactory.createLineBorder(new Color(80, 117, 144)));
+        } else {
+            jPCorreo.setBackground(new Color(240, 128, 128));
+            jLCorreo.setForeground(new Color(123, 36, 28));
+            jTFCorreo.setBackground(new Color(240, 128, 128));
+            jTFCorreo.setForeground(new Color(123, 36, 28));
+            jPCorreo.setBorder(BorderFactory.createLineBorder(new Color(123, 36, 28)));
+        }
+    }//GEN-LAST:event_jTFCorreoKeyReleased
+
+    private void jPFContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPFContraKeyReleased
+        if (jPFContra.getText().isEmpty()) {
+            jPContra.setBackground(Color.white);
+            jLContrasena.setForeground(Color.BLACK);
+            jPFContra.setBackground(Color.white);
+            jPFContra.setForeground(Color.BLACK);
+            jPContra.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        }
+    }//GEN-LAST:event_jPFContraKeyReleased
+
+    public void clean() {
+        CtrlInterfaz.limpia(jTFCorreo, jPFContra);
+        CtrlInterfaz.selecciona(jTFCorreo);
+    }
 
     /**
      * @param args the command line arguments
@@ -353,13 +399,15 @@ public class vtnLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBIniciar;
-    private javax.swing.JButton jBLimpiar;
     private javax.swing.JLabel jLBackground;
     private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLContrasena;
     private javax.swing.JLabel jLCorreo;
     private javax.swing.JLabel jLLogin;
     private javax.swing.JLabel jLMinimizar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPContra;
+    private javax.swing.JPanel jPCorreo;
     private javax.swing.JPasswordField jPFContra;
     private javax.swing.JPanel jPOverlay;
     private javax.swing.JPanel jPanel2;
