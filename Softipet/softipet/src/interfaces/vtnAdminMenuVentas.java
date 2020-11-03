@@ -80,6 +80,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
         jTFTotal = new javax.swing.JTextField();
         jBVenta = new javax.swing.JButton();
         jBLimpia = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -249,6 +251,22 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                 }
             });
             jPanel1.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 180, -1));
+
+            jButton1.setText("Historial de ventas totales");
+            jButton1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButton1ActionPerformed(evt);
+                }
+            });
+            jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 190, -1));
+
+            jButton2.setText("Historial de ventas por producto");
+            jButton2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButton2ActionPerformed(evt);
+                }
+            });
+            jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 190, -1));
 
             getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 520));
 
@@ -573,7 +591,9 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                     values2 = "'" + 1 + "',"
                             + "'" + Sesion.datosUsuario.get(0) + "',"
                             + "'" + idsVentaT + "',"
-                            + "'" + Total + "'";
+                            + "'" + Total + "',"
+                            + "'" + f1.format(fechaActual) + "',"
+                            + "'" + f2.format(horaActual) + "'";
                     try {
                         q.Insertar(con, "ventatotal", values2);
                     } catch (Exception e) {
@@ -585,7 +605,9 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                     values2 = "'" + idFinal2 + "',"
                             + "'" + Sesion.datosUsuario.get(0) + "',"
                             + "'" + idsVentaT + "',"
-                            + "'" + Total + "'";
+                            + "'" + Total + "',"
+                            + "'" + f1.format(fechaActual) + "',"
+                            + "'" + f2.format(horaActual) + "'";
 
                     try {
                         q.Insertar(con, "ventatotal", values2);
@@ -628,6 +650,16 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jBLimpiaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+        new vtnAdminMenuVentasHistory().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        new vtnAdminMenuVentasHistory2().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateTotal() {
         Total = 0;
@@ -777,6 +809,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
     private javax.swing.JButton jBLimpia;
     private javax.swing.JButton jBSearch;
     private javax.swing.JButton jBVenta;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLCantidad;
     private javax.swing.JLabel jLCantidad1;
     private javax.swing.JLabel jLCerrar;

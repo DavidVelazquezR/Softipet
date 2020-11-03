@@ -108,6 +108,8 @@ CREATE TABLE VENTATOTAL(
 	Id_empleado INT(10),
 	IDSVentas VARCHAR(500),
 	Total FLOAT,
+	FechaVenta DATE,
+	HoraVenta TIME,
 	PRIMARY KEY (Id_ventaT),
 	FOREIGN KEY (Id_empleado) REFERENCES USUARIOS(Id_empleado)
 );
@@ -234,7 +236,7 @@ INSERT INTO BODEGA VALUES(
 
 INSERT INTO MEDICOS VALUES(
 	1,
-	1,
+	3,
 	"CEDULA11",
 	"UAEMEX"
 );

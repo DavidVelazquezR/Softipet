@@ -12,10 +12,15 @@ import static interfaces.vtnLogin.con;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import reporte.generadorReceta;
 
 /**
  *
@@ -48,7 +53,7 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLTitulo1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTUsers = new javax.swing.JTable();
+        jTRecetas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -104,7 +109,7 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
         jLTitulo1.setText("Recetas:");
         jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
-        jTUsers.setModel(new javax.swing.table.DefaultTableModel(
+        jTRecetas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -115,7 +120,7 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTUsers);
+        jScrollPane1.setViewportView(jTRecetas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 710, 320));
 
@@ -173,7 +178,7 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel1MouseClicked
     {//GEN-HEADEREND:event_jPanel1MouseClicked
-        jTUsers.clearSelection();
+        jTRecetas.clearSelection();
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -182,9 +187,24 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jTUsers.getSelectedRow() == -1) {
+        Querys q = new Querys();
+        ArrayList<Object> mapeoReceta = new ArrayList<Object>();
+        generadorReceta g = new generadorReceta();
+        if (jTRecetas.getSelectedRow() == -1) {
             Mensaje.error(this, "No hay valores seleccionados en la tabla");
         } else {
+
+            int row = jTRecetas.getSelectedRow();
+            String idReceta = (String) jTRecetas.getValueAt(row, 0);
+            try {
+                mapeoReceta = q.Seleccion(con, "*", "receta",
+                        "Id_receta='" + idReceta + "'", false);
+
+            } catch (Exception e) {
+                System.out.println("Error al consultar receta..." + e);
+            }
+            crearReceta(mapeoReceta);
+            Mensaje.exito(this, "Se consulto la receta correctamente");
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -201,7 +221,7 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
                     java.lang.Object.class,
                     java.lang.Object.class,};
                 boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false
+                    false, false, false, false
                 };
 
                 @Override
@@ -214,7 +234,7 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
                     return canEdit[colIndex];
                 }
             });
-            jTUsers.setModel(modelo);
+            jTRecetas.setModel(modelo);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString() + "error en la creacion del modelo");
@@ -231,7 +251,7 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
         try {
             mapeoRecetas = q.Seleccion(con, "*", "receta", "", false);
 
-            Object[] filas = new Object[8];
+            Object[] filas = new Object[4];
 
             while (!mapeoRecetas.isEmpty()) {
 
@@ -256,7 +276,8 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
                     System.out.println("Error accediendo informacion del medico..." + e);
                 }
 
-                filas[2] = ((String) mapeoRecetas.get(2)).trim();
+                filas[2] = (String) mapeoRecetas.get(2);
+                System.out.println(filas[2]);
                 filas[3] = ((String) mapeoRecetas.get(3)).trim();
 
                 for (int i = 0; i < 7; i++) {
@@ -268,6 +289,99 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Error en el llenado de la tabla: " + e.toString());
         }
+    }
+
+    public ArrayList<Object> crearReceta(ArrayList<Object> mapeoReceta) {
+        Querys q = new Querys();
+        ArrayList<Object> doc = new ArrayList<Object>();
+        ArrayList<Object> user = new ArrayList<Object>();
+        generadorReceta g = new generadorReceta();
+
+        try {
+            doc = q.Seleccion(con, "*", "medicos",
+                    "Folio = " + ((String) mapeoReceta.get(1)).trim(), false);
+        } catch (Exception e) {
+            System.out.println("Error al obtener data veterinario..." + e);
+        }
+
+        try {
+            user = q.Seleccion(con, "*", "usuarios",
+                    "Id_empleado = " + ((String) doc.get(1)).trim(), false);
+        } catch (Exception e) {
+            System.out.println("Error al obtener data usarios..." + e);
+        }
+
+        String fechaC = (String) mapeoReceta.get(2);
+        String[] parts = fechaC.split("-");
+        String part1 = parts[0];
+        String part2 = parts[1];;
+        String part3 = parts[2];;
+        String mes = "";
+
+        switch (Integer.parseInt(part2)) {
+            case 1:
+                mes = "Enero";
+                break;
+            case 2:
+                mes = "Febrero";
+                break;
+            case 3:
+                mes = "Marzo";
+                break;
+            case 4:
+                mes = "Abril";
+                break;
+            case 5:
+                mes = "Mayo";
+                break;
+            case 6:
+                mes = "Junio";
+                break;
+            case 7:
+                mes = "Julio";
+                break;
+            case 8:
+                mes = "Agosto";
+                break;
+            case 9:
+                mes = "Septiembre";
+                break;
+            case 10:
+                mes = "Octubre";
+                break;
+            case 11:
+                mes = "Noviembre";
+                break;
+            case 12:
+                mes = "Diciembre";
+                break;
+            default:
+                break;
+        }
+
+        System.out.println(part1 + " de " + part2 + " del " + part3);
+
+        String iconoSoftipet = "src\\design\\softipet.png";
+        String header = "Veterinaria 'La croqueta'\n\n\n\n";
+        String headerleft = "Santiago Tianguistenco, Méx. a " + part3 + " de " + mes + " del " + part1 + "\n\n"
+                + "Cedula profesional: " + ((String) doc.get(2)).trim() + "\n\n"
+                + "Número de contacto: " + ((String) user.get(4)).trim() + "\n\n"
+                + "Veterinario: " + ((String) user.get(1)).trim() + " " + ((String) user.get(2)).trim() + " " + ((String) user.get(3)).trim() + " \n\n"
+                + "Folio de receta: " + mapeoReceta.get(0) + " \n\n\n";
+
+        String body1 = ((String) mapeoReceta.get(3)).trim();
+        String body2 = ((String) mapeoReceta.get(4)).trim();
+        String body3 = ((String) mapeoReceta.get(5)).trim();
+        String body4 = ((String) mapeoReceta.get(6)).trim();
+
+        String footer = "\n\n____________________\t\t\t\t\t\t____________________\n"
+                + "\tFirma del veterinario\t\t\t\t\tSello del veterinario\n";
+
+        String salida = "src\\recetaConsulta.pdf";
+
+        g.generarPDF(header, iconoSoftipet, headerleft, body1, body2, body3, body4, footer, salida);
+
+        return doc;
     }
 
     /**
@@ -300,134 +414,6 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -445,6 +431,6 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTUsers;
+    private javax.swing.JTable jTRecetas;
     // End of variables declaration//GEN-END:variables
 }

@@ -305,6 +305,7 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
             crearReceta();
 
             Mensaje.exito(this, "Se creo la receta correctamente");
+            jBLimpiaActionPerformed(null);
         } else {
             Mensaje.error(this, "Verifique que todos los campos esten en verde");
         }
@@ -405,7 +406,7 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
 
         try {
             doc = q.Seleccion(con, "*", "medicos",
-                    "Id_medico = " + Sesion.datosUsuario.get(0), false);
+                    "Id_medico = " + user.get(0), false);
         } catch (Exception e) {
             System.out.println("Error al obtener data veterinario..." + e);
         }
@@ -418,7 +419,7 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
 
         Calendar c = Calendar.getInstance();
         String dia = Integer.toString(c.get(Calendar.DATE));
-        String mes = Integer.toString(c.get(Calendar.MONTH));
+        String mes = Integer.toString(c.get(Calendar.MONTH) + 1);
         String annio = Integer.toString(c.get(Calendar.YEAR));
 
         switch (Integer.parseInt(mes)) {
