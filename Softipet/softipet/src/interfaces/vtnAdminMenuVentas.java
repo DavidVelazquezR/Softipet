@@ -13,18 +13,22 @@ import cjb.ci.Validaciones;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import reporte.generadorReceta;
+import reporte.generadorTicket;
 
 /**
  *
@@ -284,9 +288,21 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
         if (Integer.parseInt((String) Sesion.datosUsuario.get(11)) == 1) {
             this.dispose();
             new vtnAdminMenu().setVisible(true);
+
         } else {
             this.dispose();
             new vtnEmpleadoMenu().setVisible(true);
+        }
+        try {
+            File archivo = new File("src\\recetaConsulta.pdf");
+
+            if (archivo.delete()) {
+                System.out.println("Se borro el archivo correctamente");
+            } else {
+                System.out.println("no se borro el archivo");
+            }
+        } catch (Exception e) {
+            System.out.println("error al eliminar archivo");
         }
     }//GEN-LAST:event_jLCerrarMouseClicked
 
@@ -336,6 +352,17 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jPanel1MouseClicked
         jTVentas.clearSelection();
         menuPOPUP.dispose();
+        try {
+            File archivo = new File("src\\recetaConsulta.pdf");
+
+            if (archivo.delete()) {
+                System.out.println("Se borro el archivo correctamente");
+            } else {
+                System.out.println("no se borro el archivo");
+            }
+        } catch (Exception e) {
+            System.out.println("error al eliminar archivo");
+        }
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jTFProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFProductoKeyPressed
@@ -618,6 +645,17 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                 }
 
                 Mensaje.exito(this, "Se realizo la venta con exito");
+
+                //creamos el ticket
+                int size = jTVentas.getRowCount();
+
+                crearTiket(size, jTVentas, Total);
+                try {
+                    Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler " + "src\\ticket.pdf");
+                } catch (Exception e) {
+                    System.out.println("Error al abrir el PDF");
+                }
+
                 Total = 0;
                 jTFProducto.setText("");
                 jTFCantidad.setText("");
@@ -660,6 +698,65 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
         this.dispose();
         new vtnAdminMenuVentasHistory2().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void crearTiket(int size, JTable tVentas, float total) {
+        ArrayList<Object> user = new ArrayList<Object>();
+        generadorTicket g = new generadorTicket();
+        Calendar c = Calendar.getInstance();
+        String dia = Integer.toString(c.get(Calendar.DATE));
+        String mes = Integer.toString(c.get(Calendar.MONTH) + 1);
+        String annio = Integer.toString(c.get(Calendar.YEAR));
+
+        switch (Integer.parseInt(mes)) {
+            case 1:
+                mes = "Enero";
+                break;
+            case 2:
+                mes = "Febrero";
+                break;
+            case 3:
+                mes = "Marzo";
+                break;
+            case 4:
+                mes = "Abril";
+                break;
+            case 5:
+                mes = "Mayo";
+                break;
+            case 6:
+                mes = "Junio";
+                break;
+            case 7:
+                mes = "Julio";
+                break;
+            case 8:
+                mes = "Agosto";
+                break;
+            case 9:
+                mes = "Septiembre";
+                break;
+            case 10:
+                mes = "Octubre";
+                break;
+            case 11:
+                mes = "Noviembre";
+                break;
+            case 12:
+                mes = "Diciembre";
+                break;
+            default:
+                break;
+        }
+
+        String titulo = "Veterinaria 'La croqueta'\n"
+                + "Santiago Tianguistenco, Méx. a " + dia + " de " + mes + " del " + annio + "\n\n";
+
+        String header = "ID Empleado que atendio: " + Sesion.datosUsuario.get(0) + "\n\n";
+
+        String salida = "src\\ticket.pdf";
+        g.generarPDF(titulo, header, tVentas, total, "\n\nGracias por su compra\n Softipet", salida);
+
+    }
 
     private void updateTotal() {
         Total = 0;

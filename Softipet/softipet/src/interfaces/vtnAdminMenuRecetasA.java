@@ -17,6 +17,7 @@ import static interfaces.vtnLogin.con;
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -246,6 +247,17 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
         this.dispose();
         new vtnAdminMenuRecetas().setVisible(true);
+        try {
+            File archivo = new File("src\\recetaConsulta.pdf");
+
+            if (archivo.delete()) {
+                System.out.println("Se borro el archivo correctamente");
+            } else {
+                System.out.println("no se borro el archivo");
+            }
+        } catch (Exception e) {
+            System.out.println("error al eliminar archivo");
+        }
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
@@ -304,6 +316,12 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
 
             crearReceta();
 
+            try {
+                Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler " + "src\\receta.pdf");
+            } catch (Exception e) {
+                System.out.println("Error al abrir el PDF");
+            }
+
             Mensaje.exito(this, "Se creo la receta correctamente");
             jBLimpiaActionPerformed(null);
         } else {
@@ -335,6 +353,17 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         menuPOPUP.dispose();
+        try {
+            File archivo = new File("src\\recetaConsulta.pdf");
+
+            if (archivo.delete()) {
+                System.out.println("Se borro el archivo correctamente");
+            } else {
+                System.out.println("no se borro el archivo");
+            }
+        } catch (Exception e) {
+            System.out.println("error al eliminar archivo");
+        }
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jTFAnimalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFAnimalKeyReleased

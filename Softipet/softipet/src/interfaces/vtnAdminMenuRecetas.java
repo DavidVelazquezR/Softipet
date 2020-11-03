@@ -9,6 +9,7 @@ import bd.Querys;
 import bd.Sesion;
 import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -179,6 +180,17 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel1MouseClicked
     {//GEN-HEADEREND:event_jPanel1MouseClicked
         jTRecetas.clearSelection();
+        try {
+            File archivo = new File("src\\recetaConsulta.pdf");
+
+            if (archivo.delete()) {
+                System.out.println("Se borro el archivo correctamente");
+            } else {
+                System.out.println("no se borro el archivo");
+            }
+        } catch (Exception e) {
+            System.out.println("error al eliminar archivo");
+        }
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -204,8 +216,27 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
                 System.out.println("Error al consultar receta..." + e);
             }
             crearReceta(mapeoReceta);
+
+            try {
+                Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler " + "src\\recetaConsulta.pdf");
+            } catch (Exception e) {
+                System.out.println("Error al abrir el PDF");
+            }
+
             Mensaje.exito(this, "Se consulto la receta correctamente");
 
+        }
+
+        try {
+            File archivo = new File("src\\recetaConsulta.pdf");
+
+            if (archivo.delete()) {
+                System.out.println("Se borro el archivo correctamente");
+            } else {
+                System.out.println("no se borro el archivo");
+            }
+        } catch (Exception e) {
+            System.out.println("error al eliminar archivo");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
