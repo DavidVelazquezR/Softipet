@@ -9,6 +9,7 @@ import bd.Querys;
 import bd.Sesion;
 import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
+import java.awt.Color;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -70,6 +72,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jLNotify = new javax.swing.JLabel();
         jLMU11 = new javax.swing.JLabel();
         jLManageBod1 = new javax.swing.JLabel();
+        jLLayer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -233,6 +236,9 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jLManageBod1.setText("Ventas");
         jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 70, 20));
 
+        jLLayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
+        jPanel1.add(jLLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 80, 100));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
         pack();
@@ -246,9 +252,11 @@ public class vtnAdminMenu extends javax.swing.JFrame {
 
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
-        this.dispose();
-        new vtnLogin().setVisible(true);
-        Sesion.datosUsuario.clear();
+        if (Mensaje.pregunta(this, "¿Estas seguro que deseas salir de tu sesion?") == JOptionPane.YES_OPTION) {
+            this.dispose();
+            new vtnLogin().setVisible(true);
+            Sesion.datosUsuario.clear();
+        }
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
@@ -468,6 +476,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLCerrar;
+    private javax.swing.JLabel jLLayer;
     private javax.swing.JLabel jLMU1;
     private javax.swing.JLabel jLMU10;
     private javax.swing.JLabel jLMU11;

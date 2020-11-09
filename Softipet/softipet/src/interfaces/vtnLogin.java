@@ -9,6 +9,7 @@ import java.awt.Color;
 import cjb.ci.*;
 import java.util.ArrayList;
 import bd.*;
+import controladores.cambioColor;
 import java.awt.Font;
 import static java.lang.System.exit;
 import java.sql.Connection;
@@ -25,6 +26,7 @@ public class vtnLogin extends javax.swing.JFrame {
     public static boolean flag;
     public ArrayList<Object> consulta1 = new ArrayList<Object>();
     Querys q;
+    cambioColor cc = new cambioColor();
 
     /**
      * Creates new form vtnLogin
@@ -326,24 +328,12 @@ public class vtnLogin extends javax.swing.JFrame {
     private void jTFCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCorreoKeyReleased
 
         if (jTFCorreo.getText().isEmpty()) {
-            jPCorreo.setBackground(Color.white);
-            jLCorreo.setForeground(Color.BLACK);
-            jTFCorreo.setBackground(Color.white);
-            jTFCorreo.setForeground(Color.BLACK);
-            jPCorreo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            cc.cDefault(jPCorreo, jLCorreo, jTFCorreo);
         } else if (jTFCorreo.getText().matches("^[^@]+@[^@]+\\.[a-zA-Z]{2,}$")) {
             Validaciones.enter(this, evt, jPFContra);
-            jPCorreo.setBackground(new Color(187, 212, 236));
-            jLCorreo.setForeground(new Color(80, 117, 144));
-            jTFCorreo.setBackground(new Color(187, 212, 236));
-            jTFCorreo.setForeground(new Color(80, 117, 144));
-            jPCorreo.setBorder(BorderFactory.createLineBorder(new Color(80, 117, 144)));
+            cc.cAzul(jPCorreo, jLCorreo, jTFCorreo);
         } else {
-            jPCorreo.setBackground(new Color(240, 128, 128));
-            jLCorreo.setForeground(new Color(123, 36, 28));
-            jTFCorreo.setBackground(new Color(240, 128, 128));
-            jTFCorreo.setForeground(new Color(123, 36, 28));
-            jPCorreo.setBorder(BorderFactory.createLineBorder(new Color(123, 36, 28)));
+            cc.cRojo(jPCorreo, jLCorreo, jTFCorreo);
         }
     }//GEN-LAST:event_jTFCorreoKeyReleased
 

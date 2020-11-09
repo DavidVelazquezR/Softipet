@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -276,9 +277,13 @@ public class vtnEmpleadoMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCerrarMouseClicked
-        this.dispose();
-        new vtnLogin().setVisible(true);
-        Sesion.datosUsuario.clear();
+
+        if (Mensaje.pregunta(this, "¿Estas seguro que deseas salir de tu sesion?") == JOptionPane.YES_OPTION) {
+            this.dispose();
+            new vtnLogin().setVisible(true);
+            Sesion.datosUsuario.clear();
+        }
+
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     /**

@@ -9,8 +9,10 @@ import bd.Querys;
 import cjb.ci.CtrlInterfaz;
 import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
+import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
@@ -18,6 +20,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.StyledEditorKit;
@@ -29,6 +33,7 @@ import javax.swing.text.StyledEditorKit;
 public class vtnAdminMenuProductosA extends javax.swing.JFrame {
 
     int xy, xx;
+    cambioColor cc = new cambioColor();
 
     /**
      * Creates new form vtnAdminAU
@@ -51,28 +56,37 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         jLCerrar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLTitulo1 = new javax.swing.JLabel();
-        jLNombreG = new javax.swing.JLabel();
-        jTFNombreG = new javax.swing.JTextField();
-        jLNombreC = new javax.swing.JLabel();
-        jTFNombreC = new javax.swing.JTextField();
-        jLDesc = new javax.swing.JLabel();
-        jLMarca = new javax.swing.JLabel();
-        jTFMarca = new javax.swing.JTextField();
-        jLCaduc = new javax.swing.JLabel();
-        jLProv = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTADesc = new javax.swing.JTextArea();
-        jDCCaduc = new com.toedter.calendar.JDateChooser();
-        jCBProv = new javax.swing.JComboBox<>();
-        jLLote = new javax.swing.JLabel();
-        jTFLote = new javax.swing.JTextField();
-        jLPrecioF = new javax.swing.JLabel();
-        jTFPrecioF = new javax.swing.JTextField();
-        jLPrecioP = new javax.swing.JLabel();
-        jCBPrecioP = new javax.swing.JComboBox<>();
-        jTFPrecioP = new javax.swing.JTextField();
         jBAlta = new javax.swing.JButton();
         jBLimpia = new javax.swing.JButton();
+        jPNombreG = new javax.swing.JPanel();
+        jLNombreG = new javax.swing.JLabel();
+        jTFNombreG = new javax.swing.JTextField();
+        jPDesc = new javax.swing.JPanel();
+        jLDesc = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTADesc = new javax.swing.JTextArea();
+        jPNombreC = new javax.swing.JPanel();
+        jLNombreC = new javax.swing.JLabel();
+        jTFNombreC = new javax.swing.JTextField();
+        jPFechaC = new javax.swing.JPanel();
+        jLCaduc = new javax.swing.JLabel();
+        jPMarca = new javax.swing.JPanel();
+        jLMarca = new javax.swing.JLabel();
+        jTFMarca = new javax.swing.JTextField();
+        jPProveedor = new javax.swing.JPanel();
+        jLProv = new javax.swing.JLabel();
+        jPLote = new javax.swing.JPanel();
+        jLLote = new javax.swing.JLabel();
+        jTFLote = new javax.swing.JTextField();
+        jPPrecioF = new javax.swing.JPanel();
+        jLPrecioF = new javax.swing.JLabel();
+        jTFPrecioF = new javax.swing.JTextField();
+        jDCCaduc = new com.toedter.calendar.JDateChooser();
+        jPPrecioP = new javax.swing.JPanel();
+        jLPrecioP = new javax.swing.JLabel();
+        jLPrecioC = new javax.swing.JLabel();
+        jCBProv = new javax.swing.JComboBox<>();
+        jCBPrecioP = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -108,7 +122,7 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 jLMinimizarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 40));
+        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, -1, 40));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/regreso.png"))); // NOI18N
         jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,10 +130,11 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 jLCerrarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 40));
+        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, 40));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 40));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel2MouseMoved(evt);
@@ -131,11 +146,37 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         jLTitulo1.setText("Alta de productos");
         jPanel2.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
-        jLNombreG.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLNombreG.setText("Nombre generico:");
-        jPanel2.add(jLNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        jBAlta.setText("Alta de producto");
+        jBAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAltaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, -1, -1));
 
-        jTFNombreG.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBLimpia.setText("Limpiar");
+        jBLimpia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 110, -1));
+
+        jPNombreG.setBackground(new java.awt.Color(255, 255, 255));
+        jPNombreG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPNombreG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLNombreG.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLNombreG.setText("Nombre generico:");
+        jPNombreG.add(jLNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFNombreG.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFNombreG.setBorder(null);
+        jTFNombreG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNombreGActionPerformed(evt);
+            }
+        });
         jTFNombreG.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFNombreGKeyPressed(evt);
@@ -147,13 +188,48 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 jTFNombreGKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 210, -1));
+        jPNombreG.add(jTFNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 20));
 
-        jLNombreC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel2.add(jPNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 280, 50));
+
+        jPDesc.setBackground(new java.awt.Color(255, 255, 255));
+        jPDesc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPDesc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLDesc.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLDesc.setText("Descripción:");
+        jPDesc.add(jLDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jScrollPane1.setBorder(null);
+
+        jTADesc.setColumns(20);
+        jTADesc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTADesc.setRows(5);
+        jTADesc.setBorder(null);
+        jTADesc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTADescKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTADescKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTADesc);
+
+        jPDesc.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 240, -1));
+
+        jPanel2.add(jPDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 280, 140));
+
+        jPNombreC.setBackground(new java.awt.Color(255, 255, 255));
+        jPNombreC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPNombreC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLNombreC.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLNombreC.setText("Nombre comercial:");
-        jPanel2.add(jLNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        jPNombreC.add(jLNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTFNombreC.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFNombreC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFNombreC.setBorder(null);
         jTFNombreC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFNombreCKeyPressed(evt);
@@ -165,17 +241,30 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 jTFNombreCKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 210, -1));
+        jPNombreC.add(jTFNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 20));
 
-        jLDesc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLDesc.setText("Descripción:");
-        jPanel2.add(jLDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        jPanel2.add(jPNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 280, 50));
 
-        jLMarca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPFechaC.setBackground(new java.awt.Color(255, 255, 255));
+        jPFechaC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPFechaC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLCaduc.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLCaduc.setText("Fecha de Caducidad:");
+        jPFechaC.add(jLCaduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jPanel2.add(jPFechaC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 280, 30));
+
+        jPMarca.setBackground(new java.awt.Color(255, 255, 255));
+        jPMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPMarca.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLMarca.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLMarca.setText("Marca:");
-        jPanel2.add(jLMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+        jPMarca.add(jLMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTFMarca.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFMarca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFMarca.setBorder(null);
         jTFMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFMarcaKeyPressed(evt);
@@ -187,30 +276,75 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 jTFMarcaKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 210, -1));
+        jPMarca.add(jTFMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 20));
 
-        jLCaduc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLCaduc.setText("Fecha de Caducidad:");
-        jPanel2.add(jLCaduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        jPanel2.add(jPMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 280, 50));
 
-        jLProv.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        jPProveedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPProveedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLProv.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLProv.setText("Proveedor:");
-        jPanel2.add(jLProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
+        jPProveedor.add(jLProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTADesc.setColumns(20);
-        jTADesc.setRows(5);
-        jTADesc.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPanel2.add(jPProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 280, 30));
+
+        jPLote.setBackground(new java.awt.Color(255, 255, 255));
+        jPLote.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPLote.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLLote.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLLote.setText("Lote:");
+        jPLote.add(jLLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFLote.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFLote.setBorder(null);
+        jTFLote.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFLoteKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTADescKeyReleased(evt);
+                jTFLoteKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTADescKeyTyped(evt);
+                jTFLoteKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(jTADesc);
+        jPLote.add(jTFLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 20));
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 210, -1));
+        jPanel2.add(jPLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 280, 50));
 
+        jPPrecioF.setBackground(new java.awt.Color(255, 255, 255));
+        jPPrecioF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPPrecioF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLPrecioF.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLPrecioF.setText("Precio fabricante:");
+        jPPrecioF.add(jLPrecioF, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFPrecioF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFPrecioF.setBorder(null);
+        jTFPrecioF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFPrecioFKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFPrecioFKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFPrecioFKeyTyped(evt);
+            }
+        });
+        jPPrecioF.add(jTFPrecioF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 20));
+
+        jPanel2.add(jPPrecioF, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 280, 50));
+
+        jDCCaduc.setBackground(new java.awt.Color(255, 255, 255));
+        jDCCaduc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jDCCaduc.setFocusable(false);
+        jDCCaduc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jDCCaduc.setOpaque(false);
         jDCCaduc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jDCCaducKeyPressed(evt);
@@ -219,21 +353,34 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 jDCCaducKeyTyped(evt);
             }
         });
-        jPanel2.add(jDCCaduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 200, -1));
+        jPanel2.add(jDCCaduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 240, 30));
         jDCCaduc.getDateEditor().addPropertyChangeListener(new PropertyChangeListener(){
             public void propertyChange(PropertyChangeEvent e) {
                 //Aquí agregaremos la funcionalidad que queremos
                 //por ejemplo al seleccionar una fecha le mostrare un diálogo con la fecha de hoy
                 if (jDCCaduc.getDate() == null)
                 {
-                    jLCaduc.setForeground(Color.BLACK);
+                    cc.cDefault(jPFechaC, jLCaduc);
                 } else if (jDCCaduc.getDate() != null)
                 {
-                    jLCaduc.setForeground(Color.GREEN);
+                    cc.cVerde(jPFechaC, jLCaduc);
 
                 }
             }
         });
+
+        jPPrecioP.setBackground(new java.awt.Color(255, 255, 255));
+        jPPrecioP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPPrecioP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLPrecioP.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLPrecioP.setText("Precio publico:");
+        jPPrecioP.add(jLPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLPrecioC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPPrecioP.add(jLPrecioC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 20));
+
+        jPanel2.add(jPPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 280, 60));
 
         jCBProv.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jCBProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione proveedor" }));
@@ -251,48 +398,11 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jCBProvKeyPressed(evt);
             }
-        });
-        jPanel2.add(jCBProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 200, 20));
-
-        jLLote.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLLote.setText("Lote:");
-        jPanel2.add(jLLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
-
-        jTFLote.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFLote.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFLoteKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFLoteKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFLoteKeyTyped(evt);
+                jCBProvKeyReleased(evt);
             }
         });
-        jPanel2.add(jTFLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 200, -1));
-
-        jLPrecioF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLPrecioF.setText("Precio fabricante:");
-        jPanel2.add(jLPrecioF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, -1, -1));
-
-        jTFPrecioF.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFPrecioF.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFPrecioFKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFPrecioFKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFPrecioFKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTFPrecioF, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 200, -1));
-
-        jLPrecioP.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLPrecioP.setText("Precio publico:");
-        jPanel2.add(jLPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, -1));
+        jPanel2.add(jCBProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 240, 30));
 
         jCBPrecioP.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jCBPrecioP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "S/N", "10%", "20%", "30%", "40%", "50%" }));
@@ -311,28 +421,9 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 jCBPrecioPKeyPressed(evt);
             }
         });
-        jPanel2.add(jCBPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 50, 20));
+        jPanel2.add(jCBPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 120, -1));
 
-        jTFPrecioP.setEnabled(false);
-        jPanel2.add(jTFPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 130, -1));
-
-        jBAlta.setText("Alta de producto");
-        jBAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAltaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
-
-        jBLimpia.setText("Limpiar");
-        jBLimpia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimpiaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 110, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 710, 570));
 
         pack();
         setLocationRelativeTo(null);
@@ -364,6 +455,7 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
+
         Querys q = new Querys();
         ArrayList<Object> provMap = new ArrayList<Object>();
 
@@ -397,9 +489,9 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jTFNombreGKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreGKeyReleased
     {//GEN-HEADEREND:event_jTFNombreGKeyReleased
         if (jTFNombreG.getText().isEmpty()) {
-            jLNombreG.setForeground(Color.BLACK);
+            cc.cDefault(jPNombreG, jTFNombreG, jLNombreG);
         } else {
-            jLNombreG.setForeground(Color.GREEN);
+            cc.cVerde(jPNombreG, jTFNombreG, jLNombreG);
             Validaciones.enter(this, evt, jTFNombreC);
         }
     }//GEN-LAST:event_jTFNombreGKeyReleased
@@ -420,9 +512,9 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jTFNombreCKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreCKeyReleased
     {//GEN-HEADEREND:event_jTFNombreCKeyReleased
         if (jTFNombreC.getText().isEmpty()) {
-            jLNombreC.setForeground(Color.BLACK);
+            cc.cDefault(jPNombreC, jTFNombreC, jLNombreC);
         } else {
-            jLNombreC.setForeground(Color.GREEN);
+            cc.cVerde(jPNombreC, jTFNombreC, jLNombreC);
             Validaciones.enter(this, evt, jTADesc);
         }
     }//GEN-LAST:event_jTFNombreCKeyReleased
@@ -443,9 +535,9 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jTFMarcaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFMarcaKeyReleased
     {//GEN-HEADEREND:event_jTFMarcaKeyReleased
         if (jTFMarca.getText().isEmpty()) {
-            jLMarca.setForeground(Color.BLACK);
+            cc.cDefault(jPMarca, jTFMarca, jLMarca);
         } else {
-            jLMarca.setForeground(Color.GREEN);
+            cc.cVerde(jPMarca, jTFMarca, jLMarca);
             Validaciones.enter(this, evt, jDCCaduc);
         }
     }//GEN-LAST:event_jTFMarcaKeyReleased
@@ -466,9 +558,9 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jTFLoteKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLoteKeyReleased
     {//GEN-HEADEREND:event_jTFLoteKeyReleased
         if (jTFLote.getText().isEmpty()) {
-            jLLote.setForeground(Color.BLACK);
+            cc.cDefault(jPLote, jTFLote, jLLote);
         } else {
-            jLLote.setForeground(Color.GREEN);
+            cc.cVerde(jPLote, jTFLote, jLLote);
             Validaciones.enter(this, evt, jTFPrecioF);
         }
     }//GEN-LAST:event_jTFLoteKeyReleased
@@ -498,13 +590,13 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                 System.out.println("Error al transformar a FLOAT..." + e);
             }
             jCBPrecioP.setSelectedIndex(0);
-            jTFPrecioP.setText("");
+            jLPrecioC.setText("");
 
         }
 
         if (jLPrecioF.getForeground().getRGB() == Color.BLACK.getRGB()) {
             jLPrecioP.setForeground(Color.BLACK);
-            jTFPrecioP.setText("");
+            jLPrecioC.setText("");
             jCBPrecioP.setSelectedIndex(0);
         }
 
@@ -514,12 +606,12 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jTFPrecioFKeyReleased
 
         if (jTFPrecioF.getText().isEmpty()) {
-            jLPrecioF.setForeground(Color.BLACK);
+            cc.cDefault(jPPrecioF, jTFPrecioF, jLPrecioF);
         } else if (jTFPrecioF.getText().length() <= 6) {
-            jLPrecioF.setForeground(Color.GREEN);
+            cc.cVerde(jPPrecioF, jTFPrecioF, jLPrecioF);
             Validaciones.enter(this, evt, jCBPrecioP);
         } else {
-            jLPrecioF.setForeground(Color.RED);
+            cc.cRojo(jPPrecioF, jTFPrecioF, jLPrecioF);
         }
     }//GEN-LAST:event_jTFPrecioFKeyReleased
 
@@ -541,9 +633,9 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jTADescKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTADescKeyReleased
     {//GEN-HEADEREND:event_jTADescKeyReleased
         if (jTADesc.getText().isEmpty()) {
-            jLDesc.setForeground(Color.BLACK);
+            cc.cDefault(jPDesc, jTADesc, jLDesc);
         } else {
-            jLDesc.setForeground(Color.GREEN);
+            cc.cVerde(jPDesc, jTADesc, jLDesc);
         }
     }//GEN-LAST:event_jTADescKeyReleased
 
@@ -573,9 +665,9 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jCBProvItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_jCBProvItemStateChanged
     {//GEN-HEADEREND:event_jCBProvItemStateChanged
         if (jCBProv.getSelectedIndex() == 0) {
-            jLProv.setForeground(Color.BLACK);
+            cc.cDefault(jPProveedor, jLProv);
         } else {
-            jLProv.setForeground(Color.GREEN);
+            cc.cVerde(jPProveedor, jLProv);
         }
     }//GEN-LAST:event_jCBProvItemStateChanged
 
@@ -584,33 +676,33 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         float porF;
 
         if (jCBPrecioP.getSelectedIndex() == 0) {
-            jLPrecioP.setForeground(Color.BLACK);
-            jTFPrecioP.setText("");
+            cc.cDefault(jPPrecioP, jLPrecioP, jLPrecioC);
+            jLPrecioC.setText("");
         } else if (jCBPrecioP.getSelectedIndex() == 1) {
-            jLPrecioP.setForeground(Color.GREEN);
+            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
             try {
                 porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.10);
-                jTFPrecioP.setText(String.valueOf(porF));
+                jLPrecioC.setText(String.valueOf(porF));
             } catch (Exception e) {
                 System.out.println("Error al cambiar precio float..." + e);
             }
 
         } else if (jCBPrecioP.getSelectedIndex() == 2) {
-            jLPrecioP.setForeground(Color.GREEN);
+            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
             porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.20);
-            jTFPrecioP.setText(String.valueOf(porF));
+            jLPrecioC.setText(String.valueOf(porF));
         } else if (jCBPrecioP.getSelectedIndex() == 3) {
-            jLPrecioP.setForeground(Color.GREEN);
+            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
             porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.30);
-            jTFPrecioP.setText(String.valueOf(porF));
+            jLPrecioC.setText(String.valueOf(porF));
         } else if (jCBPrecioP.getSelectedIndex() == 4) {
-            jLPrecioP.setForeground(Color.GREEN);
+            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
             porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.40);
-            jTFPrecioP.setText(String.valueOf(porF));
+            jLPrecioC.setText(String.valueOf(porF));
         } else if (jCBPrecioP.getSelectedIndex() == 5) {
-            jLPrecioP.setForeground(Color.GREEN);
+            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
             porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.50);
-            jTFPrecioP.setText(String.valueOf(porF));
+            jLPrecioC.setText(String.valueOf(porF));
         }
     }//GEN-LAST:event_jCBPrecioPItemStateChanged
 
@@ -624,15 +716,15 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         Querys q = new Querys();
         ArrayList<Object> id = new ArrayList<Object>();
 
-        if (jLNombreG.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLNombreC.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLDesc.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLMarca.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLCaduc.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLProv.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLLote.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLPrecioF.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLPrecioP.getForeground().getRGB() == Color.GREEN.getRGB()) {
+        if (jLNombreG.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLNombreC.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLDesc.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLMarca.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLCaduc.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLProv.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLLote.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLPrecioF.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLPrecioP.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()) {
 
             try {
                 id = q.Seleccion(con, "MAX(Id_medicamento)", "medicamentos", "", true);
@@ -660,7 +752,7 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
                     + "'" + part1 + "',"
                     + "'" + jTFLote.getText() + "',"
                     + "'" + jTFPrecioF.getText() + "',"
-                    + "'" + jTFPrecioP.getText() + "',"
+                    + "'" + jLPrecioC.getText() + "',"
                     + "'" + 0 + "'";
 
             if (Mensaje.pregunta(this, "¿Estas seguro de dar de alta el producto?") == JOptionPane.YES_OPTION) {
@@ -685,19 +777,14 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jBLimpiaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBLimpiaActionPerformed
     {//GEN-HEADEREND:event_jBLimpiaActionPerformed
         CtrlInterfaz.limpia(jTFNombreG, jTFNombreC, jTADesc, jTFMarca, jDCCaduc,
-                jTFLote, jTFPrecioF, jTFPrecioP);
+                jTFLote, jTFPrecioF, jLPrecioC);
         jCBProv.setSelectedIndex(0);
         jTADesc.setText("");
+        jLPrecioC.setText("");
 
-        jLNombreG.setForeground(Color.BLACK);
-        jLNombreC.setForeground(Color.BLACK);
-        jLDesc.setForeground(Color.BLACK);
-        jLMarca.setForeground(Color.BLACK);
-        jLCaduc.setForeground(Color.BLACK);
-        jLProv.setForeground(Color.BLACK);
-        jLLote.setForeground(Color.BLACK);
-        jLPrecioF.setForeground(Color.BLACK);
-        jLPrecioP.setForeground(Color.BLACK);
+        cc.cDefault(jPNombreG, jPNombreC, jPDesc, jPMarca, jPFechaC, jPProveedor, jPLote, jPPrecioF, jPPrecioF,
+                jTFNombreC, jTFNombreG, jTADesc, jTFMarca, jTFLote, jTFPrecioF,
+                jLNombreC, jLNombreG, jLDesc, jLMarca, jLCaduc, jLProv, jLPrecioP, jLPrecioF, jLPrecioC, jLLote);
 
         CtrlInterfaz.selecciona(jTFNombreG);
     }//GEN-LAST:event_jBLimpiaActionPerformed
@@ -705,10 +792,18 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jPanel2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseMoved
         if (jLPrecioF.getForeground().getRGB() == Color.BLACK.getRGB()) {
             jLPrecioP.setForeground(Color.BLACK);
-            jTFPrecioP.setText("");
+            jLPrecioC.setText("");
             jCBPrecioP.setSelectedIndex(0);
         }
     }//GEN-LAST:event_jPanel2MouseMoved
+
+    private void jTFNombreGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombreGActionPerformed
+
+    private void jCBProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCBProvKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBProvKeyReleased
 
     /**
      * @param args the command line arguments
@@ -721,7 +816,7 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -766,10 +861,20 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLNombreC;
     private javax.swing.JLabel jLNombreG;
+    private javax.swing.JLabel jLPrecioC;
     private javax.swing.JLabel jLPrecioF;
     private javax.swing.JLabel jLPrecioP;
     private javax.swing.JLabel jLProv;
     private javax.swing.JLabel jLTitulo1;
+    private javax.swing.JPanel jPDesc;
+    private javax.swing.JPanel jPFechaC;
+    private javax.swing.JPanel jPLote;
+    private javax.swing.JPanel jPMarca;
+    private javax.swing.JPanel jPNombreC;
+    private javax.swing.JPanel jPNombreG;
+    private javax.swing.JPanel jPPrecioF;
+    private javax.swing.JPanel jPPrecioP;
+    private javax.swing.JPanel jPProveedor;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -779,6 +884,5 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private javax.swing.JTextField jTFNombreC;
     private javax.swing.JTextField jTFNombreG;
     private javax.swing.JTextField jTFPrecioF;
-    private javax.swing.JTextField jTFPrecioP;
     // End of variables declaration//GEN-END:variables
 }

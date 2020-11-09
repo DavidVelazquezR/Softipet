@@ -13,6 +13,7 @@ import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import com.sun.org.apache.bcel.internal.classfile.JavaClass;
+import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
@@ -41,6 +42,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     int xy, xx;
     TextAutoCompleter ac;
     vtnAdminMenuProductosPOPUP menuPOPUP = new vtnAdminMenuProductosPOPUP();
+    cambioColor cc = new cambioColor();
 
     /**
      * Creates new form vtnAdminAU
@@ -66,19 +68,25 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         jLTitulo1 = new javax.swing.JLabel();
         jBAlta = new javax.swing.JButton();
         jBLimpia = new javax.swing.JButton();
+        jPProducto = new javax.swing.JPanel();
         jLIDProducto = new javax.swing.JLabel();
         jTFProducto = new javax.swing.JTextField();
-        jLIDProveedor = new javax.swing.JLabel();
-        jTFProveedor = new javax.swing.JTextField();
+        jLSearch = new javax.swing.JLabel();
+        jPCantidad = new javax.swing.JPanel();
         jLCantidad = new javax.swing.JLabel();
         jTFCantidad = new javax.swing.JTextField();
-        jTFNombreRepart = new javax.swing.JTextField();
-        jLNombreRepart = new javax.swing.JLabel();
-        jLAPRepart = new javax.swing.JLabel();
-        jTFAPRepart = new javax.swing.JTextField();
+        jPProveedor = new javax.swing.JPanel();
+        jLIDProveedor = new javax.swing.JLabel();
+        jLProveedor = new javax.swing.JLabel();
+        jPAMaterno = new javax.swing.JPanel();
         jLAMRepart = new javax.swing.JLabel();
         jTFAMRepart = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jPRepartidor = new javax.swing.JPanel();
+        jLNombreRepart = new javax.swing.JLabel();
+        jTFNombreRepart = new javax.swing.JTextField();
+        jPAPaterno = new javax.swing.JPanel();
+        jLAPRepart = new javax.swing.JLabel();
+        jTFAPRepart = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -131,6 +139,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 40));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel2MouseMoved(evt);
@@ -145,7 +154,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
 
         jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLTitulo1.setText("Recibir productos en bodega");
-        jPanel2.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel2.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jBAlta.setText("Recibir pedido");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +162,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, -1));
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
 
         jBLimpia.setText("Limpiar");
         jBLimpia.addActionListener(new java.awt.event.ActionListener() {
@@ -161,12 +170,23 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                 jBLimpiaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 110, -1));
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 110, -1));
 
-        jLIDProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPProducto.setBackground(new java.awt.Color(255, 255, 255));
+        jPProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLIDProducto.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLIDProducto.setText("Producto:");
-        jPanel2.add(jLIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        jPProducto.add(jLIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jTFProducto.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jTFProducto.setBorder(null);
+        jTFProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFProductoActionPerformed(evt);
+            }
+        });
         jTFProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFProductoKeyPressed(evt);
@@ -178,24 +198,32 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                 jTFProductoKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 180, -1));
+        jPProducto.add(jTFProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 20));
 
-        jLIDProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLIDProveedor.setText("Proveedor:");
-        jPanel2.add(jLIDProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
-
-        jTFProveedor.setEnabled(false);
-        jTFProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFProveedorKeyPressed(evt);
+        jLSearch.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLSearch.setText("  Search");
+        jLSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLSearchMouseClicked(evt);
             }
         });
-        jPanel2.add(jTFProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 180, -1));
+        jPProducto.add(jLSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 50, -1));
 
-        jLCantidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel2.add(jPProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 210, 50));
+
+        jPCantidad.setBackground(new java.awt.Color(255, 255, 255));
+        jPCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPCantidad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLCantidad.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLCantidad.setText("Cantidad:");
-        jPanel2.add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        jPCantidad.add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jTFCantidad.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jTFCantidad.setBorder(null);
+        jTFCantidad.setDoubleBuffered(true);
         jTFCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFCantidadKeyPressed(evt);
@@ -207,46 +235,38 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                 jTFCantidadKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 180, -1));
+        jPCantidad.add(jTFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 20));
 
-        jTFNombreRepart.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFNombreRepartKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFNombreRepartKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFNombreRepartKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTFNombreRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 180, -1));
+        jPanel2.add(jPCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 210, 50));
 
-        jLNombreRepart.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLNombreRepart.setText("Nombre del repartidor:");
-        jPanel2.add(jLNombreRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
+        jPProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        jPProveedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPProveedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLAPRepart.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLAPRepart.setText("Apellido Paterno del repartidor:");
-        jPanel2.add(jLAPRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+        jLIDProveedor.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLIDProveedor.setText("Proveedor:");
+        jPProveedor.add(jLIDProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTFAPRepart.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFAPRepartKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFAPRepartKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFAPRepartKeyTyped(evt);
-            }
-        });
-        jPanel2.add(jTFAPRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 180, -1));
+        jLProveedor.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jPProveedor.add(jLProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 20));
 
-        jLAMRepart.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel2.add(jPProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 210, 50));
+
+        jPAMaterno.setBackground(new java.awt.Color(255, 255, 255));
+        jPAMaterno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPAMaterno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLAMRepart.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLAMRepart.setText("Apellido Materno del repartidor:");
-        jPanel2.add(jLAMRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, -1));
+        jPAMaterno.add(jLAMRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jTFAMRepart.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jTFAMRepart.setBorder(null);
+        jTFAMRepart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFAMRepartActionPerformed(evt);
+            }
+        });
         jTFAMRepart.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFAMRepartKeyPressed(evt);
@@ -258,18 +278,61 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                 jTFAMRepartKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFAMRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 180, -1));
+        jPAMaterno.add(jTFAMRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 20));
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jPanel2.add(jPAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 210, 50));
+
+        jPRepartidor.setBackground(new java.awt.Color(255, 255, 255));
+        jPRepartidor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPRepartidor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLNombreRepart.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLNombreRepart.setText("Nombre del repartidor:");
+        jPRepartidor.add(jLNombreRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFNombreRepart.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jTFNombreRepart.setBorder(null);
+        jTFNombreRepart.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFNombreRepartKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFNombreRepartKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFNombreRepartKeyTyped(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 70, 20));
+        jPRepartidor.add(jTFNombreRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 20));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 550, 400));
+        jPanel2.add(jPRepartidor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 210, 50));
+
+        jPAPaterno.setBackground(new java.awt.Color(255, 255, 255));
+        jPAPaterno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPAPaterno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLAPRepart.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLAPRepart.setText("Apellido Paterno del repartidor:");
+        jPAPaterno.add(jLAPRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFAPRepart.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jTFAPRepart.setBorder(null);
+        jTFAPRepart.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFAPRepartKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFAPRepartKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFAPRepartKeyTyped(evt);
+            }
+        });
+        jPAPaterno.add(jTFAPRepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 20));
+
+        jPanel2.add(jPAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 210, 50));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 550, 430));
 
         pack();
         setLocationRelativeTo(null);
@@ -336,12 +399,13 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         ArrayList<Object> mapBodega = new ArrayList<Object>();
         ArrayList<Object> existencia = new ArrayList<Object>();
 
-        if (jLIDProducto.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLIDProveedor.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLCantidad.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLNombreRepart.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLAPRepart.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLAMRepart.getForeground().getRGB() == Color.GREEN.getRGB()) {
+        if (jLIDProducto.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLIDProveedor.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLCantidad.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLNombreRepart.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLAPRepart.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLAMRepart.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()) {
+
             try {
                 mapBodega = q.Seleccion(con, "MAX(Id_historial)", "bodega", "", true);
             } catch (Exception e) {
@@ -414,15 +478,13 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
 
     private void jBLimpiaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBLimpiaActionPerformed
     {//GEN-HEADEREND:event_jBLimpiaActionPerformed
-        CtrlInterfaz.limpia(jTFProducto, jTFProveedor, jTFCantidad, jTFNombreRepart,
-                jTFAPRepart, jTFAMRepart);
+        CtrlInterfaz.limpia(jTFProducto, jTFCantidad, jTFNombreRepart,
+                jTFAPRepart, jTFAMRepart, jLProveedor);
+        jLProveedor.setText("");
 
-        jLIDProducto.setForeground(Color.BLACK);
-        jLIDProveedor.setForeground(Color.BLACK);
-        jLCantidad.setForeground(Color.BLACK);
-        jLNombreRepart.setForeground(Color.BLACK);
-        jLAPRepart.setForeground(Color.BLACK);
-        jLAMRepart.setForeground(Color.BLACK);
+        cc.cDefault(jPProducto, jPProveedor, jPCantidad, jPRepartidor, jPAPaterno, jPAMaterno,
+                jLIDProducto, jLIDProveedor, jLCantidad, jLNombreRepart, jLAPRepart, jLAMRepart,
+                jTFProducto, jLProveedor, jTFCantidad, jTFNombreRepart, jTFAMRepart, jTFAPRepart);
 
         CtrlInterfaz.selecciona(jTFProducto);
     }//GEN-LAST:event_jBLimpiaActionPerformed
@@ -434,10 +496,6 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     private void jTFProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFProductoKeyPressed
 
     }//GEN-LAST:event_jTFProductoKeyPressed
-
-    private void jTFProveedorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFProveedorKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFProveedorKeyPressed
 
     private void jTFCantidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCantidadKeyPressed
         Querys q = new Querys();
@@ -466,13 +524,14 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
                 }
 
                 if (!proveedor.isEmpty()) {
-                    jTFProveedor.setText(((String) proveedor.get(0)).trim());
-                    jLIDProveedor.setForeground(Color.GREEN);
+                    jLProveedor.setText(((String) proveedor.get(0)).trim());
+
+                    cc.cVerde(jPProveedor, jLProveedor, jLIDProveedor);
                 } else {
-                    jLIDProveedor.setForeground(Color.RED);
+                    cc.cDefault(jPProveedor, jLProveedor, jLIDProveedor);
                 }
             } else {
-                jLIDProveedor.setForeground(Color.RED);
+                cc.cRojo(jPProveedor, jLProveedor, jLIDProveedor);
             }
 
         } catch (Exception e) {
@@ -496,17 +555,16 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         menuPOPUP.dispose();
     }//GEN-LAST:event_jPanel2MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        menuPOPUP.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jTFProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFProductoKeyReleased
+
         if (jTFProducto.getText().isEmpty()) {
-            jLIDProducto.setForeground(Color.BLACK);
-            jLIDProveedor.setForeground(Color.BLACK);
-            jTFProveedor.setText("");
+            //colores cajas
+            cc.cDefault(jPProducto, jTFProducto, jLIDProducto,
+                    jPProveedor, jLProveedor, jLIDProveedor);
+            jLProveedor.setText("");
         } else {
-            jLIDProducto.setForeground(Color.GREEN);
+            //colores cajas
+            cc.cVerde(jPProducto, jTFProducto, jLIDProducto, jTFProducto);
             Validaciones.enter(this, evt, jTFCantidad);
         }
     }//GEN-LAST:event_jTFProductoKeyReleased
@@ -521,12 +579,17 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
 
     private void jTFCantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCantidadKeyReleased
         if (jTFCantidad.getText().isEmpty()) {
-            jLCantidad.setForeground(Color.BLACK);
+            //colores cajas
+            cc.cDefault(jPCantidad, jTFCantidad, jLCantidad);
+
         } else if (jTFCantidad.getText().length() <= 5) {
-            jLCantidad.setForeground(Color.GREEN);
+            //colores cajas
+            cc.cVerde(jPCantidad, jTFCantidad, jLCantidad);
+
             Validaciones.enter(this, evt, jTFNombreRepart);
         } else {
-            jLCantidad.setForeground(Color.RED);
+            //colores cajas
+            cc.cRojo(jPCantidad, jTFCantidad, jLCantidad);
         }
     }//GEN-LAST:event_jTFCantidadKeyReleased
 
@@ -548,30 +611,44 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
 
     private void jTFNombreRepartKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreRepartKeyReleased
         if (jTFNombreRepart.getText().isEmpty()) {
-            jLNombreRepart.setForeground(Color.BLACK);
+            //colores cajas
+            cc.cDefault(jPRepartidor, jTFNombreRepart, jLNombreRepart);
         } else {
-            jLNombreRepart.setForeground(Color.GREEN);
+            //colores cajas
+            cc.cVerde(jPRepartidor, jTFNombreRepart, jLNombreRepart);
             Validaciones.enter(this, evt, jTFAPRepart);
         }
     }//GEN-LAST:event_jTFNombreRepartKeyReleased
 
     private void jTFAPRepartKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFAPRepartKeyReleased
         if (jTFAPRepart.getText().isEmpty()) {
-            jLAPRepart.setForeground(Color.BLACK);
+            cc.cDefault(jPAPaterno, jTFAPRepart, jLAPRepart);
         } else {
-            jLAPRepart.setForeground(Color.GREEN);
+            cc.cVerde(jPAPaterno, jTFAPRepart, jLAPRepart);
             Validaciones.enter(this, evt, jTFAMRepart);
         }
     }//GEN-LAST:event_jTFAPRepartKeyReleased
 
     private void jTFAMRepartKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFAMRepartKeyReleased
         if (jTFAMRepart.getText().isEmpty()) {
-            jLAMRepart.setForeground(Color.BLACK);
+            cc.cDefault(jPAMaterno, jTFAMRepart, jLAMRepart);
         } else {
-            jLAMRepart.setForeground(Color.GREEN);
+            cc.cVerde(jPAMaterno, jTFAMRepart, jLAMRepart);
             Validaciones.enter(this, evt, jBAlta);
         }
     }//GEN-LAST:event_jTFAMRepartKeyReleased
+
+    private void jTFProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFProductoActionPerformed
+
+    private void jLSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLSearchMouseClicked
+        menuPOPUP.setVisible(true);
+    }//GEN-LAST:event_jLSearchMouseClicked
+
+    private void jTFAMRepartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFAMRepartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFAMRepartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -622,7 +699,6 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAlta;
     private javax.swing.JButton jBLimpia;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLAMRepart;
     private javax.swing.JLabel jLAPRepart;
     private javax.swing.JLabel jLCantidad;
@@ -631,7 +707,15 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     private javax.swing.JLabel jLIDProveedor;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLNombreRepart;
+    private javax.swing.JLabel jLProveedor;
+    private javax.swing.JLabel jLSearch;
     private javax.swing.JLabel jLTitulo1;
+    private javax.swing.JPanel jPAMaterno;
+    private javax.swing.JPanel jPAPaterno;
+    private javax.swing.JPanel jPCantidad;
+    private javax.swing.JPanel jPProducto;
+    private javax.swing.JPanel jPProveedor;
+    private javax.swing.JPanel jPRepartidor;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTFAMRepart;
@@ -639,6 +723,5 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     private javax.swing.JTextField jTFCantidad;
     private javax.swing.JTextField jTFNombreRepart;
     private javax.swing.JTextField jTFProducto;
-    private javax.swing.JTextField jTFProveedor;
     // End of variables declaration//GEN-END:variables
 }
