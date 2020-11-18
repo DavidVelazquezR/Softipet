@@ -13,6 +13,7 @@ import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import com.sun.org.apache.bcel.internal.classfile.JavaClass;
+import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
@@ -44,6 +45,7 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
     int xy, xx;
     TextAutoCompleter ac;
     vtnAdminMenuProductosPOPUP menuPOPUP = new vtnAdminMenuProductosPOPUP();
+    cambioColor cc = new cambioColor();
 
     /**
      * Creates new form vtnAdminAU
@@ -69,18 +71,23 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
         jLTitulo1 = new javax.swing.JLabel();
         jBAlta = new javax.swing.JButton();
         jBLimpia = new javax.swing.JButton();
+        jPAnimal = new javax.swing.JPanel();
         jLAnimal = new javax.swing.JLabel();
         jTFAnimal = new javax.swing.JTextField();
+        jPRaza = new javax.swing.JPanel();
         jLRaza = new javax.swing.JLabel();
         jTFRaza = new javax.swing.JTextField();
-        jLDiagnostico = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTADiagnostico = new javax.swing.JTextArea();
+        jPMedicacion = new javax.swing.JPanel();
         jLMedicacion = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTAMedicacion = new javax.swing.JTextArea();
+        jPDiagnostico = new javax.swing.JPanel();
+        jLDiagnostico = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTADiagnostico = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Recetas alta SOFTIPET");
         setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -119,7 +126,7 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
                 jLMinimizarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, 40));
+        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, 40));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/regreso.png"))); // NOI18N
         jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,10 +134,11 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
                 jLCerrarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 30, 40));
+        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 30, 40));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 40));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 40));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel2MouseMoved(evt);
@@ -147,26 +155,36 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
         jLTitulo1.setText("Receta");
         jPanel2.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jBAlta.setBackground(new java.awt.Color(102, 255, 102));
+        jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Generar receta");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 110, -1));
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 160, -1));
 
+        jBLimpia.setBackground(new java.awt.Color(153, 153, 255));
+        jBLimpia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBLimpia.setText("Limpiar");
         jBLimpia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 110, -1));
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 160, -1));
 
-        jLAnimal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPAnimal.setBackground(new java.awt.Color(255, 255, 255));
+        jPAnimal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPAnimal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLAnimal.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLAnimal.setText("Animal:");
-        jPanel2.add(jLAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        jPAnimal.add(jLAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jTFAnimal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFAnimal.setBorder(null);
         jTFAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFAnimalActionPerformed(evt);
@@ -183,12 +201,20 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
                 jTFAnimalKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 180, -1));
+        jPAnimal.add(jTFAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, 20));
 
-        jLRaza.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel2.add(jPAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 220, 60));
+
+        jPRaza.setBackground(new java.awt.Color(255, 255, 255));
+        jPRaza.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPRaza.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLRaza.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLRaza.setText("Raza:");
-        jPanel2.add(jLRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+        jPRaza.add(jLRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jTFRaza.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFRaza.setBorder(null);
         jTFRaza.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFRazaKeyPressed(evt);
@@ -200,29 +226,24 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
                 jTFRazaKeyTyped(evt);
             }
         });
-        jPanel2.add(jTFRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 180, -1));
+        jPRaza.add(jTFRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, 20));
 
-        jLDiagnostico.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLDiagnostico.setText("Diagnostico:");
-        jPanel2.add(jLDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        jPanel2.add(jPRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 220, 60));
 
-        jTADiagnostico.setColumns(20);
-        jTADiagnostico.setRows(5);
-        jTADiagnostico.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTADiagnosticoKeyReleased(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTADiagnostico);
+        jPMedicacion.setBackground(new java.awt.Color(255, 255, 255));
+        jPMedicacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPMedicacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 420, 40));
-
-        jLMedicacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLMedicacion.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLMedicacion.setText("Medicacion:");
-        jPanel2.add(jLMedicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+        jPMedicacion.add(jLMedicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jScrollPane2.setBorder(null);
 
         jTAMedicacion.setColumns(20);
+        jTAMedicacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jTAMedicacion.setRows(5);
+        jTAMedicacion.setBorder(null);
         jTAMedicacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTAMedicacionKeyReleased(evt);
@@ -230,9 +251,36 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTAMedicacion);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 420, 40));
+        jPMedicacion.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 430, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 550, 420));
+        jPanel2.add(jPMedicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 470, 100));
+
+        jPDiagnostico.setBackground(new java.awt.Color(255, 255, 255));
+        jPDiagnostico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPDiagnostico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLDiagnostico.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLDiagnostico.setText("Diagnostico:");
+        jPDiagnostico.add(jLDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jScrollPane1.setBorder(null);
+
+        jTADiagnostico.setColumns(20);
+        jTADiagnostico.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTADiagnostico.setRows(5);
+        jTADiagnostico.setBorder(null);
+        jTADiagnostico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTADiagnosticoKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTADiagnostico);
+
+        jPDiagnostico.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 430, 40));
+
+        jPanel2.add(jPDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 470, 100));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 560, 450));
 
         pack();
         setLocationRelativeTo(null);
@@ -309,10 +357,10 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
         Querys q = new Querys();
         ArrayList<Object> infoDoc = new ArrayList<Object>();
 
-        if (jLAnimal.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLRaza.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLDiagnostico.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLMedicacion.getForeground().getRGB() == Color.GREEN.getRGB()) {
+        if (jLAnimal.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLRaza.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLDiagnostico.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLMedicacion.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()) {
 
             crearReceta();
 
@@ -335,10 +383,9 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
         jTADiagnostico.setText("");
         jTAMedicacion.setText("");
 
-        jLAnimal.setForeground(Color.BLACK);
-        jLRaza.setForeground(Color.BLACK);
-        jLDiagnostico.setForeground(Color.BLACK);
-        jLMedicacion.setForeground(Color.BLACK);
+        cc.cDefault(jLAnimal, jLRaza, jLDiagnostico, jLMedicacion);
+        cc.cDefault(jTFAnimal, jTFRaza, jTADiagnostico, jTAMedicacion);
+        cc.cDefault(jPAnimal, jPRaza, jPDiagnostico, jPMedicacion);
 
         CtrlInterfaz.selecciona(jTFAnimal);
     }//GEN-LAST:event_jBLimpiaActionPerformed
@@ -368,9 +415,9 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
 
     private void jTFAnimalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFAnimalKeyReleased
         if (jTFAnimal.getText().isEmpty()) {
-            jLAnimal.setForeground(Color.BLACK);
+            cc.cDefault(jTFAnimal, jLAnimal, jPAnimal);
         } else {
-            jLAnimal.setForeground(Color.GREEN);
+            cc.cVerde(jTFAnimal, jLAnimal, jPAnimal);
             Validaciones.enter(this, evt, jTFRaza);
         }
     }//GEN-LAST:event_jTFAnimalKeyReleased
@@ -389,9 +436,9 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
 
     private void jTFRazaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFRazaKeyReleased
         if (jTFRaza.getText().isEmpty()) {
-            jLRaza.setForeground(Color.BLACK);
+            cc.cDefault(jTFRaza, jLRaza, jPRaza);
         } else {
-            jLRaza.setForeground(Color.GREEN);
+            cc.cVerde(jTFRaza, jLRaza, jPRaza);
             Validaciones.enter(this, evt, jTADiagnostico);
         }
     }//GEN-LAST:event_jTFRazaKeyReleased
@@ -406,17 +453,17 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
 
     private void jTAMedicacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTAMedicacionKeyReleased
         if (jTAMedicacion.getText().isEmpty()) {
-            jLMedicacion.setForeground(Color.BLACK);
+            cc.cDefault(jTAMedicacion, jLMedicacion, jPMedicacion);
         } else {
-            jLMedicacion.setForeground(Color.GREEN);
+            cc.cVerde(jTAMedicacion, jLMedicacion, jPMedicacion);
         }
     }//GEN-LAST:event_jTAMedicacionKeyReleased
 
     private void jTADiagnosticoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTADiagnosticoKeyReleased
         if (jTADiagnostico.getText().isEmpty()) {
-            jLDiagnostico.setForeground(Color.BLACK);
+            cc.cDefault(jLDiagnostico, jTADiagnostico, jPDiagnostico);
         } else {
-            jLDiagnostico.setForeground(Color.GREEN);
+            cc.cVerde(jLDiagnostico, jTADiagnostico, jPDiagnostico);
         }
     }//GEN-LAST:event_jTADiagnosticoKeyReleased
 
@@ -618,6 +665,10 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLRaza;
     private javax.swing.JLabel jLTitulo1;
+    private javax.swing.JPanel jPAnimal;
+    private javax.swing.JPanel jPDiagnostico;
+    private javax.swing.JPanel jPMedicacion;
+    private javax.swing.JPanel jPRaza;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

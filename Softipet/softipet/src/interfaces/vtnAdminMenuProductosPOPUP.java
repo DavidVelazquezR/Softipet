@@ -53,6 +53,7 @@ public class vtnAdminMenuProductosPOPUP extends javax.swing.JFrame {
         jTFFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("POPUP Productos SOFTIPET");
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {

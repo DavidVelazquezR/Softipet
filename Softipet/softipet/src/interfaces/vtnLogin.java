@@ -14,6 +14,7 @@ import java.awt.Font;
 import static java.lang.System.exit;
 import java.sql.Connection;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,8 +46,7 @@ public class vtnLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLLogin = new javax.swing.JLabel();
+        jLLogo = new javax.swing.JPanel();
         jBIniciar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPContra = new javax.swing.JPanel();
@@ -55,6 +55,8 @@ public class vtnLogin extends javax.swing.JFrame {
         jPCorreo = new javax.swing.JPanel();
         jTFCorreo = new javax.swing.JTextField();
         jLCorreo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPOverlay = new javax.swing.JPanel();
         jLBackground = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -62,6 +64,7 @@ public class vtnLogin extends javax.swing.JFrame {
         jLCerrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login SOFTIPET");
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -73,12 +76,8 @@ public class vtnLogin extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLLogin.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLLogin.setText("Ingresar ");
-        jPanel2.add(jLLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 80, -1));
+        jLLogo.setBackground(new java.awt.Color(255, 255, 255));
+        jLLogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBIniciar.setBackground(new java.awt.Color(102, 204, 255));
         jBIniciar.setText("---->");
@@ -94,10 +93,10 @@ public class vtnLogin extends javax.swing.JFrame {
                 jBIniciarKeyPressed(evt);
             }
         });
-        jPanel2.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 100, 20));
+        jLLogo.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 100, 20));
 
-        jLabel1.setText("Beta Version 1.3");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
+        jLabel1.setText("Copyright 2020 por ViVeSoft");
+        jLLogo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
 
         jPContra.setBackground(new java.awt.Color(255, 255, 255));
         jPContra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -121,7 +120,7 @@ public class vtnLogin extends javax.swing.JFrame {
         jLContrasena.setText("Contraseña:");
         jPContra.add(jLContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jPanel2.add(jPContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 210, 50));
+        jLLogo.add(jPContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 210, 50));
 
         jPCorreo.setBackground(new java.awt.Color(255, 255, 255));
         jPCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -153,9 +152,15 @@ public class vtnLogin extends javax.swing.JFrame {
         jLCorreo.setText("Correo:");
         jPCorreo.add(jLCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jPanel2.add(jPCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 210, 50));
+        jLLogo.add(jPCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 210, 50));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 380, 400));
+        jLabel2.setText("Official Release 1.5");
+        jLLogo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
+        jLLogo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 90, 90));
+
+        getContentPane().add(jLLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 380, 400));
 
         jPOverlay.setPreferredSize(new java.awt.Dimension(350, 400));
         jPOverlay.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -207,8 +212,10 @@ public class vtnLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCerrarMouseClicked
-        this.dispose();
-        exit(0);
+        if (Mensaje.pregunta(this, "¿Estas seguro que deseas cerrar el programa?") == JOptionPane.YES_OPTION) {
+            this.dispose();
+            exit(0);
+        }
     }//GEN-LAST:event_jLCerrarMouseClicked
 
     private void jLMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMinimizarMouseClicked
@@ -391,14 +398,15 @@ public class vtnLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLContrasena;
     private javax.swing.JLabel jLCorreo;
-    private javax.swing.JLabel jLLogin;
+    private javax.swing.JPanel jLLogo;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPContra;
     private javax.swing.JPanel jPCorreo;
     private javax.swing.JPasswordField jPFContra;
     private javax.swing.JPanel jPOverlay;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTFCorreo;
     // End of variables declaration//GEN-END:variables

@@ -58,6 +58,7 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         jBBaja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Bodega SOFTIPET");
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -128,6 +129,8 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 930, 320));
 
+        jBBaja.setBackground(new java.awt.Color(153, 153, 255));
+        jBBaja.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBBaja.setText("Recibir pedido");
         jBBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

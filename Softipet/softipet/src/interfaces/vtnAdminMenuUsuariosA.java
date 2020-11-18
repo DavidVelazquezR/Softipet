@@ -262,6 +262,8 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
         });
         jPanel1.add(jDCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 170, -1));
 
+        jBAlta.setBackground(new java.awt.Color(153, 255, 153));
+        jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Dar de alta");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,15 +275,17 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jBAltaKeyPressed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 90, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 120, -1));
 
+        jBLimpiar.setBackground(new java.awt.Color(153, 153, 255));
+        jBLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 90, -1));
+        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 120, -1));
 
         jPNombre.setBackground(new java.awt.Color(255, 255, 255));
         jPNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -988,7 +992,6 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jTFAPaternoKeyReleased
         if (jTFAPaterno.getText().isEmpty()) {
             cc.cDefault(jTFAPaterno, jLAPaterno, jPAPaterno);
-            jLAPaterno.setForeground(Color.BLACK);
         } else {
             cc.cVerde(jTFAPaterno, jLAPaterno, jPAPaterno);
             Validaciones.enter(this, evt, jTFAMaterno);
@@ -1000,7 +1003,6 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
 
         if (jTFAMaterno.getText().isEmpty()) {
             cc.cDefault(jTFAMaterno, jLAMaterno, jPAMaterno);
-            jLAMaterno.setForeground(Color.BLACK);
         } else {
             cc.cVerde(jTFAMaterno, jLAMaterno, jPAMaterno);
             Validaciones.enter(this, evt, jTFTelefono);

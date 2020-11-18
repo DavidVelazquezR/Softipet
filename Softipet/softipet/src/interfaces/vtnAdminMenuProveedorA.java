@@ -9,6 +9,7 @@ import bd.Querys;
 import cjb.ci.CtrlInterfaz;
 import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
+import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
@@ -29,6 +30,7 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
 
     int xy, xx;
     boolean flagMedico = false;
+    cambioColor cc = new cambioColor();
 
     /**
      * Creates new form vtnAdminAU
@@ -51,18 +53,23 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
         jLCerrar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLTitulo1 = new javax.swing.JLabel();
-        jLNombre = new javax.swing.JLabel();
-        jTFNombre = new javax.swing.JTextField();
-        jTFTelefono = new javax.swing.JTextField();
-        jLTelefono = new javax.swing.JLabel();
-        jLEmail = new javax.swing.JLabel();
-        jTFEmail = new javax.swing.JTextField();
-        jLRFC = new javax.swing.JLabel();
-        jTFRFC = new javax.swing.JTextField();
         jBAlta = new javax.swing.JButton();
         jBLimpiar = new javax.swing.JButton();
+        jPNombre = new javax.swing.JPanel();
+        jLNombre = new javax.swing.JLabel();
+        jTFNombre = new javax.swing.JTextField();
+        jPTelefono = new javax.swing.JPanel();
+        jLTelefono = new javax.swing.JLabel();
+        jTFTelefono = new javax.swing.JTextField();
+        jPEmail = new javax.swing.JPanel();
+        jLEmail = new javax.swing.JLabel();
+        jTFEmail = new javax.swing.JTextField();
+        jPRfc = new javax.swing.JPanel();
+        jLRFC = new javax.swing.JLabel();
+        jTFRFC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Proveedores altas SOFTIPET");
         setUndecorated(true);
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
@@ -96,7 +103,7 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
                 jLMinimizarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, 40));
+        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, -1, 40));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/regreso.png"))); // NOI18N
         jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,21 +111,52 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
                 jLCerrarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 30, 40));
+        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 30, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Alta de proveedores");
         jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jLNombre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLNombre.setText("Nombre del proveedor:");
-        jPanel1.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        jBAlta.setBackground(new java.awt.Color(102, 255, 102));
+        jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jBAlta.setText("Dar de alta");
+        jBAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAltaActionPerformed(evt);
+            }
+        });
+        jBAlta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jBAltaKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 120, -1));
 
-        jTFNombre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBLimpiar.setBackground(new java.awt.Color(153, 153, 255));
+        jBLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jBLimpiar.setText("Limpiar");
+        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 120, -1));
+
+        jPNombre.setBackground(new java.awt.Color(255, 255, 255));
+        jPNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPNombre.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLNombre.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLNombre.setText("Nombre del proveedor:");
+        jPNombre.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFNombre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFNombre.setBorder(null);
         jTFNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFNombreKeyPressed(evt);
@@ -130,9 +168,20 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
                 jTFNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, -1));
+        jPNombre.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 20));
 
-        jTFTelefono.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel1.add(jPNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 200, 60));
+
+        jPTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        jPTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPTelefono.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLTelefono.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLTelefono.setText("Teléfono:");
+        jPTelefono.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFTelefono.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFTelefono.setBorder(null);
         jTFTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFTelefonoKeyPressed(evt);
@@ -144,17 +193,20 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
                 jTFTelefonoKeyTyped(evt);
             }
         });
-        jPanel1.add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 160, -1));
+        jPTelefono.add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 20));
 
-        jLTelefono.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLTelefono.setText("Teléfono:");
-        jPanel1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        jPanel1.add(jPTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 200, 60));
 
-        jLEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPEmail.setBackground(new java.awt.Color(255, 255, 255));
+        jPEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPEmail.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLEmail.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLEmail.setText("Email:");
-        jPanel1.add(jLEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        jPEmail.add(jLEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTFEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFEmail.setBorder(null);
         jTFEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFEmailKeyPressed(evt);
@@ -166,13 +218,20 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
                 jTFEmailKeyTyped(evt);
             }
         });
-        jPanel1.add(jTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 160, -1));
+        jPEmail.add(jTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 20));
 
-        jLRFC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1.add(jPEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 200, 60));
+
+        jPRfc.setBackground(new java.awt.Color(255, 255, 255));
+        jPRfc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPRfc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLRFC.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLRFC.setText("RFC:");
-        jPanel1.add(jLRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        jPRfc.add(jLRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTFRFC.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFRFC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFRFC.setBorder(null);
         jTFRFC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFRFCActionPerformed(evt);
@@ -189,28 +248,9 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
                 jTFRFCKeyTyped(evt);
             }
         });
-        jPanel1.add(jTFRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 160, -1));
+        jPRfc.add(jTFRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 20));
 
-        jBAlta.setText("Dar de alta");
-        jBAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAltaActionPerformed(evt);
-            }
-        });
-        jBAlta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jBAltaKeyPressed(evt);
-            }
-        });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 90, -1));
-
-        jBLimpiar.setText("Limpiar");
-        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimpiarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 90, -1));
+        jPanel1.add(jPRfc, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 200, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 440, 460));
 
@@ -246,10 +286,11 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jBLimpiarActionPerformed
         CtrlInterfaz.limpia(jTFNombre, jTFTelefono, jTFEmail, jTFRFC);
 
-        jLNombre.setForeground(Color.BLACK);
-        jLTelefono.setForeground(Color.BLACK);
-        jLEmail.setForeground(Color.BLACK);
-        jLRFC.setForeground(Color.BLACK);
+        cc.cDefault(jLNombre, jLTelefono, jLEmail, jLRFC);
+        cc.cDefault(jTFNombre, jTFTelefono, jTFEmail, jTFRFC);
+        cc.cDefault(jPNombre, jPTelefono, jPEmail, jPRfc);
+
+        CtrlInterfaz.selecciona(jTFNombre);
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jTFRFCKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFRFCKeyTyped
@@ -320,10 +361,10 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
         Querys q = new Querys();
         ArrayList<Object> id = new ArrayList<Object>();
 
-        if (jLNombre.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLTelefono.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLEmail.getForeground().getRGB() == Color.GREEN.getRGB()
-                && jLRFC.getForeground().getRGB() == Color.GREEN.getRGB()) {
+        if (jLNombre.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLTelefono.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLEmail.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                && jLRFC.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()) {
 
             try {
                 id = q.Seleccion(con, "MAX(Id_proveedor)", "proveedores", "", true);
@@ -370,12 +411,12 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
     private void jTFTelefonoKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFTelefonoKeyReleased
     {//GEN-HEADEREND:event_jTFTelefonoKeyReleased
         if (jTFTelefono.getText().isEmpty()) {
-            jLTelefono.setForeground(Color.BLACK);
+            cc.cDefault(jTFTelefono, jLTelefono, jPTelefono);
         } else if (jTFTelefono.getText().length() == 10) {
-            jLTelefono.setForeground(Color.GREEN);
+            cc.cVerde(jTFTelefono, jLTelefono, jPTelefono);
             Validaciones.enter(this, evt, jTFEmail);
         } else {
-            jLTelefono.setForeground(Color.RED);
+            cc.cRojo(jTFTelefono, jLTelefono, jPTelefono);
         }
     }//GEN-LAST:event_jTFTelefonoKeyReleased
 
@@ -387,9 +428,9 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
     private void jTFNombreKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreKeyReleased
     {//GEN-HEADEREND:event_jTFNombreKeyReleased
         if (jTFNombre.getText().isEmpty()) {
-            jLNombre.setForeground(Color.BLACK);
+            cc.cDefault(jTFNombre, jLNombre, jPNombre);
         } else {
-            jLNombre.setForeground(Color.GREEN);
+            cc.cVerde(jTFNombre, jLNombre, jPNombre);
             Validaciones.enter(this, evt, jTFTelefono);
         }
     }//GEN-LAST:event_jTFNombreKeyReleased
@@ -405,17 +446,17 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
             System.out.println("Error: exception ->" + e);
         }
         if (jTFEmail.getText().isEmpty()) {
-            jLEmail.setForeground(Color.BLACK);
+            cc.cDefault(jTFEmail, jLEmail, jPEmail);
         } else if (jTFEmail.getText().matches("^[^@]+@[^@]+\\.[a-zA-Z]{2,}$")) {
             Validaciones.enter(this, evt, jTFRFC);
-            jLEmail.setForeground(Color.GREEN);
+            cc.cVerde(jTFEmail, jLEmail, jPEmail);
         } else {
-            jLEmail.setForeground(Color.RED);
+            cc.cRojo(jTFEmail, jLEmail, jPEmail);
         }
         try {
 
             if (consultaEmail.get(0).equals(jTFEmail.getText())) {
-                jLEmail.setForeground(Color.YELLOW);
+                cc.cAmarillo(jTFEmail, jLEmail, jPEmail);
             }
 
         } catch (Exception e) {
@@ -439,18 +480,18 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
         jTFRFC.setText(jTFRFC.getText().toUpperCase());
 
         if (jTFRFC.getText().isEmpty()) {
-            jLRFC.setForeground(Color.BLACK);
+            cc.cDefault(jTFRFC, jLRFC, jPRfc);
         } else if (jTFRFC.getText().length() == 12 || jTFRFC.getText().length() == 13) {
-            jLRFC.setForeground(Color.GREEN);
+            cc.cVerde(jTFRFC, jLRFC, jPRfc);
             Validaciones.enter(this, evt, jBAlta);
         } else {
-            jLRFC.setForeground(Color.RED);
+            cc.cRojo(jTFRFC, jLRFC, jPRfc);
         }
 
         try {
 
             if (consultaRFC.get(0).equals(jTFRFC.getText())) {
-                jLRFC.setForeground(Color.YELLOW);
+                cc.cAmarillo(jTFRFC, jLRFC, jPRfc);
             }
 
         } catch (Exception e) {
@@ -515,6 +556,10 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
     private javax.swing.JLabel jLRFC;
     private javax.swing.JLabel jLTelefono;
     private javax.swing.JLabel jLTitulo1;
+    private javax.swing.JPanel jPEmail;
+    private javax.swing.JPanel jPNombre;
+    private javax.swing.JPanel jPRfc;
+    private javax.swing.JPanel jPTelefono;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTFEmail;

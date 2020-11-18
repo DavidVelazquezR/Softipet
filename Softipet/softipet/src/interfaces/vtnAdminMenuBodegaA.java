@@ -89,6 +89,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         jTFAPRepart = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Bodega Recibo SOFTIPET");
         setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -156,21 +157,25 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         jLTitulo1.setText("Recibir productos en bodega");
         jPanel2.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
+        jBAlta.setBackground(new java.awt.Color(153, 255, 153));
+        jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Recibir pedido");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
 
+        jBLimpia.setBackground(new java.awt.Color(153, 153, 255));
+        jBLimpia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBLimpia.setText("Limpiar");
         jBLimpia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 110, -1));
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 130, -1));
 
         jPProducto.setBackground(new java.awt.Color(255, 255, 255));
         jPProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

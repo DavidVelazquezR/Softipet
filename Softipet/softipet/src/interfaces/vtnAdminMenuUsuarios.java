@@ -120,6 +120,7 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
             }
         ));
         jTUsers.setGridColor(new java.awt.Color(255, 255, 255));
+        jTUsers.setOpaque(false);
         jTUsers.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(jTUsers);
 

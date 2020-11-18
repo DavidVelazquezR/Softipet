@@ -53,6 +53,7 @@ public class vtnAdminMenuProductos extends javax.swing.JFrame {
         jBAll = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Productos Principal SOFTIPET");
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -123,14 +124,18 @@ public class vtnAdminMenuProductos extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 730, 320));
 
+        jBAlta.setBackground(new java.awt.Color(153, 255, 153));
+        jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Alta de productos");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 140, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 160, -1));
 
+        jBAll.setBackground(new java.awt.Color(153, 153, 255));
+        jBAll.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jBAll.setText("Ver todo");
         jBAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

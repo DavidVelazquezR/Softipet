@@ -53,6 +53,7 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
         jBBaja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Proveedores Principal SOFTIPET");
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -123,21 +124,25 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 740, 320));
 
+        jBAlta.setBackground(new java.awt.Color(102, 255, 102));
+        jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Alta de proveedores");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 160, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 210, -1));
 
+        jBBaja.setBackground(new java.awt.Color(255, 204, 102));
+        jBBaja.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBBaja.setText("Modifica de proveedores");
         jBBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBajaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 160, -1));
+        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, 210, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 810, 460));
 

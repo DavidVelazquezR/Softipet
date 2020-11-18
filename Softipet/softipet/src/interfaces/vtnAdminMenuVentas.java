@@ -128,6 +128,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -169,6 +170,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             jLIDProducto.setText("Producto:");
             jPanel1.add(jLIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
+            jTFProducto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jTFProducto.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     jTFProductoKeyPressed(evt);
@@ -182,19 +184,21 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             });
             jPanel1.add(jTFProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 180, -1));
 
-            jBSearch.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+            jBSearch.setBackground(new java.awt.Color(153, 153, 255));
+            jBSearch.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
             jBSearch.setText("Search");
             jBSearch.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBSearchActionPerformed(evt);
                 }
             });
-            jPanel1.add(jBSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 70, 20));
+            jPanel1.add(jBSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 80, 20));
 
             jLCantidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
             jLCantidad.setText("Cantidad:");
             jPanel1.add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
+            jTFCantidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jTFCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     jTFCantidadKeyPressed(evt);
@@ -208,26 +212,31 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             });
             jPanel1.add(jTFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 180, -1));
 
+            jBAdd.setBackground(new java.awt.Color(102, 255, 102));
+            jBAdd.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBAdd.setText("Agregar");
             jBAdd.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBAddActionPerformed(evt);
                 }
             });
-            jPanel1.add(jBAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+            jPanel1.add(jBAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
+            jBDrop.setBackground(new java.awt.Color(255, 102, 102));
+            jBDrop.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBDrop.setText("Eliminar");
             jBDrop.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBDropActionPerformed(evt);
                 }
             });
-            jPanel1.add(jBDrop, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
+            jPanel1.add(jBDrop, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
             jLCantidad1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
             jLCantidad1.setText("Total:");
             jPanel1.add(jLCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, -1, 20));
 
+            jTFTotal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jTFTotal.setText("0.0");
             jTFTotal.setEnabled(false);
             jTFTotal.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -243,6 +252,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             });
             jPanel1.add(jTFTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 200, -1));
 
+            jBVenta.setBackground(new java.awt.Color(102, 255, 102));
+            jBVenta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBVenta.setText("Realizar venta");
             jBVenta.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +262,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             });
             jPanel1.add(jBVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 180, -1));
 
+            jBLimpia.setBackground(new java.awt.Color(255, 153, 102));
+            jBLimpia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBLimpia.setText("Cancelar venta");
             jBLimpia.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,21 +272,25 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             });
             jPanel1.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 180, -1));
 
+            jButton1.setBackground(new java.awt.Color(0, 255, 153));
+            jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jButton1.setText("Historial de ventas totales");
             jButton1.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jButton1ActionPerformed(evt);
                 }
             });
-            jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 190, -1));
+            jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 260, -1));
 
+            jButton2.setBackground(new java.awt.Color(0, 255, 153));
+            jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jButton2.setText("Historial de ventas por producto");
             jButton2.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jButton2ActionPerformed(evt);
                 }
             });
-            jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 190, -1));
+            jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
             getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 520));
 
@@ -349,6 +366,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Error al consultar productos..." + e);
         }
+
+        CtrlInterfaz.selecciona(jTFProducto);
     }//GEN-LAST:event_formWindowOpened
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel1MouseClicked
@@ -672,6 +691,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                 Mensaje.error(this, "No se realizo venta");
             }
         }
+
+        CtrlInterfaz.selecciona(jTFProducto);
 
     }//GEN-LAST:event_jBVentaActionPerformed
 
