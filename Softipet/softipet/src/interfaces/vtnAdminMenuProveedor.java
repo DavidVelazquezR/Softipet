@@ -81,7 +81,7 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
                 jLMinimizarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 40));
+        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, 40));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/regreso.png"))); // NOI18N
         jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,10 +89,11 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
                 jLCerrarMouseClicked(evt);
             }
         });
-        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 40));
+        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 30, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -100,10 +101,11 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Administración de proveedores");
-        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jTUsers.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -115,9 +117,11 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTUsers.setGridColor(new java.awt.Color(255, 255, 255));
+        jTUsers.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(jTUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 730, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 740, 320));
 
         jBAlta.setText("Alta de proveedores");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +139,7 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
         });
         jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 160, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 810, 460));
 
         pack();
         setLocationRelativeTo(null);

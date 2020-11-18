@@ -135,10 +135,11 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Ventas");
         jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jTVentas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -150,6 +151,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTVentas.setGridColor(new java.awt.Color(255, 255, 255));
+        jTVentas.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jTVentas.getModel().addTableModelListener(
             new TableModelListener()
             {

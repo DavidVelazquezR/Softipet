@@ -165,9 +165,9 @@ public class vtnAdminMenuUsuariosM extends javax.swing.JFrame {
         jLRol.setText("Rol:");
         jPanel1.add(jLRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, -1, -1));
 
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Modificacion de usuarios");
-        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLAPaterno.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLAPaterno.setText("Apellido paterno:");

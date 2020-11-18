@@ -11,8 +11,11 @@ import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
 import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
+import java.awt.AWTException;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics;
+import java.awt.HeadlessException;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
@@ -20,6 +23,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JOptionPane;
@@ -40,6 +45,13 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
      */
     public vtnAdminMenuProductosA() {
         initComponents();
+        try {
+            jPPrecioP.setCursor(Cursor.getSystemCustomCursor("Invalid.32x32"));
+        } catch (AWTException ex) {
+            Logger.getLogger(vtnAdminMenuUsuariosA.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HeadlessException ex) {
+            Logger.getLogger(vtnAdminMenuUsuariosA.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -142,7 +154,7 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         });
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Alta de productos");
         jPanel2.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
@@ -371,6 +383,11 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
 
         jPPrecioP.setBackground(new java.awt.Color(255, 255, 255));
         jPPrecioP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPPrecioP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPPrecioPMouseEntered(evt);
+            }
+        });
         jPPrecioP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLPrecioP.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
@@ -382,7 +399,7 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
 
         jPanel2.add(jPPrecioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 280, 60));
 
-        jCBProv.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jCBProv.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCBProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione proveedor" }));
         jCBProv.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -404,7 +421,7 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         });
         jPanel2.add(jCBProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 240, 30));
 
-        jCBPrecioP.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jCBPrecioP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCBPrecioP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "S/N", "10%", "20%", "30%", "40%", "50%" }));
         jCBPrecioP.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -675,35 +692,40 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jCBPrecioPItemStateChanged
         float porF;
 
-        if (jCBPrecioP.getSelectedIndex() == 0) {
-            cc.cDefault(jPPrecioP, jLPrecioP, jLPrecioC);
-            jLPrecioC.setText("");
-        } else if (jCBPrecioP.getSelectedIndex() == 1) {
-            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
-            try {
-                porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.10);
-                jLPrecioC.setText(String.valueOf(porF));
-            } catch (Exception e) {
-                System.out.println("Error al cambiar precio float..." + e);
-            }
+        try {
+            if (jCBPrecioP.getSelectedIndex() == 0) {
+                cc.cDefault(jPPrecioP, jLPrecioP, jLPrecioC);
+                jLPrecioC.setText("");
+            } else if (jCBPrecioP.getSelectedIndex() == 1) {
+                cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
+                try {
+                    porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.10);
+                    jLPrecioC.setText(String.valueOf(porF));
+                } catch (Exception e) {
+                    System.out.println("Error al cambiar precio float..." + e);
+                }
 
-        } else if (jCBPrecioP.getSelectedIndex() == 2) {
-            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
-            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.20);
-            jLPrecioC.setText(String.valueOf(porF));
-        } else if (jCBPrecioP.getSelectedIndex() == 3) {
-            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
-            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.30);
-            jLPrecioC.setText(String.valueOf(porF));
-        } else if (jCBPrecioP.getSelectedIndex() == 4) {
-            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
-            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.40);
-            jLPrecioC.setText(String.valueOf(porF));
-        } else if (jCBPrecioP.getSelectedIndex() == 5) {
-            cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
-            porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.50);
-            jLPrecioC.setText(String.valueOf(porF));
+            } else if (jCBPrecioP.getSelectedIndex() == 2) {
+                cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
+                porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.20);
+                jLPrecioC.setText(String.valueOf(porF));
+            } else if (jCBPrecioP.getSelectedIndex() == 3) {
+                cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
+                porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.30);
+                jLPrecioC.setText(String.valueOf(porF));
+            } else if (jCBPrecioP.getSelectedIndex() == 4) {
+                cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
+                porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.40);
+                jLPrecioC.setText(String.valueOf(porF));
+            } else if (jCBPrecioP.getSelectedIndex() == 5) {
+                cc.cVerde(jPPrecioP, jLPrecioP, jLPrecioC);
+                porF = Float.parseFloat(jTFPrecioF.getText()) + (Float.parseFloat(jTFPrecioF.getText()) * (float) 0.50);
+                jLPrecioC.setText(String.valueOf(porF));
+            }
+        } catch (Exception e) {
+            System.out.println("Error al usar combobox porcentaje precio publico..." + e);
         }
+
     }//GEN-LAST:event_jCBPrecioPItemStateChanged
 
     private void jCBPrecioPKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jCBPrecioPKeyPressed
@@ -804,6 +826,10 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
     private void jCBProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCBProvKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBProvKeyReleased
+
+    private void jPPrecioPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPPrecioPMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPPrecioPMouseEntered
 
     /**
      * @param args the command line arguments

@@ -44,10 +44,11 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
         jLMinimizar = new javax.swing.JLabel();
         jLCerrar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLTitulo = new javax.swing.JLabel();
-        jLUser = new javax.swing.JLabel();
         jLManageBod2 = new javax.swing.JLabel();
         jLMU12 = new javax.swing.JLabel();
+        jLTitulo = new javax.swing.JLabel();
+        jLUser = new javax.swing.JLabel();
+        jLLayer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -93,13 +94,7 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLTitulo.setText("Bienvenido:");
-        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        jLUser.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 230, 20));
-
+        jLManageBod2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageBod2.setText("Recetas");
         jPanel1.add(jLManageBod2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 70, 20));
 
@@ -110,6 +105,16 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLMU12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 80, 80));
+
+        jLTitulo.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLTitulo.setText("Bienvenido:");
+        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLUser.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 230, 30));
+
+        jLLayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
+        jPanel1.add(jLLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 80, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -280,6 +285,7 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLCerrar;
+    private javax.swing.JLabel jLLayer;
     private javax.swing.JLabel jLMU12;
     private javax.swing.JLabel jLManageBod2;
     private javax.swing.JLabel jLMinimizar;

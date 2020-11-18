@@ -52,6 +52,7 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
         jBNewUser = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBModificar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -94,6 +95,7 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -101,10 +103,11 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Administración de usuarios");
-        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jTUsers.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -116,33 +119,45 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTUsers.setGridColor(new java.awt.Color(255, 255, 255));
+        jTUsers.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(jTUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 510, 360));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 520, 360));
 
+        jBNewUser.setBackground(new java.awt.Color(153, 255, 153));
+        jBNewUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBNewUser.setText("Nuevo usuario");
         jBNewUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNewUserActionPerformed(evt);
             }
         });
-        jPanel1.add(jBNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 140, -1));
+        jPanel1.add(jBNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 170, 30));
 
+        jBEliminar.setBackground(new java.awt.Color(255, 153, 153));
+        jBEliminar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBEliminar.setText("Eliminar usuario");
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 140, -1));
+        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 170, 30));
 
+        jBModificar.setBackground(new java.awt.Color(255, 255, 102));
+        jBModificar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBModificar.setText("Modificar usuario");
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 140, -1));
+        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 170, 30));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setText("Selecciona la opcion a usar:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -388,6 +403,7 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLTitulo1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

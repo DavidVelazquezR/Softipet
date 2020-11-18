@@ -86,6 +86,7 @@ public class vtnAdminMenuProductosPOPUP extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel1MouseMoved(evt);
@@ -98,10 +99,11 @@ public class vtnAdminMenuProductosPOPUP extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Productos");
-        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
+        jTUsers.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -113,22 +115,24 @@ public class vtnAdminMenuProductosPOPUP extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTUsers.setGridColor(new java.awt.Color(255, 255, 255));
+        jTUsers.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(jTUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 550, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 530, 240));
 
         jLIDProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLIDProducto.setText("Filtrar por nombre:");
-        jPanel1.add(jLIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+        jPanel1.add(jLIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, 20));
 
         jTFFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTFFiltroKeyReleased(evt);
             }
         });
-        jPanel1.add(jTFFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 160, -1));
+        jPanel1.add(jTFFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 160, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 590, 340));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 590, 350));
 
         pack();
         setLocationRelativeTo(null);

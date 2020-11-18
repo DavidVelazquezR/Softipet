@@ -9,14 +9,20 @@ import bd.Querys;
 import cjb.ci.CtrlInterfaz;
 import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
+import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
+import java.awt.AWTException;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.HeadlessException;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.StyledEditorKit;
@@ -29,6 +35,7 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
 
     int xy, xx;
     boolean flagMedico = false;
+    cambioColor cc = new cambioColor();
 
     /**
      * Creates new form vtnAdminAU
@@ -51,36 +58,50 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
         jLCerrar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jCBRol = new javax.swing.JComboBox<>();
-        jLRol = new javax.swing.JLabel();
         jLTitulo1 = new javax.swing.JLabel();
-        jLAPaterno = new javax.swing.JLabel();
-        jTFAPaterno = new javax.swing.JTextField();
-        jLNombre = new javax.swing.JLabel();
-        jTFNombre = new javax.swing.JTextField();
-        jLAMaterno = new javax.swing.JLabel();
-        jTFAMaterno = new javax.swing.JTextField();
-        jTFTelefono = new javax.swing.JTextField();
-        jLTelefono = new javax.swing.JLabel();
-        jLEmail = new javax.swing.JLabel();
-        jTFEmail = new javax.swing.JTextField();
-        jLContra1 = new javax.swing.JLabel();
-        jLCURP = new javax.swing.JLabel();
-        jTFCURP = new javax.swing.JTextField();
-        jLSexo = new javax.swing.JLabel();
         jCBSexo = new javax.swing.JComboBox<>();
-        jLFechaNac = new javax.swing.JLabel();
         jDCFecha = new com.toedter.calendar.JDateChooser();
-        jLDireccion = new javax.swing.JLabel();
-        jTFDireccion = new javax.swing.JTextField();
         jBAlta = new javax.swing.JButton();
         jBLimpiar = new javax.swing.JButton();
+        jPNombre = new javax.swing.JPanel();
+        jLNombre = new javax.swing.JLabel();
+        jTFNombre = new javax.swing.JTextField();
+        jPFechaNac = new javax.swing.JPanel();
+        jLFechaNac = new javax.swing.JLabel();
+        jPAPaterno = new javax.swing.JPanel();
+        jLAPaterno = new javax.swing.JLabel();
+        jTFAPaterno = new javax.swing.JTextField();
+        jPAMaterno = new javax.swing.JPanel();
+        jLAMaterno = new javax.swing.JLabel();
+        jTFAMaterno = new javax.swing.JTextField();
+        jPTelefono = new javax.swing.JPanel();
+        jLTelefono = new javax.swing.JLabel();
+        jTFTelefono = new javax.swing.JTextField();
+        jPEmail = new javax.swing.JPanel();
+        jLEmail = new javax.swing.JLabel();
+        jTFEmail = new javax.swing.JTextField();
+        jPContra = new javax.swing.JPanel();
+        jLContra1 = new javax.swing.JLabel();
         jPFContra1 = new javax.swing.JPasswordField();
+        jPContra2 = new javax.swing.JPanel();
         jLContra2 = new javax.swing.JLabel();
         jPFContra2 = new javax.swing.JPasswordField();
-        jLCedula = new javax.swing.JLabel();
-        jTFCedula = new javax.swing.JTextField();
+        jPCurp = new javax.swing.JPanel();
+        jLCURP = new javax.swing.JLabel();
+        jTFCURP = new javax.swing.JTextField();
+        jPSexo = new javax.swing.JPanel();
+        jLSexo = new javax.swing.JLabel();
+        jPDireccion = new javax.swing.JPanel();
+        jLDireccion = new javax.swing.JLabel();
+        jTFDireccion = new javax.swing.JTextField();
+        jPFacultad = new javax.swing.JPanel();
         jLFacu = new javax.swing.JLabel();
         jTFFacu = new javax.swing.JTextField();
+        jPRol = new javax.swing.JPanel();
+        jLRol = new javax.swing.JLabel();
+        jPCedula = new javax.swing.JPanel();
+        jLCedula = new javax.swing.JLabel();
+        jTFCedula = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -128,6 +149,7 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jCBRol.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -157,136 +179,11 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jCBRolKeyReleased(evt);
             }
         });
-        jPanel1.add(jCBRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 160, -1));
+        jPanel1.add(jCBRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 170, -1));
 
-        jLRol.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLRol.setText("Rol:");
-        jPanel1.add(jLRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, -1, -1));
-
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Alta de usuarios");
-        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
-
-        jLAPaterno.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLAPaterno.setText("Apellido paterno:");
-        jPanel1.add(jLAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
-
-        jTFAPaterno.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFAPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFAPaternoKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFAPaternoKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFAPaternoKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTFAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 160, -1));
-
-        jLNombre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLNombre.setText("Nombre:");
-        jPanel1.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
-
-        jTFNombre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFNombreKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFNombreKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFNombreKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, -1));
-
-        jLAMaterno.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLAMaterno.setText("Apellido materno:");
-        jPanel1.add(jLAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-
-        jTFAMaterno.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFAMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFAMaternoKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFAMaternoKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFAMaternoKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTFAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 160, -1));
-
-        jTFTelefono.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFTelefonoKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFTelefonoKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFTelefonoKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 160, -1));
-
-        jLTelefono.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLTelefono.setText("Teléfono:");
-        jPanel1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-
-        jLEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLEmail.setText("Email:");
-        jPanel1.add(jLEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
-
-        jTFEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFEmail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFEmailKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFEmailKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFEmailKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 160, -1));
-
-        jLContra1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLContra1.setText("Contraseña:");
-        jPanel1.add(jLContra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
-
-        jLCURP.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLCURP.setText("CURP:");
-        jPanel1.add(jLCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
-
-        jTFCURP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFCURP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFCURPActionPerformed(evt);
-            }
-        });
-        jTFCURP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFCURPKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFCURPKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFCURPKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTFCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 160, -1));
-
-        jLSexo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLSexo.setText("Sexo:");
-        jPanel1.add(jLSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
+        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jCBSexo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCBSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione sexo", "Masculino", "Femenino" }));
@@ -315,11 +212,7 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jCBSexoKeyReleased(evt);
             }
         });
-        jPanel1.add(jCBSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 160, -1));
-
-        jLFechaNac.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLFechaNac.setText("Fecha de nacimiento:");
-        jPanel1.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
+        jPanel1.add(jCBSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 170, -1));
 
         jDCFecha.setDateFormatString("yyyy-MM-d");
         jDCFecha.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -360,33 +253,14 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 //por ejemplo al seleccionar una fecha le mostrare un diálogo con la fecha de hoy
                 if (jDCFecha.getDate() == null)
                 {
-                    jLFechaNac.setForeground(Color.BLACK);
+                    cc.cDefault(jPFechaNac, jLFechaNac);
                 } else if (jDCFecha.getDate() != null)
                 {
-                    jLFechaNac.setForeground(Color.GREEN);
-
+                    cc.cVerde(jPFechaNac, jLFechaNac);
                 }
             }
         });
-        jPanel1.add(jDCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 160, -1));
-
-        jLDireccion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLDireccion.setText("Dirección:");
-        jPanel1.add(jLDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, -1, -1));
-
-        jTFDireccion.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFDireccionKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFDireccionKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFDireccionKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTFDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 160, -1));
+        jPanel1.add(jDCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 170, -1));
 
         jBAlta.setText("Dar de alta");
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
@@ -399,7 +273,7 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jBAltaKeyPressed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 90, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 90, -1));
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -407,8 +281,153 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jBLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 410, 90, -1));
+        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 90, -1));
 
+        jPNombre.setBackground(new java.awt.Color(255, 255, 255));
+        jPNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPNombre.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLNombre.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLNombre.setText("Nombre:");
+        jPNombre.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFNombre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFNombre.setBorder(null);
+        jTFNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFNombreKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFNombreKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFNombreKeyTyped(evt);
+            }
+        });
+        jPNombre.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
+
+        jPanel1.add(jPNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 190, 60));
+
+        jPFechaNac.setBackground(new java.awt.Color(255, 255, 255));
+        jPFechaNac.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPFechaNac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLFechaNac.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLFechaNac.setText("Fecha de nacimiento:");
+        jPFechaNac.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel1.add(jPFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 190, 30));
+
+        jPAPaterno.setBackground(new java.awt.Color(255, 255, 255));
+        jPAPaterno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPAPaterno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLAPaterno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLAPaterno.setText("Apellido paterno:");
+        jPAPaterno.add(jLAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFAPaterno.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFAPaterno.setBorder(null);
+        jTFAPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFAPaternoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFAPaternoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFAPaternoKeyTyped(evt);
+            }
+        });
+        jPAPaterno.add(jTFAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
+
+        jPanel1.add(jPAPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 190, 60));
+
+        jPAMaterno.setBackground(new java.awt.Color(255, 255, 255));
+        jPAMaterno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPAMaterno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLAMaterno.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLAMaterno.setText("Apellido materno:");
+        jPAMaterno.add(jLAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFAMaterno.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFAMaterno.setBorder(null);
+        jTFAMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFAMaternoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFAMaternoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFAMaternoKeyTyped(evt);
+            }
+        });
+        jPAMaterno.add(jTFAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
+
+        jPanel1.add(jPAMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 190, 60));
+
+        jPTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        jPTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPTelefono.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLTelefono.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLTelefono.setText("Teléfono:");
+        jPTelefono.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFTelefono.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFTelefono.setBorder(null);
+        jTFTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFTelefonoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFTelefonoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFTelefonoKeyTyped(evt);
+            }
+        });
+        jPTelefono.add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
+
+        jPanel1.add(jPTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 190, 60));
+
+        jPEmail.setBackground(new java.awt.Color(255, 255, 255));
+        jPEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPEmail.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLEmail.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLEmail.setText("Email:");
+        jPEmail.add(jLEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFEmail.setBorder(null);
+        jTFEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFEmailKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFEmailKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFEmailKeyTyped(evt);
+            }
+        });
+        jPEmail.add(jTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
+
+        jPanel1.add(jPEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 190, 60));
+
+        jPContra.setBackground(new java.awt.Color(255, 255, 255));
+        jPContra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPContra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLContra1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLContra1.setText("Contraseña:");
+        jPContra.add(jLContra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPFContra1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPFContra1.setBorder(null);
         jPFContra1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPFContra1KeyPressed(evt);
@@ -420,12 +439,20 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jPFContra1KeyTyped(evt);
             }
         });
-        jPanel1.add(jPFContra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 160, -1));
+        jPContra.add(jPFContra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
 
-        jLContra2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1.add(jPContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 190, 60));
+
+        jPContra2.setBackground(new java.awt.Color(255, 255, 255));
+        jPContra2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPContra2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLContra2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLContra2.setText("Confirme contraseña:");
-        jPanel1.add(jLContra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        jPContra2.add(jLContra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jPFContra2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPFContra2.setBorder(null);
         jPFContra2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPFContra2KeyPressed(evt);
@@ -437,34 +464,91 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jPFContra2KeyTyped(evt);
             }
         });
-        jPanel1.add(jPFContra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 160, -1));
+        jPContra2.add(jPFContra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
 
-        jLCedula.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLCedula.setText("Cedula:");
-        jLCedula.setEnabled(false);
-        jPanel1.add(jLCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
+        jPanel1.add(jPContra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 190, 60));
 
-        jTFCedula.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTFCedula.setEnabled(false);
-        jTFCedula.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFCedulaKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFCedulaKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFCedulaKeyTyped(evt);
+        jPCurp.setBackground(new java.awt.Color(255, 255, 255));
+        jPCurp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPCurp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLCURP.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLCURP.setText("CURP:");
+        jPCurp.add(jLCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFCURP.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFCURP.setBorder(null);
+        jTFCURP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCURPActionPerformed(evt);
             }
         });
-        jPanel1.add(jTFCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 160, -1));
+        jTFCURP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFCURPKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFCURPKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFCURPKeyTyped(evt);
+            }
+        });
+        jPCurp.add(jTFCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
 
-        jLFacu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1.add(jPCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 190, 60));
+
+        jPSexo.setBackground(new java.awt.Color(255, 255, 255));
+        jPSexo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPSexo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLSexo.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLSexo.setText("Sexo:");
+        jPSexo.add(jLSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel1.add(jPSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 190, 30));
+
+        jPDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        jPDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPDireccion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLDireccion.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLDireccion.setText("Dirección:");
+        jPDireccion.add(jLDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFDireccion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFDireccion.setBorder(null);
+        jTFDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFDireccionKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFDireccionKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFDireccionKeyTyped(evt);
+            }
+        });
+        jPDireccion.add(jTFDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
+
+        jPanel1.add(jPDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 190, 60));
+
+        jPFacultad.setBackground(new java.awt.Color(255, 255, 255));
+        jPFacultad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPFacultad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPFacultadMouseEntered(evt);
+            }
+        });
+        jPFacultad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLFacu.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLFacu.setText("Facultad de egreso:");
         jLFacu.setEnabled(false);
-        jPanel1.add(jLFacu, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, -1, -1));
+        jPFacultad.add(jLFacu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTFFacu.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTFFacu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFFacu.setBorder(null);
         jTFFacu.setEnabled(false);
         jTFFacu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -477,9 +561,53 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 jTFFacuKeyTyped(evt);
             }
         });
-        jPanel1.add(jTFFacu, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 160, -1));
+        jPFacultad.add(jTFFacu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
+        jPanel1.add(jPFacultad, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 190, 60));
+
+        jPRol.setBackground(new java.awt.Color(255, 255, 255));
+        jPRol.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPRol.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLRol.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLRol.setText("Rol:");
+        jPRol.add(jLRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel1.add(jPRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 190, 30));
+
+        jPCedula.setBackground(new java.awt.Color(255, 255, 255));
+        jPCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPCedulaMouseEntered(evt);
+            }
+        });
+        jPCedula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLCedula.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLCedula.setText("Cedula:");
+        jLCedula.setEnabled(false);
+        jPCedula.add(jLCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jTFCedula.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTFCedula.setBorder(null);
+        jTFCedula.setEnabled(false);
+        jTFCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFCedulaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFCedulaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFCedulaKeyTyped(evt);
+            }
+        });
+        jPCedula.add(jTFCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 20));
+
+        jPanel1.add(jPCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 190, 60));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -517,20 +645,16 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
         jCBSexo.setSelectedIndex(0);
         jCBRol.setSelectedIndex(0);
 
-        jLNombre.setForeground(Color.BLACK);
-        jLAPaterno.setForeground(Color.BLACK);
-        jLAMaterno.setForeground(Color.BLACK);
-        jLTelefono.setForeground(Color.BLACK);
-        jLEmail.setForeground(Color.BLACK);
-        jLContra1.setForeground(Color.BLACK);
-        jLContra2.setForeground(Color.BLACK);
-        jLCURP.setForeground(Color.BLACK);
-        jLSexo.setForeground(Color.BLACK);
-        jLFechaNac.setForeground(Color.BLACK);
-        jLDireccion.setForeground(Color.BLACK);
-        jLRol.setForeground(Color.BLACK);
-        jLCedula.setForeground(Color.BLACK);
-        jLFacu.setForeground(Color.BLACK);
+        cc.cDefault(jLNombre, jLAPaterno, jLAMaterno, jLTelefono, jLEmail, jLContra1,
+                jLContra2, jLSexo, jLCURP, jLFechaNac, jLDireccion, jLRol, jLCedula, jLFacu);
+
+        cc.cDefault(jTFNombre, jTFAPaterno, jTFAMaterno, jTFTelefono, jTFEmail, jPFContra1,
+                jPFContra2, jCBSexo, jTFCURP, jDCFecha, jTFDireccion, jCBRol, jTFCedula, jTFFacu);
+
+        cc.cDefault(jPNombre, jPAPaterno, jPAMaterno, jPTelefono, jPEmail, jPContra,
+                jPContra2, jPSexo, jPCurp, jPFechaNac, jPDireccion, jPRol, jPCedula, jPFacultad);
+
+        cc.cDisable(jTFCedula, jLCedula, jPCedula, jTFFacu, jLFacu, jPFacultad);
 
         jLCedula.setEnabled(false);
         jLFacu.setEnabled(false);
@@ -562,6 +686,7 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
         CtrlInterfaz.selecciona(jTFNombre);
+        cc.cDisable(jTFCedula, jLCedula, jPCedula, jTFFacu, jLFacu, jPFacultad);
     }//GEN-LAST:event_formWindowOpened
 
     private void jTFAPaternoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFAPaternoKeyPressed
@@ -663,20 +788,20 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
         int rol;
 
         if (flagMedico) {
-            if (jLNombre.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLAPaterno.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLAMaterno.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLTelefono.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLEmail.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLContra1.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLContra2.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLCURP.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLSexo.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLFechaNac.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLDireccion.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLRol.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLCedula.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLFacu.getForeground().getRGB() == Color.GREEN.getRGB()) {
+            if (jLNombre.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLAPaterno.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLAMaterno.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLTelefono.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLEmail.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLContra1.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLContra2.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLCURP.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLSexo.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLFechaNac.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLDireccion.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLRol.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLCedula.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLFacu.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()) {
                 try {
                     id = q.Seleccion(con, "MAX(Id_empleado)", "usuarios", "", true);
                     id2 = q.Seleccion(con, "MAX(Folio)", "medicos", "", true);
@@ -739,18 +864,18 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
                 Mensaje.error(this, "Verifique que todos los campos esten en verde");
             }
         } else {
-            if (jLNombre.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLAPaterno.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLAMaterno.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLTelefono.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLEmail.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLContra1.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLContra2.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLCURP.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLSexo.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLFechaNac.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLDireccion.getForeground().getRGB() == Color.GREEN.getRGB()
-                    && jLRol.getForeground().getRGB() == Color.GREEN.getRGB()) {
+            if (jLNombre.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLAPaterno.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLAMaterno.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLTelefono.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLEmail.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLContra1.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLContra2.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLCURP.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLSexo.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLFechaNac.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLDireccion.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()
+                    && jLRol.getForeground().getRGB() == cc.getVerdeOscuro().getRGB()) {
                 try {
                     id = q.Seleccion(con, "MAX(Id_empleado)", "usuarios", "", true);
                 } catch (Exception e) {
@@ -823,24 +948,24 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jPFContra2KeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContra2KeyReleased
     {//GEN-HEADEREND:event_jPFContra2KeyReleased
         if (jPFContra2.getText().isEmpty()) {
-            jLContra2.setForeground(Color.BLACK);
+            cc.cDefault(jPFContra2, jLContra2, jPContra2);
         } else if (jPFContra2.getText().equals(jPFContra1.getText())) {
-            jLContra2.setForeground(Color.GREEN);
+            cc.cVerde(jPFContra2, jLContra2, jPContra2);
             Validaciones.enter(this, evt, jTFCURP);
         } else {
-            jLContra2.setForeground(Color.RED);
+            cc.cRojo(jPFContra2, jLContra2, jPContra2);
         }
     }//GEN-LAST:event_jPFContra2KeyReleased
 
     private void jTFTelefonoKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFTelefonoKeyReleased
     {//GEN-HEADEREND:event_jTFTelefonoKeyReleased
         if (jTFTelefono.getText().isEmpty()) {
-            jLTelefono.setForeground(Color.BLACK);
+            cc.cDefault(jTFTelefono, jLTelefono, jPTelefono);
         } else if (jTFTelefono.getText().length() == 10) {
-            jLTelefono.setForeground(Color.GREEN);
+            cc.cVerde(jTFTelefono, jLTelefono, jPTelefono);
             Validaciones.enter(this, evt, jTFEmail);
         } else {
-            jLTelefono.setForeground(Color.RED);
+            cc.cRojo(jTFTelefono, jLTelefono, jPTelefono);
         }
     }//GEN-LAST:event_jTFTelefonoKeyReleased
 
@@ -852,9 +977,9 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jTFNombreKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreKeyReleased
     {//GEN-HEADEREND:event_jTFNombreKeyReleased
         if (jTFNombre.getText().isEmpty()) {
-            jLNombre.setForeground(Color.BLACK);
+            cc.cDefault(jTFNombre, jLNombre, jPNombre);
         } else {
-            jLNombre.setForeground(Color.GREEN);
+            cc.cVerde(jTFNombre, jLNombre, jPNombre);
             Validaciones.enter(this, evt, jTFAPaterno);
         }
     }//GEN-LAST:event_jTFNombreKeyReleased
@@ -862,10 +987,11 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jTFAPaternoKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFAPaternoKeyReleased
     {//GEN-HEADEREND:event_jTFAPaternoKeyReleased
         if (jTFAPaterno.getText().isEmpty()) {
+            cc.cDefault(jTFAPaterno, jLAPaterno, jPAPaterno);
             jLAPaterno.setForeground(Color.BLACK);
         } else {
+            cc.cVerde(jTFAPaterno, jLAPaterno, jPAPaterno);
             Validaciones.enter(this, evt, jTFAMaterno);
-            jLAPaterno.setForeground(Color.GREEN);
         }
     }//GEN-LAST:event_jTFAPaternoKeyReleased
 
@@ -873,10 +999,11 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jTFAMaternoKeyReleased
 
         if (jTFAMaterno.getText().isEmpty()) {
+            cc.cDefault(jTFAMaterno, jLAMaterno, jPAMaterno);
             jLAMaterno.setForeground(Color.BLACK);
         } else {
+            cc.cVerde(jTFAMaterno, jLAMaterno, jPAMaterno);
             Validaciones.enter(this, evt, jTFTelefono);
-            jLAMaterno.setForeground(Color.GREEN);
         }
     }//GEN-LAST:event_jTFAMaternoKeyReleased
 
@@ -891,17 +1018,17 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
             System.out.println("Error: exception ->" + e);
         }
         if (jTFEmail.getText().isEmpty()) {
-            jLEmail.setForeground(Color.BLACK);
+            cc.cDefault(jTFEmail, jLEmail, jPEmail);
         } else if (jTFEmail.getText().matches("^[^@]+@[^@]+\\.[a-zA-Z]{2,}$")) {
             Validaciones.enter(this, evt, jPFContra1);
-            jLEmail.setForeground(Color.GREEN);
+            cc.cVerde(jTFEmail, jLEmail, jPEmail);
         } else {
-            jLEmail.setForeground(Color.RED);
+            cc.cRojo(jTFEmail, jLEmail, jPEmail);
         }
         try {
 
             if (consultaEmail.get(0).equals(jTFEmail.getText())) {
-                jLEmail.setForeground(Color.YELLOW);
+                cc.cAmarillo(jTFEmail, jLEmail, jPEmail);
             }
 
         } catch (Exception e) {
@@ -913,12 +1040,12 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jPFContra1KeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContra1KeyReleased
     {//GEN-HEADEREND:event_jPFContra1KeyReleased
         if (jPFContra1.getText().isEmpty()) {
-            jLContra1.setForeground(Color.BLACK);
+            cc.cDefault(jPFContra1, jLContra1, jPContra);
         } else if (jPFContra1.getText().length() >= 8) {
-            jLContra1.setForeground(Color.GREEN);
+            cc.cVerde(jPFContra1, jLContra1, jPContra);
             Validaciones.enter(this, evt, jPFContra2);
         } else {
-            jLContra1.setForeground(Color.RED);
+            cc.cRojo(jPFContra1, jLContra1, jPContra);
         }
     }//GEN-LAST:event_jPFContra1KeyReleased
 
@@ -937,18 +1064,18 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
         jTFCURP.setText(jTFCURP.getText().toUpperCase());
 
         if (jTFCURP.getText().isEmpty()) {
-            jLCURP.setForeground(Color.BLACK);
+            cc.cDefault(jTFCURP, jLCURP, jPCurp);
         } else if (jTFCURP.getText().length() == 18) {
-            jLCURP.setForeground(Color.GREEN);
+            cc.cVerde(jTFCURP, jLCURP, jPCurp);
             Validaciones.enter(this, evt, jCBSexo);
         } else {
-            jLCURP.setForeground(Color.RED);
+            cc.cRojo(jTFCURP, jLCURP, jPCurp);
         }
 
         try {
 
             if (consultaCURP.get(0).equals(jTFCURP.getText())) {
-                jLCURP.setForeground(Color.YELLOW);
+                cc.cAmarillo(jTFCURP, jLCURP, jPCurp);
             }
 
         } catch (Exception e) {
@@ -979,9 +1106,9 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jCBSexoItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_jCBSexoItemStateChanged
     {//GEN-HEADEREND:event_jCBSexoItemStateChanged
         if (jCBSexo.getSelectedIndex() == 0) {
-            jLSexo.setForeground(Color.BLACK);
+            cc.cDefault(jLSexo, jPSexo);
         } else if (jCBSexo.getSelectedIndex() == 1 || jCBSexo.getSelectedIndex() == 2) {
-            jLSexo.setForeground(Color.GREEN);
+            cc.cVerde(jLSexo, jPSexo);
         }
     }//GEN-LAST:event_jCBSexoItemStateChanged
 
@@ -1018,10 +1145,10 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jTFDireccionKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFDireccionKeyReleased
     {//GEN-HEADEREND:event_jTFDireccionKeyReleased
         if (jTFDireccion.getText().isEmpty()) {
-            jLDireccion.setForeground(Color.BLACK);
+            cc.cDefault(jLDireccion, jTFDireccion, jPDireccion);
         } else {
+            cc.cVerde(jLDireccion, jTFDireccion, jPDireccion);
             Validaciones.enter(this, evt, jCBRol);
-            jLDireccion.setForeground(Color.GREEN);
         }
     }//GEN-LAST:event_jTFDireccionKeyReleased
 
@@ -1032,10 +1159,13 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
             jLFacu.setEnabled(false);
             jTFCedula.setEnabled(false);
             jTFFacu.setEnabled(false);
+            jTFCedula.setText("");
+            jTFFacu.setText("");
 
             flagMedico = false;
 
-            jLRol.setForeground(Color.BLACK);
+            cc.cDefault(jLRol, jPRol);
+            cc.cDisable(jTFCedula, jLCedula, jPCedula, jTFFacu, jLFacu, jPFacultad);
 
         } else if (jCBRol.getSelectedIndex() == 2) {
             jLCedula.setEnabled(true);
@@ -1046,17 +1176,20 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
             flagMedico = true;
 
             CtrlInterfaz.selecciona(jTFCedula);
-
-            jLRol.setForeground(Color.GREEN);
+            cc.cDefault(jTFCedula, jLCedula, jPCedula, jTFFacu, jLFacu, jPFacultad);
+            cc.cVerde(jLRol, jPRol);
         } else if (jCBRol.getSelectedIndex() == 1 || jCBRol.getSelectedIndex() == 3) {
             jLCedula.setEnabled(false);
             jLFacu.setEnabled(false);
             jTFCedula.setEnabled(false);
             jTFFacu.setEnabled(false);
+            jTFCedula.setText("");
+            jTFFacu.setText("");
 
             flagMedico = false;
 
-            jLRol.setForeground(Color.GREEN);
+            cc.cVerde(jLRol, jPRol);
+            cc.cDisable(jTFCedula, jLCedula, jPCedula, jTFFacu, jLFacu, jPFacultad);
         }
     }//GEN-LAST:event_jCBRolItemStateChanged
 
@@ -1098,12 +1231,12 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jTFCedulaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCedulaKeyReleased
     {//GEN-HEADEREND:event_jTFCedulaKeyReleased
         if (jTFCedula.getText().isEmpty()) {
-            jLCedula.setForeground(Color.BLACK);
+            cc.cDefault(jLCedula, jTFCedula, jPCedula);
         } else if (jTFCedula.getText().length() == 8) {
-            jLCedula.setForeground(Color.GREEN);
+            cc.cVerde(jLCedula, jTFCedula, jPCedula);
             Validaciones.enter(this, evt, jTFFacu);
         } else {
-            jLCedula.setForeground(Color.RED);
+            cc.cRojo(jLCedula, jTFCedula, jPCedula);
         }
     }//GEN-LAST:event_jTFCedulaKeyReleased
 
@@ -1123,9 +1256,9 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private void jTFFacuKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFFacuKeyReleased
     {//GEN-HEADEREND:event_jTFFacuKeyReleased
         if (jTFFacu.getText().isEmpty()) {
-            jLFacu.setForeground(Color.BLACK);
+            cc.cDefault(jLFacu, jTFFacu, jPFacultad);
         } else {
-            jLFacu.setForeground(Color.GREEN);
+            cc.cVerde(jLFacu, jTFFacu, jPFacultad);
             Validaciones.enter(this, evt, jBAlta);
         }
     }//GEN-LAST:event_jTFFacuKeyReleased
@@ -1137,6 +1270,35 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTFFacuKeyTyped
+
+    private void jPCedulaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPCedulaMouseEntered
+        if (!jTFCedula.isEnabled()) {
+            try {
+                jPCedula.setCursor(Cursor.getSystemCustomCursor("Invalid.32x32"));
+            } catch (AWTException ex) {
+                Logger.getLogger(vtnAdminMenuUsuariosA.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (HeadlessException ex) {
+                Logger.getLogger(vtnAdminMenuUsuariosA.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            jPCedula.setCursor(Cursor.getDefaultCursor());
+        }
+
+    }//GEN-LAST:event_jPCedulaMouseEntered
+
+    private void jPFacultadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPFacultadMouseEntered
+        if (!jTFFacu.isEnabled()) {
+            try {
+                jPFacultad.setCursor(Cursor.getSystemCustomCursor("Invalid.32x32"));
+            } catch (AWTException ex) {
+                Logger.getLogger(vtnAdminMenuUsuariosA.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (HeadlessException ex) {
+                Logger.getLogger(vtnAdminMenuUsuariosA.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            jPFacultad.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_jPFacultadMouseEntered
 
     /**
      * @param args the command line arguments
@@ -1201,8 +1363,22 @@ public class vtnAdminMenuUsuariosA extends javax.swing.JFrame {
     private javax.swing.JLabel jLSexo;
     private javax.swing.JLabel jLTelefono;
     private javax.swing.JLabel jLTitulo1;
+    private javax.swing.JPanel jPAMaterno;
+    private javax.swing.JPanel jPAPaterno;
+    private javax.swing.JPanel jPCedula;
+    private javax.swing.JPanel jPContra;
+    private javax.swing.JPanel jPContra2;
+    private javax.swing.JPanel jPCurp;
+    private javax.swing.JPanel jPDireccion;
+    private javax.swing.JPanel jPEmail;
     private javax.swing.JPasswordField jPFContra1;
     private javax.swing.JPasswordField jPFContra2;
+    private javax.swing.JPanel jPFacultad;
+    private javax.swing.JPanel jPFechaNac;
+    private javax.swing.JPanel jPNombre;
+    private javax.swing.JPanel jPRol;
+    private javax.swing.JPanel jPSexo;
+    private javax.swing.JPanel jPTelefono;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTFAMaterno;

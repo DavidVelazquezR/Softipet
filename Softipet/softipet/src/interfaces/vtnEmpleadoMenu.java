@@ -52,13 +52,14 @@ public class vtnEmpleadoMenu extends javax.swing.JFrame {
         jLMinimizar = new javax.swing.JLabel();
         jLCerrar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLTitulo = new javax.swing.JLabel();
-        jLUser = new javax.swing.JLabel();
         jLMU10 = new javax.swing.JLabel();
         jLManageBod = new javax.swing.JLabel();
         jLNotify = new javax.swing.JLabel();
         jLMU11 = new javax.swing.JLabel();
         jLManageBod1 = new javax.swing.JLabel();
+        jLTitulo = new javax.swing.JLabel();
+        jLUser = new javax.swing.JLabel();
+        jLLayer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -104,23 +105,17 @@ public class vtnEmpleadoMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLTitulo.setText("Bienvenido:");
-        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        jLUser.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 230, 20));
-
         jLMU10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/capital.png"))); // NOI18N
         jLMU10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU10MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 80, 80));
+        jPanel1.add(jLMU10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 80, 80));
 
+        jLManageBod.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageBod.setText("Adminitrar bodega");
-        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 110, 20));
+        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 140, 20));
 
         jLNotify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/notificacion1.png"))); // NOI18N
         jLNotify.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,10 +131,21 @@ public class vtnEmpleadoMenu extends javax.swing.JFrame {
                 jLMU11MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 80, 80));
+        jPanel1.add(jLMU11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 80, 80));
 
+        jLManageBod1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageBod1.setText("Ventas");
-        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 70, 20));
+        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 70, 20));
+
+        jLTitulo.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLTitulo.setText("Bienvenido:");
+        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLUser.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 230, 30));
+
+        jLLayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
+        jPanel1.add(jLLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 80, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
 
@@ -326,6 +332,7 @@ public class vtnEmpleadoMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLCerrar;
+    private javax.swing.JLabel jLLayer;
     private javax.swing.JLabel jLMU10;
     private javax.swing.JLabel jLMU11;
     private javax.swing.JLabel jLManageBod;

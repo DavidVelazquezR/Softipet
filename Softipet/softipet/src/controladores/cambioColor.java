@@ -13,6 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
@@ -29,8 +30,11 @@ public class cambioColor {
     private Color rojoOscuro = new Color(123, 36, 28);
     private Color azulClaro = new Color(187, 212, 236);
     private Color azulOscuro = new Color(80, 117, 144);
+    private Color amarilloClaro = new Color(255, 245, 157);
+    private Color amarilloOscuro = new Color(195, 175, 3);
     private Color negro = Color.BLACK;
     private Color blanco = Color.WHITE;
+    private Color gris = new Color(240, 240, 240);
 
     public cambioColor() {
     }
@@ -43,6 +47,14 @@ public class cambioColor {
                 ((JTextField) obj).setSelectionColor(getVerdeOscuro());
                 ((JTextField) obj).setSelectedTextColor(getVerdeClaro());
                 ((JTextField) obj).setCaretColor(getVerdeOscuro());
+            }
+
+            if (obj instanceof JPasswordField) {
+                ((JPasswordField) obj).setBackground(getVerdeClaro());
+                ((JPasswordField) obj).setForeground(getVerdeOscuro());
+                ((JPasswordField) obj).setSelectionColor(getVerdeOscuro());
+                ((JPasswordField) obj).setSelectedTextColor(getVerdeClaro());
+                ((JPasswordField) obj).setCaretColor(getVerdeOscuro());
             }
 
             if (obj instanceof JLabel) {
@@ -128,6 +140,72 @@ public class cambioColor {
         }
     }
 
+    public void cAmarillo(Object... objs) {
+        for (Object obj : objs) {
+            if (obj instanceof JTextField) {
+                ((JTextField) obj).setBackground(getAmarilloClaro());
+                ((JTextField) obj).setForeground(getAmarilloOscuro());
+                ((JTextField) obj).setSelectionColor(getAmarilloOscuro());
+                ((JTextField) obj).setSelectedTextColor(getAmarilloClaro());
+                ((JTextField) obj).setCaretColor(getAmarilloOscuro());
+            }
+
+            if (obj instanceof JLabel) {
+                ((JLabel) obj).setForeground(getAmarilloOscuro());
+            }
+
+            if (obj instanceof JTextArea) {
+                ((JTextArea) obj).setBackground(getAmarilloClaro());
+                ((JTextArea) obj).setForeground(getAmarilloOscuro());
+                ((JTextArea) obj).setSelectionColor(getAmarilloOscuro());
+                ((JTextArea) obj).setSelectedTextColor(getAmarilloClaro());
+                ((JTextArea) obj).setCaretColor(getAmarilloOscuro());
+            }
+
+            if (obj instanceof JPanel) {
+                ((JPanel) obj).setBackground(getAmarilloClaro());
+                ((JPanel) obj).setBorder(BorderFactory.createLineBorder(getAmarilloOscuro()));
+            }
+        }
+    }
+
+    public void cDisable(Object... objs) {
+        for (Object obj : objs) {
+            if (obj instanceof JTextField) {
+                ((JTextField) obj).setBackground(getGris());
+                ((JTextField) obj).setForeground(getNegro());
+                ((JTextField) obj).setSelectionColor(getNegro());
+                ((JTextField) obj).setSelectedTextColor(getGris());
+                ((JTextField) obj).setCaretColor(getNegro());
+            }
+
+            if (obj instanceof JPasswordField) {
+                ((JPasswordField) obj).setBackground(getGris());
+                ((JPasswordField) obj).setForeground(getNegro());
+                ((JPasswordField) obj).setSelectionColor(getNegro());
+                ((JPasswordField) obj).setSelectedTextColor(getGris());
+                ((JPasswordField) obj).setCaretColor(getNegro());
+            }
+
+            if (obj instanceof JLabel) {
+                ((JLabel) obj).setForeground(getNegro());
+            }
+
+            if (obj instanceof JTextArea) {
+                ((JTextArea) obj).setBackground(getGris());
+                ((JTextArea) obj).setForeground(getNegro());
+                ((JTextArea) obj).setSelectionColor(getNegro());
+                ((JTextArea) obj).setSelectedTextColor(getGris());
+                ((JTextArea) obj).setCaretColor(getNegro());
+            }
+
+            if (obj instanceof JPanel) {
+                ((JPanel) obj).setBackground(getGris());
+                ((JPanel) obj).setBorder(BorderFactory.createLineBorder(getNegro()));
+            }
+        }
+    }
+
     public void cDefault(Object... objs) {
         for (Object obj : objs) {
             if (obj instanceof JTextField) {
@@ -136,6 +214,14 @@ public class cambioColor {
                 ((JTextField) obj).setSelectionColor(getNegro());
                 ((JTextField) obj).setSelectedTextColor(getBlanco());
                 ((JTextField) obj).setCaretColor(getNegro());
+            }
+
+            if (obj instanceof JPasswordField) {
+                ((JPasswordField) obj).setBackground(getBlanco());
+                ((JPasswordField) obj).setForeground(getNegro());
+                ((JPasswordField) obj).setSelectionColor(getNegro());
+                ((JPasswordField) obj).setSelectedTextColor(getBlanco());
+                ((JPasswordField) obj).setCaretColor(getNegro());
             }
 
             if (obj instanceof JLabel) {
@@ -211,6 +297,27 @@ public class cambioColor {
      */
     public Color getAzulOscuro() {
         return azulOscuro;
+    }
+
+    /**
+     * @return the amarilloClaro
+     */
+    public Color getAmarilloClaro() {
+        return amarilloClaro;
+    }
+
+    /**
+     * @return the amarilloOscuro
+     */
+    public Color getAmarilloOscuro() {
+        return amarilloOscuro;
+    }
+
+    /**
+     * @return the gris
+     */
+    public Color getGris() {
+        return gris;
     }
 
 }

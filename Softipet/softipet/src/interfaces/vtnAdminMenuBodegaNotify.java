@@ -108,6 +108,7 @@ public class vtnAdminMenuBodegaNotify extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -115,10 +116,11 @@ public class vtnAdminMenuBodegaNotify extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo1.setText("Notificaciones");
-        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        jPanel1.add(jLTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jTCaducidad.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTCaducidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -130,10 +132,13 @@ public class vtnAdminMenuBodegaNotify extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTCaducidad.setGridColor(new java.awt.Color(255, 255, 255));
+        jTCaducidad.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(jTCaducidad);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 730, 230));
 
+        jTExistencia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTExistencia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -145,17 +150,19 @@ public class vtnAdminMenuBodegaNotify extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTExistencia.setGridColor(new java.awt.Color(255, 255, 255));
+        jTExistencia.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane2.setViewportView(jTExistencia);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 730, 220));
 
-        jLTitulo2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLTitulo2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLTitulo2.setText("Por existencia:");
-        jPanel1.add(jLTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+        jPanel1.add(jLTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
-        jLTitulo3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLTitulo3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLTitulo3.setText("Por caducidad:");
-        jPanel1.add(jLTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel1.add(jLTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 660));
 

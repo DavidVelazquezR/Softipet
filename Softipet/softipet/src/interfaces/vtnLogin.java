@@ -96,7 +96,7 @@ public class vtnLogin extends javax.swing.JFrame {
         });
         jPanel2.add(jBIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 100, 20));
 
-        jLabel1.setText("Beta Version 1.1");
+        jLabel1.setText("Beta Version 1.3");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
 
         jPContra.setBackground(new java.awt.Color(255, 255, 255));
@@ -339,11 +339,9 @@ public class vtnLogin extends javax.swing.JFrame {
 
     private void jPFContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPFContraKeyReleased
         if (jPFContra.getText().isEmpty()) {
-            jPContra.setBackground(Color.white);
-            jLContrasena.setForeground(Color.BLACK);
-            jPFContra.setBackground(Color.white);
-            jPFContra.setForeground(Color.BLACK);
-            jPContra.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            cc.cDefault(jPContra, jPFContra, jLContrasena);
+        } else {
+            cc.cDefault(jPContra, jPFContra, jLContrasena);
         }
     }//GEN-LAST:event_jPFContraKeyReleased
 

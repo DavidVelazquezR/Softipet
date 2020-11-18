@@ -118,49 +118,55 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLTitulo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLTitulo.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLTitulo.setText("Bienvenido:");
         jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jLUser.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 230, 20));
+        jLUser.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jPanel1.add(jLUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 230, 30));
 
+        jLManageUsers.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageUsers.setText("Administracion de usuarios");
-        jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 20));
+        jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, 20));
 
         jLMU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario (1).png"))); // NOI18N
+        jLMU1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 40, 40));
+        jPanel1.add(jLMU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 40, 40));
 
         jLMU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/anadir.png"))); // NOI18N
+        jLMU2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU2MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 40, 40));
+        jPanel1.add(jLMU2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 40, 40));
 
         jLMU3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/editar.png"))); // NOI18N
+        jLMU3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU3MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 40, 40));
+        jPanel1.add(jLMU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 40, 40));
 
         jLMU4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario.png"))); // NOI18N
+        jLMU4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU4MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 40, 40));
+        jPanel1.add(jLMU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 40, 40));
 
         jLMU5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/farmaco.png"))); // NOI18N
+        jLMU5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU5MouseClicked(evt);
@@ -169,6 +175,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 40, 40));
 
         jLMU6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/droga.png"))); // NOI18N
+        jLMU6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU6MouseClicked(evt);
@@ -177,6 +184,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 40, 40));
 
         jLMU7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/jeringuilla.png"))); // NOI18N
+        jLMU7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU7MouseClicked(evt);
@@ -185,6 +193,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 40, 40));
 
         jLMU8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/veterinario.png"))); // NOI18N
+        jLMU8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU8MouseClicked(evt);
@@ -193,20 +202,24 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 40, 40));
 
         jLMU9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/inventario (1).png"))); // NOI18N
+        jLMU9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU9MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 80, 80));
+        jPanel1.add(jLMU9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 80, 80));
 
+        jLManageDrugs.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageDrugs.setText("Administración de productos");
-        jPanel1.add(jLManageDrugs, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 170, 20));
+        jPanel1.add(jLManageDrugs, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 210, 20));
 
+        jLManageProv.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageProv.setText("Administración de proveedores");
-        jPanel1.add(jLManageProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 180, 20));
+        jPanel1.add(jLManageProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 230, 20));
 
         jLMU10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/capital.png"))); // NOI18N
+        jLMU10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU10MouseClicked(evt);
@@ -214,8 +227,9 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         });
         jPanel1.add(jLMU10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 80, 80));
 
+        jLManageBod.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageBod.setText("Adminitrar bodega");
-        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 110, 20));
+        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 140, 20));
 
         jLNotify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/notificacion1.png"))); // NOI18N
         jLNotify.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -226,6 +240,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLNotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 40, 40));
 
         jLMU11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/punto-de-venta.png"))); // NOI18N
+        jLMU11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLMU11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU11MouseClicked(evt);
@@ -233,8 +248,9 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         });
         jPanel1.add(jLMU11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 80, 80));
 
+        jLManageBod1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageBod1.setText("Ventas");
-        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 70, 20));
+        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 70, 20));
 
         jLLayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
         jPanel1.add(jLLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 80, 100));
