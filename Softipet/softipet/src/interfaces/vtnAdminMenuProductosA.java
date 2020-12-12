@@ -162,22 +162,24 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         jBAlta.setBackground(new java.awt.Color(153, 255, 153));
         jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Alta de producto");
+        jBAlta.setBorder(null);
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, -1, -1));
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 150, 30));
 
         jBLimpia.setBackground(new java.awt.Color(153, 153, 255));
         jBLimpia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBLimpia.setText("Limpiar");
+        jBLimpia.setBorder(null);
         jBLimpia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 150, -1));
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 150, 30));
 
         jPNombreG.setBackground(new java.awt.Color(255, 255, 255));
         jPNombreG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

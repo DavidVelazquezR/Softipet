@@ -127,12 +127,13 @@ public class vtnAdminMenuProductos extends javax.swing.JFrame {
         jBAlta.setBackground(new java.awt.Color(153, 255, 153));
         jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Alta de productos");
+        jBAlta.setBorder(null);
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 160, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 170, 30));
 
         jBAll.setBackground(new java.awt.Color(153, 153, 255));
         jBAll.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N

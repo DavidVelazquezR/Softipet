@@ -129,6 +129,7 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
         jBNewUser.setBackground(new java.awt.Color(153, 255, 153));
         jBNewUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBNewUser.setText("Nuevo usuario");
+        jBNewUser.setBorder(null);
         jBNewUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNewUserActionPerformed(evt);
@@ -139,6 +140,7 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
         jBEliminar.setBackground(new java.awt.Color(255, 153, 153));
         jBEliminar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBEliminar.setText("Eliminar usuario");
+        jBEliminar.setBorder(null);
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBEliminarActionPerformed(evt);
@@ -149,6 +151,7 @@ public class vtnAdminMenuUsuarios extends javax.swing.JFrame {
         jBModificar.setBackground(new java.awt.Color(255, 255, 102));
         jBModificar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBModificar.setText("Modificar usuario");
+        jBModificar.setBorder(null);
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModificarActionPerformed(evt);

@@ -127,22 +127,24 @@ public class vtnAdminMenuProveedor extends javax.swing.JFrame {
         jBAlta.setBackground(new java.awt.Color(102, 255, 102));
         jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Alta de proveedores");
+        jBAlta.setBorder(null);
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 210, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 200, 30));
 
         jBBaja.setBackground(new java.awt.Color(255, 204, 102));
         jBBaja.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBBaja.setText("Modifica de proveedores");
+        jBBaja.setBorder(null);
         jBBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBajaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, 210, -1));
+        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 200, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 810, 460));
 

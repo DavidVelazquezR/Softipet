@@ -132,12 +132,13 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
         jBBaja.setBackground(new java.awt.Color(153, 153, 255));
         jBBaja.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBBaja.setText("Recibir pedido");
+        jBBaja.setBorder(null);
         jBBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBajaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 160, -1));
+        jPanel1.add(jBBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 170, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1000, 460));
 
@@ -208,7 +209,7 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
                     java.lang.Object.class,
                     java.lang.Object.class,};
                 boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false
+                    false, false, false, false, false, false, false, false
                 };
 
                 @Override

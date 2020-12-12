@@ -127,6 +127,7 @@ public class vtnAdminMenuProveedorM extends javax.swing.JFrame {
         jBModifica.setBackground(new java.awt.Color(255, 204, 102));
         jBModifica.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBModifica.setText("Modificar");
+        jBModifica.setBorder(null);
         jBModifica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModificaActionPerformed(evt);
@@ -137,7 +138,7 @@ public class vtnAdminMenuProveedorM extends javax.swing.JFrame {
                 jBModificaKeyPressed(evt);
             }
         });
-        jPanel1.add(jBModifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 120, -1));
+        jPanel1.add(jBModifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 120, 30));
 
         jPNombre.setBackground(new java.awt.Color(255, 255, 255));
         jPNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

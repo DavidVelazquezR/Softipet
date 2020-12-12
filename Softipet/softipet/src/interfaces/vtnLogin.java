@@ -9,12 +9,16 @@ import java.awt.Color;
 import cjb.ci.*;
 import java.util.ArrayList;
 import bd.*;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import controladores.cambioColor;
 import java.awt.Font;
 import static java.lang.System.exit;
 import java.sql.Connection;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -80,9 +84,10 @@ public class vtnLogin extends javax.swing.JFrame {
         jLLogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBIniciar.setBackground(new java.awt.Color(102, 204, 255));
+        jBIniciar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jBIniciar.setText("---->");
         jBIniciar.setBorder(null);
-        jBIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBIniciarActionPerformed(evt);
@@ -154,7 +159,7 @@ public class vtnLogin extends javax.swing.JFrame {
 
         jLLogo.add(jPCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 210, 50));
 
-        jLabel2.setText("Official Release 1.5");
+        jLabel2.setText("Version Oficial 1.6");
         jLLogo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
@@ -360,29 +365,13 @@ public class vtnLogin extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vtnLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        UIManager.setLookAndFeel(new FlatLightLaf()); //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

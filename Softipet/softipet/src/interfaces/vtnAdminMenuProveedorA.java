@@ -125,6 +125,7 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
         jBAlta.setBackground(new java.awt.Color(102, 255, 102));
         jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Dar de alta");
+        jBAlta.setBorder(null);
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
@@ -135,17 +136,18 @@ public class vtnAdminMenuProveedorA extends javax.swing.JFrame {
                 jBAltaKeyPressed(evt);
             }
         });
-        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 120, -1));
+        jPanel1.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 120, 30));
 
         jBLimpiar.setBackground(new java.awt.Color(153, 153, 255));
         jBLimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBLimpiar.setText("Limpiar");
+        jBLimpiar.setBorder(null);
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 120, -1));
+        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 120, 30));
 
         jPNombre.setBackground(new java.awt.Color(255, 255, 255));
         jPNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

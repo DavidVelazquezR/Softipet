@@ -187,6 +187,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             jBSearch.setBackground(new java.awt.Color(153, 153, 255));
             jBSearch.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
             jBSearch.setText("Search");
+            jBSearch.setBorder(null);
             jBSearch.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBSearchActionPerformed(evt);
@@ -215,22 +216,24 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             jBAdd.setBackground(new java.awt.Color(102, 255, 102));
             jBAdd.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBAdd.setText("Agregar");
+            jBAdd.setBorder(null);
             jBAdd.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBAddActionPerformed(evt);
                 }
             });
-            jPanel1.add(jBAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+            jPanel1.add(jBAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 160, 30));
 
             jBDrop.setBackground(new java.awt.Color(255, 102, 102));
             jBDrop.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBDrop.setText("Eliminar");
+            jBDrop.setBorder(null);
             jBDrop.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBDropActionPerformed(evt);
                 }
             });
-            jPanel1.add(jBDrop, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+            jPanel1.add(jBDrop, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 160, 30));
 
             jLCantidad1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
             jLCantidad1.setText("Total:");
@@ -255,42 +258,46 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
             jBVenta.setBackground(new java.awt.Color(102, 255, 102));
             jBVenta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBVenta.setText("Realizar venta");
+            jBVenta.setBorder(null);
             jBVenta.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBVentaActionPerformed(evt);
                 }
             });
-            jPanel1.add(jBVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 180, -1));
+            jPanel1.add(jBVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 160, 30));
 
             jBLimpia.setBackground(new java.awt.Color(255, 153, 102));
             jBLimpia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jBLimpia.setText("Cancelar venta");
+            jBLimpia.setBorder(null);
             jBLimpia.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jBLimpiaActionPerformed(evt);
                 }
             });
-            jPanel1.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 180, -1));
+            jPanel1.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 160, 30));
 
             jButton1.setBackground(new java.awt.Color(0, 255, 153));
             jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jButton1.setText("Historial de ventas totales");
+            jButton1.setBorder(null);
             jButton1.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jButton1ActionPerformed(evt);
                 }
             });
-            jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 260, -1));
+            jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 260, 30));
 
             jButton2.setBackground(new java.awt.Color(0, 255, 153));
             jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
             jButton2.setText("Historial de ventas por producto");
+            jButton2.setBorder(null);
             jButton2.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jButton2ActionPerformed(evt);
                 }
             });
-            jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+            jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 250, 30));
 
             getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 520));
 
@@ -697,7 +704,7 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
     }//GEN-LAST:event_jBVentaActionPerformed
 
     private void jBLimpiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiaActionPerformed
-        if (Mensaje.pregunta(this, "¿Estas seguro de realizar la venta?") == JOptionPane.YES_OPTION) {
+        if (Mensaje.pregunta(this, "¿Estas seguro de cancelar la venta?") == JOptionPane.YES_OPTION) {
             jTFProducto.setText("");
             jTFCantidad.setText("");
             jTFTotal.setText("0.0");

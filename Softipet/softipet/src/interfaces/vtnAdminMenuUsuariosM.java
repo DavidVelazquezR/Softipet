@@ -160,6 +160,7 @@ public class vtnAdminMenuUsuariosM extends javax.swing.JFrame {
         jBModifica.setBackground(new java.awt.Color(255, 204, 102));
         jBModifica.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBModifica.setText("Modificar");
+        jBModifica.setBorder(null);
         jBModifica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModificaActionPerformed(evt);
@@ -170,7 +171,7 @@ public class vtnAdminMenuUsuariosM extends javax.swing.JFrame {
                 jBModificaKeyPressed(evt);
             }
         });
-        jPanel1.add(jBModifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 130, -1));
+        jPanel1.add(jBModifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 387, 130, 30));
 
         jCBRol.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCBRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione rol", "Admin", "Medico", "Auxiliar" }));

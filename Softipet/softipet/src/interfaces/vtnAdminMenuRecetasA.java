@@ -158,22 +158,24 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
         jBAlta.setBackground(new java.awt.Color(102, 255, 102));
         jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Generar receta");
+        jBAlta.setBorder(null);
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 160, -1));
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 140, 30));
 
         jBLimpia.setBackground(new java.awt.Color(153, 153, 255));
         jBLimpia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBLimpia.setText("Limpiar");
+        jBLimpia.setBorder(null);
         jBLimpia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 160, -1));
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 140, 30));
 
         jPAnimal.setBackground(new java.awt.Color(255, 255, 255));
         jPAnimal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

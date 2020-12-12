@@ -160,22 +160,24 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         jBAlta.setBackground(new java.awt.Color(153, 255, 153));
         jBAlta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBAlta.setText("Recibir pedido");
+        jBAlta.setBorder(null);
         jBAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAltaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
+        jPanel2.add(jBAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 130, 30));
 
         jBLimpia.setBackground(new java.awt.Color(153, 153, 255));
         jBLimpia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBLimpia.setText("Limpiar");
+        jBLimpia.setBorder(null);
         jBLimpia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiaActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 130, -1));
+        jPanel2.add(jBLimpia, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 130, 30));
 
         jPProducto.setBackground(new java.awt.Color(255, 255, 255));
         jPProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -208,7 +210,7 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
         jLSearch.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLSearch.setText("  Search");
         jLSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLSearchMouseClicked(evt);
