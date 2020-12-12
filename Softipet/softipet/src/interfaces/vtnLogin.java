@@ -84,8 +84,8 @@ public class vtnLogin extends javax.swing.JFrame {
         jLLogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBIniciar.setBackground(new java.awt.Color(102, 204, 255));
-        jBIniciar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jBIniciar.setText("---->");
+        jBIniciar.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jBIniciar.setText("Inicia sesión");
         jBIniciar.setBorder(null);
         jBIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBIniciar.addActionListener(new java.awt.event.ActionListener() {

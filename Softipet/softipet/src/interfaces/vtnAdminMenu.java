@@ -38,6 +38,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
      */
     public vtnAdminMenu() {
         initComponents();
+        
     }
 
     /**
@@ -291,6 +292,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
+        Mensaje.exito(this, "Se inicio sesión correctamente");
         //Genera las perdidas correspondientes
         Querys q = new Querys();
         ArrayList<Object> mapeoProduct = new ArrayList<Object>();
