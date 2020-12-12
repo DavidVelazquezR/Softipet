@@ -13,6 +13,8 @@ import cjb.ci.Validaciones;
 import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
@@ -40,6 +42,8 @@ public class vtnAdminMenuProveedorM extends javax.swing.JFrame {
      */
     public vtnAdminMenuProveedorM() {
         initComponents();
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**

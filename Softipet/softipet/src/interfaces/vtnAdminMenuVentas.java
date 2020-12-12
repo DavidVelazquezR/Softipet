@@ -13,6 +13,8 @@ import cjb.ci.Validaciones;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,6 +53,8 @@ public class vtnAdminMenuVentas extends javax.swing.JFrame {
         initComponents();
         ac = new TextAutoCompleter(jTFProducto);
         rol = x;
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     vtnAdminMenuVentas() {

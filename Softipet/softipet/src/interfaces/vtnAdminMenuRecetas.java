@@ -9,6 +9,8 @@ import bd.Querys;
 import bd.Sesion;
 import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,6 +39,8 @@ public class vtnAdminMenuRecetas extends javax.swing.JFrame {
      */
     public vtnAdminMenuRecetas() {
         initComponents();
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**

@@ -10,6 +10,8 @@ import bd.Sesion;
 import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,7 +40,8 @@ public class vtnAdminMenu extends javax.swing.JFrame {
      */
     public vtnAdminMenu() {
         initComponents();
-        
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**

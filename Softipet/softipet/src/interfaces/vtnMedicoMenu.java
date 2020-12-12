@@ -9,6 +9,8 @@ import bd.Querys;
 import bd.Sesion;
 import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +31,8 @@ public class vtnMedicoMenu extends javax.swing.JFrame {
      */
     public vtnMedicoMenu() {
         initComponents();
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**

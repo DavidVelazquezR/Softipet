@@ -9,6 +9,8 @@ import bd.Querys;
 import bd.Sesion;
 import cjb.ci.Mensaje;
 import static interfaces.vtnLogin.con;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -33,6 +35,8 @@ public class vtnAdminMenuBodega extends javax.swing.JFrame {
     public vtnAdminMenuBodega(int x) {
         initComponents();
         rol = x;
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     vtnAdminMenuBodega() {

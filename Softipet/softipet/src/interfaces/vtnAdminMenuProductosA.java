@@ -16,6 +16,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.HeadlessException;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
@@ -52,6 +54,8 @@ public class vtnAdminMenuProductosA extends javax.swing.JFrame {
         } catch (HeadlessException ex) {
             Logger.getLogger(vtnAdminMenuUsuariosA.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**

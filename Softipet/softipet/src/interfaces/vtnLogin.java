@@ -13,6 +13,8 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import controladores.cambioColor;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import static java.lang.System.exit;
 import java.sql.Connection;
 import javax.swing.BorderFactory;
@@ -39,6 +41,9 @@ public class vtnLogin extends javax.swing.JFrame {
     public vtnLogin() {
         initComponents();
         jPOverlay.setBackground(new Color(0, 50, 100, 100));//Hace el panel transparente
+        
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**

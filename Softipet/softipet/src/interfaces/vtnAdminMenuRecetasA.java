@@ -16,6 +16,8 @@ import com.sun.org.apache.bcel.internal.classfile.JavaClass;
 import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -53,6 +55,8 @@ public class vtnAdminMenuRecetasA extends javax.swing.JFrame {
     public vtnAdminMenuRecetasA() {
         initComponents();
         ac = new TextAutoCompleter(jTFAnimal);
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**

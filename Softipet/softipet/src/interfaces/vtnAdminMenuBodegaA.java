@@ -16,6 +16,8 @@ import com.sun.org.apache.bcel.internal.classfile.JavaClass;
 import controladores.cambioColor;
 import static interfaces.vtnLogin.con;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
@@ -50,6 +52,8 @@ public class vtnAdminMenuBodegaA extends javax.swing.JFrame {
     public vtnAdminMenuBodegaA() {
         initComponents();
         ac = new TextAutoCompleter(jTFProducto);
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
+        this.setIconImage(icono);
     }
 
     /**
