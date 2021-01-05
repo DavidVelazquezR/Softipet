@@ -42,6 +42,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         initComponents();
         Image icono = Toolkit.getDefaultToolkit().getImage("src/design/softipet.png");
         this.setIconImage(icono);
+        
     }
 
     /**
@@ -53,9 +54,6 @@ public class vtnAdminMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLMinimizar = new javax.swing.JLabel();
-        jLCerrar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLTitulo = new javax.swing.JLabel();
         jLUser = new javax.swing.JLabel();
@@ -77,48 +75,20 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jLMU11 = new javax.swing.JLabel();
         jLManageBod1 = new javax.swing.JLabel();
         jLLayer = new javax.swing.JLabel();
+        jLCerrar = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Admin SOFTIPET");
-        setUndecorated(true);
+        setType(java.awt.Window.Type.POPUP);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(0, 35));
-        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel3MouseDragged(evt);
-            }
-        });
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel3MousePressed(evt);
-            }
-        });
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/minimizar-icon.png"))); // NOI18N
-        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLMinimizarMouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, 40));
-
-        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-sesion.png"))); // NOI18N
-        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLCerrarMouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 40));
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -135,7 +105,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLManageUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, 20));
 
         jLMU1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario (1).png"))); // NOI18N
-        jLMU1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU1MouseClicked(evt);
@@ -144,7 +114,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 40, 40));
 
         jLMU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/anadir.png"))); // NOI18N
-        jLMU2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU2MouseClicked(evt);
@@ -153,7 +123,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 40, 40));
 
         jLMU3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/editar.png"))); // NOI18N
-        jLMU3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU3MouseClicked(evt);
@@ -162,7 +132,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 40, 40));
 
         jLMU4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/usuario.png"))); // NOI18N
-        jLMU4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU4MouseClicked(evt);
@@ -171,7 +141,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 40, 40));
 
         jLMU5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/farmaco.png"))); // NOI18N
-        jLMU5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU5MouseClicked(evt);
@@ -180,7 +150,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 40, 40));
 
         jLMU6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/droga.png"))); // NOI18N
-        jLMU6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU6MouseClicked(evt);
@@ -189,7 +159,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 40, 40));
 
         jLMU7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/jeringuilla.png"))); // NOI18N
-        jLMU7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU7MouseClicked(evt);
@@ -198,7 +168,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 40, 40));
 
         jLMU8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/veterinario.png"))); // NOI18N
-        jLMU8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU8MouseClicked(evt);
@@ -207,7 +177,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLMU8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 40, 40));
 
         jLMU9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/inventario (1).png"))); // NOI18N
-        jLMU9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU9MouseClicked(evt);
@@ -224,7 +194,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLManageProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 230, 20));
 
         jLMU10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/capital.png"))); // NOI18N
-        jLMU10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU10MouseClicked(evt);
@@ -245,7 +215,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jPanel1.add(jLNotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 40, 40));
 
         jLMU11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/punto-de-venta.png"))); // NOI18N
-        jLMU11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLMU11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLMU11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLMU11MouseClicked(evt);
@@ -260,16 +230,27 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         jLLayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
         jPanel1.add(jLLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 80, 100));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 460));
+        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-sesion.png"))); // NOI18N
+        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLCerrarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 30, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 460));
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLMinimizarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLMinimizarMouseClicked
-    {//GEN-HEADEREND:event_jLMinimizarMouseClicked
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_jLMinimizarMouseClicked
 
     private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLCerrarMouseClicked
     {//GEN-HEADEREND:event_jLCerrarMouseClicked
@@ -280,22 +261,8 @@ public class vtnAdminMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLCerrarMouseClicked
 
-    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
-    {//GEN-HEADEREND:event_jPanel3MouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x - xx, y - xy);
-    }//GEN-LAST:event_jPanel3MouseDragged
-
-    private void jPanel3MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MousePressed
-    {//GEN-HEADEREND:event_jPanel3MousePressed
-        xx = evt.getX();
-        xy = evt.getY();
-    }//GEN-LAST:event_jPanel3MousePressed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
-        Mensaje.exito(this, "Se inicio sesión correctamente");
         //Genera las perdidas correspondientes
         Querys q = new Querys();
         ArrayList<Object> mapeoProduct = new ArrayList<Object>();
@@ -515,11 +482,12 @@ public class vtnAdminMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLManageDrugs;
     private javax.swing.JLabel jLManageProv;
     private javax.swing.JLabel jLManageUsers;
-    private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLNotify;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLUser;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

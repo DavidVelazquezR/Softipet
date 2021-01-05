@@ -68,13 +68,9 @@ public class vtnLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPOverlay = new javax.swing.JPanel();
         jLBackground = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLMinimizar = new javax.swing.JLabel();
-        jLCerrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login SOFTIPET");
-        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -170,7 +166,7 @@ public class vtnLogin extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
         jLLogo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 90, 90));
 
-        getContentPane().add(jLLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 380, 400));
+        getContentPane().add(jLLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 380, 400));
 
         jPOverlay.setPreferredSize(new java.awt.Dimension(350, 400));
         jPOverlay.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -183,72 +179,16 @@ public class vtnLogin extends javax.swing.JFrame {
         jLBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/log-background.jpg"))); // NOI18N
         jPOverlay.add(jLBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
-        getContentPane().add(jPOverlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(0, 35));
-        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel3MouseDragged(evt);
-            }
-        });
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel3MousePressed(evt);
-            }
-        });
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/minimizar-icon.png"))); // NOI18N
-        jLMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLMinimizarMouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 0, -1, 40));
-
-        jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-icon.png"))); // NOI18N
-        jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLCerrarMouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 30, 40));
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 40));
+        getContentPane().add(jPOverlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLCerrarMouseClicked
-        if (Mensaje.pregunta(this, "¿Estas seguro que deseas cerrar el programa?") == JOptionPane.YES_OPTION) {
-            this.dispose();
-            exit(0);
-        }
-    }//GEN-LAST:event_jLCerrarMouseClicked
-
-    private void jLMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMinimizarMouseClicked
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_jLMinimizarMouseClicked
-
     private void jPOverlayMouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPOverlayMouseDragged
     {//GEN-HEADEREND:event_jPOverlayMouseDragged
         // TODO add your handling code here:
     }//GEN-LAST:event_jPOverlayMouseDragged
-
-    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MouseDragged
-    {//GEN-HEADEREND:event_jPanel3MouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x - xx, y - xy);
-    }//GEN-LAST:event_jPanel3MouseDragged
-
-    private void jPanel3MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel3MousePressed
-    {//GEN-HEADEREND:event_jPanel3MousePressed
-        xx = evt.getX();
-        xy = evt.getY();
-    }//GEN-LAST:event_jPanel3MousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
@@ -294,16 +234,19 @@ public class vtnLogin extends javax.swing.JFrame {
                     Sesion.datosUsuario = consulta1;
                     new vtnAdminMenu().setVisible(true);
                     this.dispose();
+                    Mensaje.exito(this, "Se inicio sesión correctamente");
                 }
                 if (consulta1.get(11).equals("2")) {
                     Sesion.datosUsuario = consulta1;
                     new vtnMedicoMenu().setVisible(true);
                     this.dispose();
+                    Mensaje.exito(this, "Se inicio sesión correctamente");
                 }
                 if (consulta1.get(11).equals("3")) {
                     Sesion.datosUsuario = consulta1;
                     new vtnEmpleadoMenu().setVisible(true);
                     this.dispose();
+                    Mensaje.exito(this, "Se inicio sesión correctamente");
                 }
             } else {
                 Mensaje.error(this, "La contraseña ingresada es erronea\nCapture una contraseña valida");
@@ -376,7 +319,16 @@ public class vtnLogin extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        UIManager.setLookAndFeel(new FlatLightLaf()); //</editor-fold>
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("Button.arc", 0);
+            UIManager.put("Component.arc", 0);
+            UIManager.put("CheckBox.arc", 0);
+            UIManager.put("ProgressBar.arc", 0);
+            vtnLogin.setDefaultLookAndFeelDecorated(true);
+            vtnLogin.setDefaultLookAndFeelDecorated(true);
+        } catch (Exception e) {
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -389,11 +341,9 @@ public class vtnLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBIniciar;
     private javax.swing.JLabel jLBackground;
-    private javax.swing.JLabel jLCerrar;
     private javax.swing.JLabel jLContrasena;
     private javax.swing.JLabel jLCorreo;
     private javax.swing.JPanel jLLogo;
-    private javax.swing.JLabel jLMinimizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -401,7 +351,6 @@ public class vtnLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPCorreo;
     private javax.swing.JPasswordField jPFContra;
     private javax.swing.JPanel jPOverlay;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTFCorreo;
     // End of variables declaration//GEN-END:variables
 }
