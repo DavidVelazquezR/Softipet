@@ -200,11 +200,11 @@ public class vtnAdminMenu extends javax.swing.JFrame {
                 jLMU10MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 80, 80));
+        jPanel1.add(jLMU10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 80, 80));
 
         jLManageBod.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageBod.setText("Adminitrar bodega");
-        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 140, 20));
+        jPanel1.add(jLManageBod, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 140, 20));
 
         jLNotify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/notificacion1.png"))); // NOI18N
         jLNotify.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -212,7 +212,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
                 jLNotifyMouseClicked(evt);
             }
         });
-        jPanel1.add(jLNotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 40, 40));
+        jPanel1.add(jLNotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 40, 40));
 
         jLMU11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/punto-de-venta.png"))); // NOI18N
         jLMU11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -221,14 +221,14 @@ public class vtnAdminMenu extends javax.swing.JFrame {
                 jLMU11MouseClicked(evt);
             }
         });
-        jPanel1.add(jLMU11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 80, 80));
+        jPanel1.add(jLMU11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 70, 80));
 
         jLManageBod1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLManageBod1.setText("Ventas");
-        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 70, 20));
+        jPanel1.add(jLManageBod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 50, 20));
 
         jLLayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/softipet.png"))); // NOI18N
-        jPanel1.add(jLLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 80, 100));
+        jPanel1.add(jLLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 80, 100));
 
         jLCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/design/cerrar-sesion.png"))); // NOI18N
         jLCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -236,7 +236,7 @@ public class vtnAdminMenu extends javax.swing.JFrame {
                 jLCerrarMouseClicked(evt);
             }
         });
-        jPanel1.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 30, 40));
+        jPanel1.add(jLCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 30, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 460));
 

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/iText-5.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/mysql-connector-java-8.0.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/AutoCompleter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/cjbCtrlInterfaz.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/LecturaDatos.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/flatlaf-0.45.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/jcalendar-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

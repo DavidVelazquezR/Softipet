@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="itext">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/itext/io-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/hyph-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/sign-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/forms-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/kernel-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/slf4j-simple-1.7.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/layout-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/barcodes-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/pdfa-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/font-asian-7.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/itext/pdftest-7.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
